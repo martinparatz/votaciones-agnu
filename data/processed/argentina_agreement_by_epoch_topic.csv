@@ -1,0 +1,361 @@
+epoch,topic,reference,pct_agreement,n_common_votes
+1946-1972,Medio Oriente,EE. UU.,50.0,108
+1946-1972,Medio Oriente,URSS/Rusia,39.8,108
+1946-1972,Medio Oriente,China,0.0,21
+1946-1972,Medio Oriente,Reino Unido,63.6,107
+1946-1972,Medio Oriente,Francia,52.8,108
+1946-1972,Medio Oriente,Brasil,81.5,108
+1946-1972,Medio Oriente,Chile,58.5,106
+1946-1972,Medio Oriente,México,68.5,108
+1946-1972,Medio Oriente,Cuba,43.0,107
+1946-1972,Medio Oriente,Uruguay,51.9,108
+1946-1972,Armas nucleares,EE. UU.,61.4,83
+1946-1972,Armas nucleares,URSS/Rusia,30.1,83
+1946-1972,Armas nucleares,China,10.0,10
+1946-1972,Armas nucleares,Reino Unido,61.4,83
+1946-1972,Armas nucleares,Francia,30.1,83
+1946-1972,Armas nucleares,Brasil,81.9,83
+1946-1972,Armas nucleares,Chile,84.0,81
+1946-1972,Armas nucleares,México,73.5,83
+1946-1972,Armas nucleares,Cuba,34.7,72
+1946-1972,Armas nucleares,Uruguay,77.2,79
+1946-1972,Desarme,EE. UU.,58.1,93
+1946-1972,Desarme,URSS/Rusia,40.9,93
+1946-1972,Desarme,China,33.3,15
+1946-1972,Desarme,Reino Unido,58.7,92
+1946-1972,Desarme,Francia,30.4,92
+1946-1972,Desarme,Brasil,84.8,92
+1946-1972,Desarme,Chile,80.4,92
+1946-1972,Desarme,México,78.3,92
+1946-1972,Desarme,Cuba,52.3,86
+1946-1972,Desarme,Uruguay,78.9,90
+1946-1972,Derechos humanos,EE. UU.,57.1,161
+1946-1972,Derechos humanos,URSS/Rusia,41.9,160
+1946-1972,Derechos humanos,China,60.0,25
+1946-1972,Derechos humanos,Reino Unido,45.0,160
+1946-1972,Derechos humanos,Francia,53.1,160
+1946-1972,Derechos humanos,Brasil,69.4,160
+1946-1972,Derechos humanos,Chile,59.0,156
+1946-1972,Derechos humanos,México,63.8,152
+1946-1972,Derechos humanos,Cuba,48.7,158
+1946-1972,Derechos humanos,Uruguay,67.7,155
+1946-1972,Colonialismo,EE. UU.,43.1,378
+1946-1972,Colonialismo,URSS/Rusia,45.8,380
+1946-1972,Colonialismo,China,50.0,20
+1946-1972,Colonialismo,Reino Unido,37.6,364
+1946-1972,Colonialismo,Francia,38.7,346
+1946-1972,Colonialismo,Brasil,62.6,377
+1946-1972,Colonialismo,Chile,68.9,376
+1946-1972,Colonialismo,México,69.4,379
+1946-1972,Colonialismo,Cuba,57.7,366
+1946-1972,Colonialismo,Uruguay,72.0,361
+1946-1972,Desarrollo económico,EE. UU.,46.2,93
+1946-1972,Desarrollo económico,URSS/Rusia,29.5,95
+1946-1972,Desarrollo económico,China,,9
+1946-1972,Desarrollo económico,Reino Unido,52.6,95
+1946-1972,Desarrollo económico,Francia,57.3,89
+1946-1972,Desarrollo económico,Brasil,71.1,90
+1946-1972,Desarrollo económico,Chile,75.5,94
+1946-1972,Desarrollo económico,México,71.3,94
+1946-1972,Desarrollo económico,Cuba,54.8,93
+1946-1972,Desarrollo económico,Uruguay,80.5,87
+1973-1981,Medio Oriente,EE. UU.,22.4,143
+1973-1981,Medio Oriente,URSS/Rusia,78.5,144
+1973-1981,Medio Oriente,China,84.8,125
+1973-1981,Medio Oriente,Reino Unido,41.0,144
+1973-1981,Medio Oriente,Francia,48.6,144
+1973-1981,Medio Oriente,Brasil,85.7,140
+1973-1981,Medio Oriente,Chile,82.4,119
+1973-1981,Medio Oriente,México,88.7,141
+1973-1981,Medio Oriente,Cuba,80.1,136
+1973-1981,Medio Oriente,Uruguay,67.7,133
+1973-1981,Armas nucleares,EE. UU.,24.5,110
+1973-1981,Armas nucleares,URSS/Rusia,59.5,111
+1973-1981,Armas nucleares,China,52.8,72
+1973-1981,Armas nucleares,Reino Unido,30.6,111
+1973-1981,Armas nucleares,Francia,43.2,111
+1973-1981,Armas nucleares,Brasil,78.9,109
+1973-1981,Armas nucleares,Chile,71.2,104
+1973-1981,Armas nucleares,México,71.2,111
+1973-1981,Armas nucleares,Cuba,70.1,107
+1973-1981,Armas nucleares,Uruguay,71.4,105
+1973-1981,Desarme,EE. UU.,30.5,131
+1973-1981,Desarme,URSS/Rusia,48.9,131
+1973-1981,Desarme,China,56.6,76
+1973-1981,Desarme,Reino Unido,35.9,131
+1973-1981,Desarme,Francia,49.2,130
+1973-1981,Desarme,Brasil,85.2,128
+1973-1981,Desarme,Chile,73.0,126
+1973-1981,Desarme,México,70.2,131
+1973-1981,Desarme,Cuba,67.2,128
+1973-1981,Desarme,Uruguay,70.6,126
+1973-1981,Derechos humanos,EE. UU.,17.8,146
+1973-1981,Derechos humanos,URSS/Rusia,76.2,151
+1973-1981,Derechos humanos,China,90.2,122
+1973-1981,Derechos humanos,Reino Unido,23.2,151
+1973-1981,Derechos humanos,Francia,29.1,151
+1973-1981,Derechos humanos,Brasil,89.8,147
+1973-1981,Derechos humanos,Chile,85.7,133
+1973-1981,Derechos humanos,México,80.5,149
+1973-1981,Derechos humanos,Cuba,78.7,150
+1973-1981,Derechos humanos,Uruguay,74.4,133
+1973-1981,Colonialismo,EE. UU.,16.9,172
+1973-1981,Colonialismo,URSS/Rusia,86.6,172
+1973-1981,Colonialismo,China,91.9,161
+1973-1981,Colonialismo,Reino Unido,24.6,167
+1973-1981,Colonialismo,Francia,25.6,168
+1973-1981,Colonialismo,Brasil,83.5,170
+1973-1981,Colonialismo,Chile,82.1,156
+1973-1981,Colonialismo,México,91.7,169
+1973-1981,Colonialismo,Cuba,87.1,171
+1973-1981,Colonialismo,Uruguay,67.5,160
+1973-1981,Desarrollo económico,EE. UU.,16.9,71
+1973-1981,Desarrollo económico,URSS/Rusia,80.8,73
+1973-1981,Desarrollo económico,China,94.1,68
+1973-1981,Desarrollo económico,Reino Unido,13.7,73
+1973-1981,Desarrollo económico,Francia,13.7,73
+1973-1981,Desarrollo económico,Brasil,97.2,72
+1973-1981,Desarrollo económico,Chile,84.3,70
+1973-1981,Desarrollo económico,México,97.3,73
+1973-1981,Desarrollo económico,Cuba,97.1,70
+1973-1981,Desarrollo económico,Uruguay,79.4,68
+1982-1990,Medio Oriente,EE. UU.,10.0,280
+1982-1990,Medio Oriente,URSS/Rusia,93.5,278
+1982-1990,Medio Oriente,China,95.7,281
+1982-1990,Medio Oriente,Reino Unido,51.1,280
+1982-1990,Medio Oriente,Francia,53.9,280
+1982-1990,Medio Oriente,Brasil,98.2,280
+1982-1990,Medio Oriente,Chile,85.2,250
+1982-1990,Medio Oriente,México,96.8,280
+1982-1990,Medio Oriente,Cuba,92.2,281
+1982-1990,Medio Oriente,Uruguay,85.5,275
+1982-1990,Armas nucleares,EE. UU.,9.3,216
+1982-1990,Armas nucleares,URSS/Rusia,76.0,217
+1982-1990,Armas nucleares,China,64.4,191
+1982-1990,Armas nucleares,Reino Unido,17.1,216
+1982-1990,Armas nucleares,Francia,18.8,213
+1982-1990,Armas nucleares,Brasil,84.8,217
+1982-1990,Armas nucleares,Chile,62.0,216
+1982-1990,Armas nucleares,México,75.5,216
+1982-1990,Armas nucleares,Cuba,84.3,217
+1982-1990,Armas nucleares,Uruguay,64.8,216
+1982-1990,Desarme,EE. UU.,10.1,258
+1982-1990,Desarme,URSS/Rusia,79.5,259
+1982-1990,Desarme,China,68.6,223
+1982-1990,Desarme,Reino Unido,22.1,258
+1982-1990,Desarme,Francia,32.4,256
+1982-1990,Desarme,Brasil,84.9,258
+1982-1990,Desarme,Chile,71.4,259
+1982-1990,Desarme,México,83.3,258
+1982-1990,Desarme,Cuba,84.9,259
+1982-1990,Desarme,Uruguay,73.9,257
+1982-1990,Derechos humanos,EE. UU.,7.4,175
+1982-1990,Derechos humanos,URSS/Rusia,93.6,172
+1982-1990,Derechos humanos,China,90.2,173
+1982-1990,Derechos humanos,Reino Unido,22.7,176
+1982-1990,Derechos humanos,Francia,37.5,176
+1982-1990,Derechos humanos,Brasil,94.3,176
+1982-1990,Derechos humanos,Chile,81.8,148
+1982-1990,Derechos humanos,México,96.0,175
+1982-1990,Derechos humanos,Cuba,93.2,176
+1982-1990,Derechos humanos,Uruguay,95.9,172
+1982-1990,Colonialismo,EE. UU.,2.0,150
+1982-1990,Colonialismo,URSS/Rusia,95.3,149
+1982-1990,Colonialismo,China,95.3,149
+1982-1990,Colonialismo,Reino Unido,15.3,150
+1982-1990,Colonialismo,Francia,18.6,145
+1982-1990,Colonialismo,Brasil,98.0,149
+1982-1990,Colonialismo,Chile,92.4,118
+1982-1990,Colonialismo,México,96.0,150
+1982-1990,Colonialismo,Cuba,96.0,150
+1982-1990,Colonialismo,Uruguay,91.2,148
+1982-1990,Desarrollo económico,EE. UU.,3.0,135
+1982-1990,Desarrollo económico,URSS/Rusia,90.4,135
+1982-1990,Desarrollo económico,China,95.5,132
+1982-1990,Desarrollo económico,Reino Unido,23.0,135
+1982-1990,Desarrollo económico,Francia,31.9,135
+1982-1990,Desarrollo económico,Brasil,98.5,132
+1982-1990,Desarrollo económico,Chile,79.7,123
+1982-1990,Desarrollo económico,México,98.5,133
+1982-1990,Desarrollo económico,Cuba,97.0,133
+1982-1990,Desarrollo económico,Uruguay,91.1,135
+1991-1997,Medio Oriente,EE. UU.,10.6,160
+1991-1997,Medio Oriente,URSS/Rusia,68.6,159
+1991-1997,Medio Oriente,China,64.2,159
+1991-1997,Medio Oriente,Reino Unido,89.3,159
+1991-1997,Medio Oriente,Francia,87.5,160
+1991-1997,Medio Oriente,Brasil,68.8,160
+1991-1997,Medio Oriente,Chile,69.2,159
+1991-1997,Medio Oriente,México,68.1,160
+1991-1997,Medio Oriente,Cuba,63.7,160
+1991-1997,Medio Oriente,Uruguay,67.3,156
+1991-1997,Armas nucleares,EE. UU.,42.9,77
+1991-1997,Armas nucleares,URSS/Rusia,79.2,77
+1991-1997,Armas nucleares,China,42.9,70
+1991-1997,Armas nucleares,Reino Unido,50.6,77
+1991-1997,Armas nucleares,Francia,62.5,72
+1991-1997,Armas nucleares,Brasil,50.7,75
+1991-1997,Armas nucleares,Chile,62.3,77
+1991-1997,Armas nucleares,México,55.3,76
+1991-1997,Armas nucleares,Cuba,28.6,77
+1991-1997,Armas nucleares,Uruguay,61.0,77
+1991-1997,Desarme,EE. UU.,46.3,95
+1991-1997,Desarme,URSS/Rusia,75.8,95
+1991-1997,Desarme,China,63.7,91
+1991-1997,Desarme,Reino Unido,66.3,95
+1991-1997,Desarme,Francia,69.9,93
+1991-1997,Desarme,Brasil,65.6,93
+1991-1997,Desarme,Chile,75.8,95
+1991-1997,Desarme,México,61.1,95
+1991-1997,Desarme,Cuba,38.9,95
+1991-1997,Desarme,Uruguay,74.7,95
+1991-1997,Derechos humanos,EE. UU.,45.8,96
+1991-1997,Derechos humanos,URSS/Rusia,65.6,96
+1991-1997,Derechos humanos,China,17.2,93
+1991-1997,Derechos humanos,Reino Unido,79.2,96
+1991-1997,Derechos humanos,Francia,82.1,95
+1991-1997,Derechos humanos,Brasil,52.1,96
+1991-1997,Derechos humanos,Chile,57.4,94
+1991-1997,Derechos humanos,México,51.0,96
+1991-1997,Derechos humanos,Cuba,20.0,90
+1991-1997,Derechos humanos,Uruguay,53.1,96
+1991-1997,Colonialismo,EE. UU.,8.5,71
+1991-1997,Colonialismo,URSS/Rusia,57.1,70
+1991-1997,Colonialismo,China,52.1,71
+1991-1997,Colonialismo,Reino Unido,32.4,71
+1991-1997,Colonialismo,Francia,35.2,71
+1991-1997,Colonialismo,Brasil,54.9,71
+1991-1997,Colonialismo,Chile,52.9,70
+1991-1997,Colonialismo,México,53.5,71
+1991-1997,Colonialismo,Cuba,52.9,70
+1991-1997,Colonialismo,Uruguay,67.1,70
+1991-1997,Desarrollo económico,EE. UU.,8.1,37
+1991-1997,Desarrollo económico,URSS/Rusia,62.2,37
+1991-1997,Desarrollo económico,China,54.1,37
+1991-1997,Desarrollo económico,Reino Unido,37.8,37
+1991-1997,Desarrollo económico,Francia,45.9,37
+1991-1997,Desarrollo económico,Brasil,62.2,37
+1991-1997,Desarrollo económico,Chile,62.2,37
+1991-1997,Desarrollo económico,México,56.8,37
+1991-1997,Desarrollo económico,Cuba,57.1,35
+1991-1997,Desarrollo económico,Uruguay,60.0,35
+1998-2005,Medio Oriente,EE. UU.,4.1,171
+1998-2005,Medio Oriente,URSS/Rusia,97.6,170
+1998-2005,Medio Oriente,China,87.6,170
+1998-2005,Medio Oriente,Reino Unido,90.6,171
+1998-2005,Medio Oriente,Francia,91.8,170
+1998-2005,Medio Oriente,Brasil,85.4,171
+1998-2005,Medio Oriente,Chile,88.3,171
+1998-2005,Medio Oriente,México,89.4,170
+1998-2005,Medio Oriente,Cuba,88.6,166
+1998-2005,Medio Oriente,Uruguay,82.2,169
+1998-2005,Armas nucleares,EE. UU.,26.3,95
+1998-2005,Armas nucleares,URSS/Rusia,63.4,93
+1998-2005,Armas nucleares,China,69.9,93
+1998-2005,Armas nucleares,Reino Unido,47.4,95
+1998-2005,Armas nucleares,Francia,44.7,94
+1998-2005,Armas nucleares,Brasil,65.3,95
+1998-2005,Armas nucleares,Chile,66.3,95
+1998-2005,Armas nucleares,México,58.9,95
+1998-2005,Armas nucleares,Cuba,50.0,94
+1998-2005,Armas nucleares,Uruguay,60.9,92
+1998-2005,Desarme,EE. UU.,23.6,110
+1998-2005,Desarme,URSS/Rusia,60.9,110
+1998-2005,Desarme,China,57.4,108
+1998-2005,Desarme,Reino Unido,52.7,110
+1998-2005,Desarme,Francia,50.0,110
+1998-2005,Desarme,Brasil,74.5,110
+1998-2005,Desarme,Chile,72.5,109
+1998-2005,Desarme,México,58.2,110
+1998-2005,Desarme,Cuba,45.3,106
+1998-2005,Desarme,Uruguay,81.7,109
+1998-2005,Derechos humanos,EE. UU.,25.4,118
+1998-2005,Derechos humanos,URSS/Rusia,59.0,117
+1998-2005,Derechos humanos,China,44.9,118
+1998-2005,Derechos humanos,Reino Unido,56.8,118
+1998-2005,Derechos humanos,Francia,57.3,117
+1998-2005,Derechos humanos,Brasil,73.7,118
+1998-2005,Derechos humanos,Chile,79.7,118
+1998-2005,Derechos humanos,México,72.9,118
+1998-2005,Derechos humanos,Cuba,46.6,116
+1998-2005,Derechos humanos,Uruguay,79.5,117
+1998-2005,Colonialismo,EE. UU.,1.2,82
+1998-2005,Colonialismo,URSS/Rusia,90.1,81
+1998-2005,Colonialismo,China,89.2,83
+1998-2005,Colonialismo,Reino Unido,49.4,83
+1998-2005,Colonialismo,Francia,53.7,82
+1998-2005,Colonialismo,Brasil,89.2,83
+1998-2005,Colonialismo,Chile,88.9,81
+1998-2005,Colonialismo,México,92.8,83
+1998-2005,Colonialismo,Cuba,89.2,83
+1998-2005,Colonialismo,Uruguay,92.6,81
+1998-2005,Desarrollo económico,EE. UU.,4.8,42
+1998-2005,Desarrollo económico,URSS/Rusia,95.2,42
+1998-2005,Desarrollo económico,China,95.2,42
+1998-2005,Desarrollo económico,Reino Unido,59.5,42
+1998-2005,Desarrollo económico,Francia,52.4,42
+1998-2005,Desarrollo económico,Brasil,100.0,42
+1998-2005,Desarrollo económico,Chile,100.0,41
+1998-2005,Desarrollo económico,México,97.6,42
+1998-2005,Desarrollo económico,Cuba,97.6,42
+1998-2005,Desarrollo económico,Uruguay,97.6,42
+2006-2012,Medio Oriente,EE. UU.,2.5,119
+2006-2012,Medio Oriente,URSS/Rusia,87.5,120
+2006-2012,Medio Oriente,China,93.3,120
+2006-2012,Medio Oriente,Reino Unido,80.0,120
+2006-2012,Medio Oriente,Francia,80.0,120
+2006-2012,Medio Oriente,Brasil,95.0,119
+2006-2012,Medio Oriente,Chile,95.0,120
+2006-2012,Medio Oriente,México,98.3,120
+2006-2012,Medio Oriente,Cuba,93.3,120
+2006-2012,Medio Oriente,Uruguay,95.0,119
+2006-2012,Armas nucleares,EE. UU.,17.7,79
+2006-2012,Armas nucleares,URSS/Rusia,59.0,78
+2006-2012,Armas nucleares,China,77.9,77
+2006-2012,Armas nucleares,Reino Unido,38.5,78
+2006-2012,Armas nucleares,Francia,36.7,79
+2006-2012,Armas nucleares,Brasil,81.0,79
+2006-2012,Armas nucleares,Chile,83.3,78
+2006-2012,Armas nucleares,México,83.3,78
+2006-2012,Armas nucleares,Cuba,77.2,79
+2006-2012,Armas nucleares,Uruguay,83.1,77
+2006-2012,Desarme,EE. UU.,21.4,103
+2006-2012,Desarme,URSS/Rusia,57.8,102
+2006-2012,Desarme,China,84.2,101
+2006-2012,Desarme,Reino Unido,51.5,103
+2006-2012,Desarme,Francia,51.0,102
+2006-2012,Desarme,Brasil,94.2,103
+2006-2012,Desarme,Chile,95.1,103
+2006-2012,Desarme,México,93.2,103
+2006-2012,Desarme,Cuba,76.3,97
+2006-2012,Desarme,Uruguay,96.1,103
+2006-2012,Derechos humanos,EE. UU.,21.8,124
+2006-2012,Derechos humanos,URSS/Rusia,67.7,124
+2006-2012,Derechos humanos,China,64.5,124
+2006-2012,Derechos humanos,Reino Unido,58.1,124
+2006-2012,Derechos humanos,Francia,59.7,124
+2006-2012,Derechos humanos,Brasil,75.8,124
+2006-2012,Derechos humanos,Chile,84.7,124
+2006-2012,Derechos humanos,México,91.9,124
+2006-2012,Derechos humanos,Cuba,65.9,123
+2006-2012,Derechos humanos,Uruguay,87.9,124
+2006-2012,Colonialismo,EE. UU.,7.7,78
+2006-2012,Colonialismo,URSS/Rusia,98.7,78
+2006-2012,Colonialismo,China,85.5,76
+2006-2012,Colonialismo,Reino Unido,61.5,78
+2006-2012,Colonialismo,Francia,61.5,78
+2006-2012,Colonialismo,Brasil,83.3,78
+2006-2012,Colonialismo,Chile,80.8,78
+2006-2012,Colonialismo,México,88.3,77
+2006-2012,Colonialismo,Cuba,84.6,78
+2006-2012,Colonialismo,Uruguay,91.0,78
+2006-2012,Desarrollo económico,EE. UU.,8.9,56
+2006-2012,Desarrollo económico,URSS/Rusia,82.1,56
+2006-2012,Desarrollo económico,China,96.4,56
+2006-2012,Desarrollo económico,Reino Unido,58.9,56
+2006-2012,Desarrollo económico,Francia,57.1,56
+2006-2012,Desarrollo económico,Brasil,100.0,55
+2006-2012,Desarrollo económico,Chile,100.0,56
+2006-2012,Desarrollo económico,México,92.9,56
+2006-2012,Desarrollo económico,Cuba,90.7,54
+2006-2012,Desarrollo económico,Uruguay,100.0,55
