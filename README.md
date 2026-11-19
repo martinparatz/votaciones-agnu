@@ -17,5 +17,6 @@ replicable para el resto de los miembros.
 ## Estado
 - [x] Votos 1946–2012 (`scripts/01_build_votes_1946_2012.py`)
 - [ ] Votos 2013–2025
-- [ ] Épocas y análisis de Argentina
+- [x] Ideal points 1946–2025 y borrador de épocas de Argentina (`scripts/02_build_ideal_points.py`)
+- [ ] Análisis temático y de bloques de Argentina
 - [ ] Visualizaciones en R y sitio web (GitHub Pages)
