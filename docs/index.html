@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Argentina en la Asamblea General de la ONU</title>
+<meta name="description" content="Posiciones y alineamientos de la República Argentina en las votaciones de la Asamblea General de las Naciones Unidas, por gobierno, 1946 en adelante.">
+<style>
+  :root {
+    --bg: #fbfaf7; --fg: #1d2430; --muted: #5d6675; --card: #ffffff; --line: #e3e0d8;
+    --accent: #1f6fb2; --band: rgba(120,120,120,.16);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #141a22; --fg: #e8ecf1; --muted: #9aa5b4; --card: #1b232d; --line: #2b3541; --accent: #5aa9e6; --band: rgba(200,200,200,.14); }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  header, main, footer { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  header { padding-top: 28px; }
+  h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); line-height: 1.2; margin: 0 0 8px; }
+  .lede { color: var(--muted); max-width: 70ch; margin: 0 0 20px; }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+  nav button { background: var(--card); color: var(--fg); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font: inherit; cursor: pointer; }
+  nav button[aria-selected="true"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+  section[hidden] { display: none; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px; margin-bottom: 16px; }
+  .controls { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; margin-bottom: 10px; }
+  label { font-size: .85rem; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+  select, input[type=text] { background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; font: inherit; min-width: 180px; }
+  select[multiple] { min-height: 130px; }
+  .chart { width: 100%; height: 480px; }
+  .chart.tall { height: 560px; }
+  .note { color: var(--muted); font-size: .9rem; max-width: 80ch; }
+  .tag { display: inline-block; font-size: .75rem; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+  footer { color: var(--muted); font-size: .85rem; padding: 12px 16px 40px; }
+  a { color: var(--accent); }
+  @media (max-width: 600px) { .chart { height: 420px; } .chart.tall { height: 520px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Argentina en la Asamblea General de la ONU</h1>
+  <p class="lede">Cómo vota la República Argentina y con quién coincide, gobierno por gobierno, incluidos los de facto. Prototipo basado en las votaciones nominales de la Asamblea General desde 1946.</p>
+  <nav role="tablist" aria-label="Vistas">
+    <button role="tab" aria-selected="true" data-tab="ip">Línea de tiempo</button>
+    <button role="tab" aria-selected="false" data-tab="votes">Votos por gobierno</button>
+    <button role="tab" aria-selected="false" data-tab="agree">Coincidencias</button>
+  </nav>
+</header>
+<main>
+  <section id="tab-ip">
+    <div class="card">
+      <div class="controls">
+        <label>Comparar con (Ctrl/Cmd para elegir varios)
+          <select id="countries" multiple></select>
+        </label>
+        <label>Buscar país <input id="search" type="text" placeholder="Brasil, China, Chile…"></label>
+      </div>
+      <div id="chart-ip" class="chart tall"></div>
+      <p class="note">Ideal point anual de cada país: valores altos indican posiciones más cercanas a EE. UU. y Occidente; valores bajos, al consenso del mundo en desarrollo. El sombreado marca los gobiernos de facto de Argentina. Estimaciones de Bailey, Strezhnev y Voeten.</p>
+    </div>
+  </section>
+
+  <section id="tab-votes" hidden>
+    <div class="card">
+      <div class="controls">
+        <label>Tema <select id="topic-votes"></select></label>
+      </div>
+      <div id="chart-votes" class="chart tall"></div>
+      <p class="note">Reparto de los votos emitidos por Argentina (sí, abstención, no), 1946–2012. ✦ = gobierno de facto. Los gobiernos con pocas votaciones (Farrell, Guido, Illia, transición 2001–03) deben leerse con cautela.</p>
+    </div>
+  </section>
+
+  <section id="tab-agree" hidden>
+    <div class="card">
+      <div class="controls">
+        <label>Tema <select id="topic-agree"></select></label>
+      </div>
+      <div id="chart-agree" class="chart tall"></div>
+      <p class="note">Porcentaje de votaciones en que Argentina y cada país votaron igual, sobre las votaciones en que ambos emitieron voto. “s/d”: menos de 10 votaciones en común. ✦ = gobierno de facto.</p>
+    </div>
+  </section>
+</main>
+<footer>
+  Datos: Voeten, <em>United Nations General Assembly Voting Data</em> e <em>Ideal Points</em> (Harvard Dataverse). Cobertura de votos por resolución: 1946–2012; ideal points: 1946–2025.
+  Código y datos en <a href="https://github.com/martinparatz/votaciones-agnu">github.com/martinparatz/votaciones-agnu</a>.
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"></script>
+<script>
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const base = () => ({ paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)",
+  font: { color: css("--fg"), family: "system-ui, sans-serif", size: 13 }, margin: { l: 60, r: 20, t: 20, b: 50 } });
+const grid = () => ({ gridcolor: css("--line"), zerolinecolor: css("--line") });
+const cfg = { responsive: true, displaylogo: false };
+const short = n => n.replace(/\s*\(.*\)/, "").replace("Revolución Argentina", "Rev. Argentina").replace("Revolución Libertadora", "Rev. Libertadora")
+  .replace("Proceso de Reorganización Nacional", "Proceso").replace("Cristina Fernández de Kirchner", "CFK").replace("Perón (1ª y 2ª presidencia)", "Perón 1946-55");
+
+let D = {};
+Promise.all(["ideal_points", "governments", "votes_by_government", "agreement_by_government"]
+  .map(n => fetch("data/" + n + ".json").then(r => r.json()))).then(([ip, gov, votes, agree]) => {
+  D = { ip, gov, votes, agree }; init(); }).catch(e => { document.querySelector("main").insertAdjacentHTML("afterbegin", "<p class='note'>No se pudieron cargar los datos: " + e + "</p>"); });
+
+const ARG = "160", DEFAULTS = ["160", "2", "710", "365"];
+function init() {
+  // pestañas
+  document.querySelectorAll("nav button").forEach(b => b.onclick = () => {
+    document.querySelectorAll("nav button").forEach(x => x.setAttribute("aria-selected", x === b));
+    ["ip", "votes", "agree"].forEach(t => document.getElementById("tab-" + t).hidden = t !== b.dataset.tab);
+    draw();
+  });
+  // selector de países
+  const sel = document.getElementById("countries");
+  const list = Object.entries(D.ip.countries).sort((a, b) => a[1].name.localeCompare(b[1].name, "es"));
+  const fill = (q = "") => {
+    const keep = new Set([...sel.selectedOptions].map(o => o.value).concat(q ? [] : DEFAULTS));
+    sel.innerHTML = "";
+    list.filter(([k, c]) => keep.has(k) || c.name.toLowerCase().includes(q.toLowerCase()))
+      .forEach(([k, c]) => { const o = new Option(c.name, k, false, keep.has(k)); sel.add(o); });
+  };
+  fill(); sel.onchange = () => drawIP();
+  document.getElementById("search").oninput = e => { const keep = [...sel.selectedOptions].map(o => o.value); fill(e.target.value);
+    [...sel.options].forEach(o => { if (keep.includes(o.value)) o.selected = true; }); drawIP(); };
+  // temas
+  const topics = ["Todos", ...new Set(D.votes.map(r => r.topic).filter(t => t !== "Todos"))];
+  for (const id of ["topic-votes", "topic-agree"]) { const s = document.getElementById(id); topics.forEach(t => s.add(new Option(t, t))); s.onchange = draw; }
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
+  draw();
+}
+function draw() { drawIP(); drawVotes(); drawAgree(); }
+
+function drawIP() {
+  const el = document.getElementById("chart-ip"); if (el.offsetParent === null) return;
+  const chosen = [...document.getElementById("countries").selectedOptions].map(o => o.value);
+  const ids = chosen.includes(ARG) ? chosen : [ARG, ...chosen];
+  const traces = ids.map(id => { const c = D.ip.countries[id]; if (!c) return null;
+    return { x: c.years, y: c.ip, name: c.name, mode: "lines", line: { width: id === ARG ? 4 : 2 },
+             hovertemplate: "%{x}: %{y:.2f}<extra>" + c.name + "</extra>" }; }).filter(Boolean);
+  traces.push({ x: D.ip.world.years, y: D.ip.world.ip, name: "Promedio mundial", mode: "lines", line: { dash: "dot", width: 2, color: css("--muted") },
+                hovertemplate: "%{x}: %{y:.2f}<extra>Promedio mundial</extra>" });
+  const shapes = D.gov.filter(g => g.type === "de facto").map(g => ({ type: "rect", xref: "x", yref: "paper",
+    x0: Math.max(1946, +g.start.slice(0, 4)), x1: Math.min(2025, +g.end.slice(0, 4) + 1), y0: 0, y1: 1, fillcolor: css("--band"), line: { width: 0 }, layer: "below" }));
+  const ann = D.gov.filter(g => g.type === "de facto" && +g.end.slice(0, 4) >= 1946).map(g => ({ xref: "x", yref: "paper",
+    x: (Math.max(1946, +g.start.slice(0, 4)) + Math.min(2025, +g.end.slice(0, 4) + 1)) / 2, y: 1.0, yanchor: "bottom", showarrow: false,
+    text: "de facto", font: { size: 11, color: css("--muted") } }));
+  Plotly.react(el, traces, { ...base(), shapes, annotations: ann, margin: { l: 55, r: 15, t: 28, b: 45 },
+    xaxis: { ...grid(), range: [1946, 2025] }, yaxis: { ...grid(), title: "Ideal point" },
+    legend: { orientation: "h", y: -0.15 }, hovermode: "x unified" }, cfg);
+}
+
+function drawVotes() {
+  const el = document.getElementById("chart-votes"); if (el.offsetParent === null) return;
+  const t = document.getElementById("topic-votes").value;
+  const rows = D.votes.filter(r => r.topic === t);
+  const order = D.gov.map(g => g.gov_id).filter(id => rows.some(r => r.gov_id === id));
+  const by = Object.fromEntries(rows.map(r => [r.gov_id, r]));
+  const gname = Object.fromEntries(D.gov.map(g => [g.gov_id, g]));
+  const y = order.map(id => short(gname[id].government) + (gname[id].type === "de facto" ? " ✦" : "") + "  (n=" + by[id].n_votes + ")");
+  const mk = (k, name, color) => ({ type: "bar", orientation: "h", name, y, x: order.map(id => by[id][k]), marker: { color },
+    hovertemplate: "%{x:.1f}%<extra>" + name + "</extra>" });
+  Plotly.react(el, [mk("pct_yes", "A favor", "#2a9d8f"), mk("pct_abstain", "Abstención", "#e9c46a"), mk("pct_no", "En contra", "#e76f51")],
+    { ...base(), barmode: "stack", margin: { l: 240, r: 15, t: 10, b: 50 }, xaxis: { ...grid(), ticksuffix: "%", range: [0, 100] },
+      yaxis: { autorange: "reversed", automargin: true }, legend: { orientation: "h", y: -0.12 } }, cfg);
+}
+
+function drawAgree() {
+  const el = document.getElementById("chart-agree"); if (el.offsetParent === null) return;
+  const t = document.getElementById("topic-agree").value;
+  const rows = D.agree.filter(r => r.topic === t);
+  const refs = ["EE. UU.", "Reino Unido", "Francia", "URSS/Rusia", "China", "Cuba", "Brasil", "Chile", "México", "Uruguay"];
+  const gname = Object.fromEntries(D.gov.map(g => [g.gov_id, g]));
+  const order = D.gov.map(g => g.gov_id).filter(id => rows.some(r => r.gov_id === id));
+  const y = order.map(id => short(gname[id].government) + (gname[id].type === "de facto" ? " ✦" : ""));
+  const z = order.map(id => refs.map(r => { const x = rows.find(q => q.gov_id === id && q.reference === r); return x && x.pct_agreement != null ? x.pct_agreement : null; }));
+  const n = order.map(id => refs.map(r => { const x = rows.find(q => q.gov_id === id && q.reference === r); return x ? x.n_common_votes : 0; }));
+  Plotly.react(el, [{ type: "heatmap", x: refs, y, z, customdata: n, zmin: 0, zmax: 100, xgap: 2, ygap: 2,
+    colorscale: [[0, "#b2182b"], [0.5, "#f1f1f1"], [1, "#2166ac"]], colorbar: { title: "%", thickness: 12 },
+    text: z.map(r => r.map(v => v == null ? "s/d" : Math.round(v))), texttemplate: "%{text}", hoverongaps: false,
+    hovertemplate: "%{y} · %{x}<br>%{z:.1f}% (%{customdata} votaciones)<extra></extra>" }],
+    { ...base(), margin: { l: 190, r: 15, t: 10, b: 80 }, yaxis: { autorange: "reversed", automargin: true }, xaxis: { tickangle: -30 } }, cfg);
+}
+</script>
+</body>
+</html>

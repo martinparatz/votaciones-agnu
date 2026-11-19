@@ -52,6 +52,17 @@ for g, sub in v.groupby("gov_id"):
         o = sub[sub.ccode == cc][["rcid", "vote_label"]].merge(s, on="rcid")
         ag.append({"gov_id": g, "reference": name, "n_common_votes": len(o),
                    "pct_agreement": round(100 * (o.vote_label == o.arg).mean(), 1) if len(o) >= 10 else None})
+agt = []
+for g, sub in v.groupby("gov_id"):
+    for t in TOPICS:
+        st = sub[sub[t]]
+        s = st[st.ccode == ARG][["rcid", "vote_label"]].rename(columns={"vote_label": "arg"})
+        for name, cc in REFS.items():
+            o = st[st.ccode == cc][["rcid", "vote_label"]].merge(s, on="rcid")
+            agt.append({"gov_id": g, "topic": t, "reference": name, "n_common_votes": len(o),
+                        "pct_agreement": round(100 * (o.vote_label == o.arg).mean(), 1) if len(o) >= 10 else None})
+pd.DataFrame(agt).merge(gov[["gov_id", "government", "type"]], on="gov_id").to_csv(
+    P / "argentina_by_government_agreement_topic.csv", index=False)
 agree_g = pd.DataFrame(ag).merge(gov[["gov_id", "government", "type"]], on="gov_id")
 agree_g.to_csv(P / "argentina_by_government_agreement.csv", index=False)
 

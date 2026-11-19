@@ -1,0 +1,901 @@
+gov_id,topic,reference,n_common_votes,pct_agreement,government,type
+G01,Medio Oriente,EE. UU.,0,,Farrell,de facto
+G01,Medio Oriente,URSS/Rusia,0,,Farrell,de facto
+G01,Medio Oriente,China,0,,Farrell,de facto
+G01,Medio Oriente,Reino Unido,0,,Farrell,de facto
+G01,Medio Oriente,Francia,0,,Farrell,de facto
+G01,Medio Oriente,Brasil,0,,Farrell,de facto
+G01,Medio Oriente,Chile,0,,Farrell,de facto
+G01,Medio Oriente,México,0,,Farrell,de facto
+G01,Medio Oriente,Cuba,0,,Farrell,de facto
+G01,Medio Oriente,Uruguay,0,,Farrell,de facto
+G01,Armas nucleares,EE. UU.,0,,Farrell,de facto
+G01,Armas nucleares,URSS/Rusia,0,,Farrell,de facto
+G01,Armas nucleares,China,0,,Farrell,de facto
+G01,Armas nucleares,Reino Unido,0,,Farrell,de facto
+G01,Armas nucleares,Francia,0,,Farrell,de facto
+G01,Armas nucleares,Brasil,0,,Farrell,de facto
+G01,Armas nucleares,Chile,0,,Farrell,de facto
+G01,Armas nucleares,México,0,,Farrell,de facto
+G01,Armas nucleares,Cuba,0,,Farrell,de facto
+G01,Armas nucleares,Uruguay,0,,Farrell,de facto
+G01,Desarme,EE. UU.,0,,Farrell,de facto
+G01,Desarme,URSS/Rusia,0,,Farrell,de facto
+G01,Desarme,China,0,,Farrell,de facto
+G01,Desarme,Reino Unido,0,,Farrell,de facto
+G01,Desarme,Francia,0,,Farrell,de facto
+G01,Desarme,Brasil,0,,Farrell,de facto
+G01,Desarme,Chile,0,,Farrell,de facto
+G01,Desarme,México,0,,Farrell,de facto
+G01,Desarme,Cuba,0,,Farrell,de facto
+G01,Desarme,Uruguay,0,,Farrell,de facto
+G01,Derechos humanos,EE. UU.,1,,Farrell,de facto
+G01,Derechos humanos,URSS/Rusia,1,,Farrell,de facto
+G01,Derechos humanos,China,0,,Farrell,de facto
+G01,Derechos humanos,Reino Unido,1,,Farrell,de facto
+G01,Derechos humanos,Francia,1,,Farrell,de facto
+G01,Derechos humanos,Brasil,1,,Farrell,de facto
+G01,Derechos humanos,Chile,1,,Farrell,de facto
+G01,Derechos humanos,México,1,,Farrell,de facto
+G01,Derechos humanos,Cuba,1,,Farrell,de facto
+G01,Derechos humanos,Uruguay,1,,Farrell,de facto
+G01,Colonialismo,EE. UU.,1,,Farrell,de facto
+G01,Colonialismo,URSS/Rusia,1,,Farrell,de facto
+G01,Colonialismo,China,0,,Farrell,de facto
+G01,Colonialismo,Reino Unido,1,,Farrell,de facto
+G01,Colonialismo,Francia,1,,Farrell,de facto
+G01,Colonialismo,Brasil,1,,Farrell,de facto
+G01,Colonialismo,Chile,1,,Farrell,de facto
+G01,Colonialismo,México,0,,Farrell,de facto
+G01,Colonialismo,Cuba,1,,Farrell,de facto
+G01,Colonialismo,Uruguay,1,,Farrell,de facto
+G01,Desarrollo económico,EE. UU.,3,,Farrell,de facto
+G01,Desarrollo económico,URSS/Rusia,3,,Farrell,de facto
+G01,Desarrollo económico,China,0,,Farrell,de facto
+G01,Desarrollo económico,Reino Unido,3,,Farrell,de facto
+G01,Desarrollo económico,Francia,3,,Farrell,de facto
+G01,Desarrollo económico,Brasil,3,,Farrell,de facto
+G01,Desarrollo económico,Chile,3,,Farrell,de facto
+G01,Desarrollo económico,México,3,,Farrell,de facto
+G01,Desarrollo económico,Cuba,3,,Farrell,de facto
+G01,Desarrollo económico,Uruguay,3,,Farrell,de facto
+G02,Medio Oriente,EE. UU.,44,31.8,Perón (1ª y 2ª presidencia),constitucional
+G02,Medio Oriente,URSS/Rusia,44,61.4,Perón (1ª y 2ª presidencia),constitucional
+G02,Medio Oriente,China,0,,Perón (1ª y 2ª presidencia),constitucional
+G02,Medio Oriente,Reino Unido,44,50.0,Perón (1ª y 2ª presidencia),constitucional
+G02,Medio Oriente,Francia,44,63.6,Perón (1ª y 2ª presidencia),constitucional
+G02,Medio Oriente,Brasil,44,68.2,Perón (1ª y 2ª presidencia),constitucional
+G02,Medio Oriente,Chile,44,50.0,Perón (1ª y 2ª presidencia),constitucional
+G02,Medio Oriente,México,44,50.0,Perón (1ª y 2ª presidencia),constitucional
+G02,Medio Oriente,Cuba,44,68.2,Perón (1ª y 2ª presidencia),constitucional
+G02,Medio Oriente,Uruguay,44,47.7,Perón (1ª y 2ª presidencia),constitucional
+G02,Armas nucleares,EE. UU.,11,63.6,Perón (1ª y 2ª presidencia),constitucional
+G02,Armas nucleares,URSS/Rusia,11,18.2,Perón (1ª y 2ª presidencia),constitucional
+G02,Armas nucleares,China,0,,Perón (1ª y 2ª presidencia),constitucional
+G02,Armas nucleares,Reino Unido,11,54.5,Perón (1ª y 2ª presidencia),constitucional
+G02,Armas nucleares,Francia,11,45.5,Perón (1ª y 2ª presidencia),constitucional
+G02,Armas nucleares,Brasil,11,54.5,Perón (1ª y 2ª presidencia),constitucional
+G02,Armas nucleares,Chile,11,54.5,Perón (1ª y 2ª presidencia),constitucional
+G02,Armas nucleares,México,11,45.5,Perón (1ª y 2ª presidencia),constitucional
+G02,Armas nucleares,Cuba,11,54.5,Perón (1ª y 2ª presidencia),constitucional
+G02,Armas nucleares,Uruguay,11,54.5,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarme,EE. UU.,14,42.9,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarme,URSS/Rusia,14,7.1,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarme,China,0,,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarme,Reino Unido,14,42.9,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarme,Francia,14,64.3,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarme,Brasil,14,42.9,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarme,Chile,14,42.9,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarme,México,14,50.0,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarme,Cuba,14,57.1,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarme,Uruguay,14,57.1,Perón (1ª y 2ª presidencia),constitucional
+G02,Derechos humanos,EE. UU.,48,45.8,Perón (1ª y 2ª presidencia),constitucional
+G02,Derechos humanos,URSS/Rusia,48,35.4,Perón (1ª y 2ª presidencia),constitucional
+G02,Derechos humanos,China,0,,Perón (1ª y 2ª presidencia),constitucional
+G02,Derechos humanos,Reino Unido,48,33.3,Perón (1ª y 2ª presidencia),constitucional
+G02,Derechos humanos,Francia,48,39.6,Perón (1ª y 2ª presidencia),constitucional
+G02,Derechos humanos,Brasil,48,45.8,Perón (1ª y 2ª presidencia),constitucional
+G02,Derechos humanos,Chile,47,51.1,Perón (1ª y 2ª presidencia),constitucional
+G02,Derechos humanos,México,47,44.7,Perón (1ª y 2ª presidencia),constitucional
+G02,Derechos humanos,Cuba,48,52.1,Perón (1ª y 2ª presidencia),constitucional
+G02,Derechos humanos,Uruguay,45,53.3,Perón (1ª y 2ª presidencia),constitucional
+G02,Colonialismo,EE. UU.,127,51.2,Perón (1ª y 2ª presidencia),constitucional
+G02,Colonialismo,URSS/Rusia,127,40.9,Perón (1ª y 2ª presidencia),constitucional
+G02,Colonialismo,China,0,,Perón (1ª y 2ª presidencia),constitucional
+G02,Colonialismo,Reino Unido,127,40.2,Perón (1ª y 2ª presidencia),constitucional
+G02,Colonialismo,Francia,117,47.0,Perón (1ª y 2ª presidencia),constitucional
+G02,Colonialismo,Brasil,127,67.7,Perón (1ª y 2ª presidencia),constitucional
+G02,Colonialismo,Chile,127,62.2,Perón (1ª y 2ª presidencia),constitucional
+G02,Colonialismo,México,127,71.7,Perón (1ª y 2ª presidencia),constitucional
+G02,Colonialismo,Cuba,127,66.1,Perón (1ª y 2ª presidencia),constitucional
+G02,Colonialismo,Uruguay,127,74.8,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarrollo económico,EE. UU.,24,50.0,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarrollo económico,URSS/Rusia,24,25.0,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarrollo económico,China,0,,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarrollo económico,Reino Unido,24,58.3,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarrollo económico,Francia,24,70.8,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarrollo económico,Brasil,24,75.0,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarrollo económico,Chile,24,87.5,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarrollo económico,México,23,91.3,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarrollo económico,Cuba,24,62.5,Perón (1ª y 2ª presidencia),constitucional
+G02,Desarrollo económico,Uruguay,23,65.2,Perón (1ª y 2ª presidencia),constitucional
+G03,Medio Oriente,EE. UU.,10,90.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Medio Oriente,URSS/Rusia,10,40.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Medio Oriente,China,0,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Medio Oriente,Reino Unido,10,80.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Medio Oriente,Francia,10,40.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Medio Oriente,Brasil,10,90.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Medio Oriente,Chile,10,90.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Medio Oriente,México,10,70.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Medio Oriente,Cuba,10,60.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Medio Oriente,Uruguay,10,90.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Armas nucleares,EE. UU.,3,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Armas nucleares,URSS/Rusia,3,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Armas nucleares,China,0,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Armas nucleares,Reino Unido,3,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Armas nucleares,Francia,3,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Armas nucleares,Brasil,3,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Armas nucleares,Chile,3,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Armas nucleares,México,3,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Armas nucleares,Cuba,3,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Armas nucleares,Uruguay,3,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarme,EE. UU.,6,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarme,URSS/Rusia,6,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarme,China,0,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarme,Reino Unido,6,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarme,Francia,6,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarme,Brasil,6,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarme,Chile,6,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarme,México,6,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarme,Cuba,6,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarme,Uruguay,6,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Derechos humanos,EE. UU.,12,58.3,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Derechos humanos,URSS/Rusia,12,33.3,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Derechos humanos,China,0,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Derechos humanos,Reino Unido,12,50.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Derechos humanos,Francia,12,50.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Derechos humanos,Brasil,12,58.3,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Derechos humanos,Chile,12,41.7,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Derechos humanos,México,12,58.3,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Derechos humanos,Cuba,12,58.3,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Derechos humanos,Uruguay,12,66.7,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Colonialismo,EE. UU.,21,47.6,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Colonialismo,URSS/Rusia,21,28.6,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Colonialismo,China,0,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Colonialismo,Reino Unido,21,47.6,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Colonialismo,Francia,17,52.9,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Colonialismo,Brasil,21,42.9,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Colonialismo,Chile,21,61.9,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Colonialismo,México,21,52.4,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Colonialismo,Cuba,20,60.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Colonialismo,Uruguay,20,65.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarrollo económico,EE. UU.,4,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarrollo económico,URSS/Rusia,4,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarrollo económico,China,0,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarrollo económico,Reino Unido,4,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarrollo económico,Francia,2,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarrollo económico,Brasil,4,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarrollo económico,Chile,4,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarrollo económico,México,4,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarrollo económico,Cuba,4,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Desarrollo económico,Uruguay,4,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G04,Medio Oriente,EE. UU.,4,,Frondizi,constitucional
+G04,Medio Oriente,URSS/Rusia,4,,Frondizi,constitucional
+G04,Medio Oriente,China,0,,Frondizi,constitucional
+G04,Medio Oriente,Reino Unido,4,,Frondizi,constitucional
+G04,Medio Oriente,Francia,4,,Frondizi,constitucional
+G04,Medio Oriente,Brasil,4,,Frondizi,constitucional
+G04,Medio Oriente,Chile,4,,Frondizi,constitucional
+G04,Medio Oriente,México,4,,Frondizi,constitucional
+G04,Medio Oriente,Cuba,4,,Frondizi,constitucional
+G04,Medio Oriente,Uruguay,4,,Frondizi,constitucional
+G04,Armas nucleares,EE. UU.,23,39.1,Frondizi,constitucional
+G04,Armas nucleares,URSS/Rusia,23,17.4,Frondizi,constitucional
+G04,Armas nucleares,China,0,,Frondizi,constitucional
+G04,Armas nucleares,Reino Unido,23,47.8,Frondizi,constitucional
+G04,Armas nucleares,Francia,23,21.7,Frondizi,constitucional
+G04,Armas nucleares,Brasil,23,60.9,Frondizi,constitucional
+G04,Armas nucleares,Chile,23,95.7,Frondizi,constitucional
+G04,Armas nucleares,México,23,65.2,Frondizi,constitucional
+G04,Armas nucleares,Cuba,23,30.4,Frondizi,constitucional
+G04,Armas nucleares,Uruguay,23,82.6,Frondizi,constitucional
+G04,Desarme,EE. UU.,19,52.6,Frondizi,constitucional
+G04,Desarme,URSS/Rusia,19,26.3,Frondizi,constitucional
+G04,Desarme,China,0,,Frondizi,constitucional
+G04,Desarme,Reino Unido,18,61.1,Frondizi,constitucional
+G04,Desarme,Francia,18,27.8,Frondizi,constitucional
+G04,Desarme,Brasil,19,78.9,Frondizi,constitucional
+G04,Desarme,Chile,19,94.7,Frondizi,constitucional
+G04,Desarme,México,19,68.4,Frondizi,constitucional
+G04,Desarme,Cuba,19,42.1,Frondizi,constitucional
+G04,Desarme,Uruguay,19,89.5,Frondizi,constitucional
+G04,Derechos humanos,EE. UU.,14,92.9,Frondizi,constitucional
+G04,Derechos humanos,URSS/Rusia,14,78.6,Frondizi,constitucional
+G04,Derechos humanos,China,0,,Frondizi,constitucional
+G04,Derechos humanos,Reino Unido,14,14.3,Frondizi,constitucional
+G04,Derechos humanos,Francia,14,35.7,Frondizi,constitucional
+G04,Derechos humanos,Brasil,14,92.9,Frondizi,constitucional
+G04,Derechos humanos,Chile,14,100.0,Frondizi,constitucional
+G04,Derechos humanos,México,14,92.9,Frondizi,constitucional
+G04,Derechos humanos,Cuba,14,85.7,Frondizi,constitucional
+G04,Derechos humanos,Uruguay,14,92.9,Frondizi,constitucional
+G04,Colonialismo,EE. UU.,68,58.8,Frondizi,constitucional
+G04,Colonialismo,URSS/Rusia,68,42.6,Frondizi,constitucional
+G04,Colonialismo,China,0,,Frondizi,constitucional
+G04,Colonialismo,Reino Unido,68,45.6,Frondizi,constitucional
+G04,Colonialismo,Francia,51,29.4,Frondizi,constitucional
+G04,Colonialismo,Brasil,68,66.2,Frondizi,constitucional
+G04,Colonialismo,Chile,68,75.0,Frondizi,constitucional
+G04,Colonialismo,México,68,64.7,Frondizi,constitucional
+G04,Colonialismo,Cuba,68,47.1,Frondizi,constitucional
+G04,Colonialismo,Uruguay,63,61.9,Frondizi,constitucional
+G04,Desarrollo económico,EE. UU.,16,68.8,Frondizi,constitucional
+G04,Desarrollo económico,URSS/Rusia,16,18.8,Frondizi,constitucional
+G04,Desarrollo económico,China,0,,Frondizi,constitucional
+G04,Desarrollo económico,Reino Unido,16,62.5,Frondizi,constitucional
+G04,Desarrollo económico,Francia,16,81.2,Frondizi,constitucional
+G04,Desarrollo económico,Brasil,16,81.2,Frondizi,constitucional
+G04,Desarrollo económico,Chile,16,93.8,Frondizi,constitucional
+G04,Desarrollo económico,México,16,62.5,Frondizi,constitucional
+G04,Desarrollo económico,Cuba,16,50.0,Frondizi,constitucional
+G04,Desarrollo económico,Uruguay,14,92.9,Frondizi,constitucional
+G05,Medio Oriente,EE. UU.,2,,Guido,constitucional (tutelado)
+G05,Medio Oriente,URSS/Rusia,2,,Guido,constitucional (tutelado)
+G05,Medio Oriente,China,0,,Guido,constitucional (tutelado)
+G05,Medio Oriente,Reino Unido,2,,Guido,constitucional (tutelado)
+G05,Medio Oriente,Francia,2,,Guido,constitucional (tutelado)
+G05,Medio Oriente,Brasil,2,,Guido,constitucional (tutelado)
+G05,Medio Oriente,Chile,2,,Guido,constitucional (tutelado)
+G05,Medio Oriente,México,2,,Guido,constitucional (tutelado)
+G05,Medio Oriente,Cuba,2,,Guido,constitucional (tutelado)
+G05,Medio Oriente,Uruguay,2,,Guido,constitucional (tutelado)
+G05,Armas nucleares,EE. UU.,11,72.7,Guido,constitucional (tutelado)
+G05,Armas nucleares,URSS/Rusia,11,54.5,Guido,constitucional (tutelado)
+G05,Armas nucleares,China,0,,Guido,constitucional (tutelado)
+G05,Armas nucleares,Reino Unido,11,72.7,Guido,constitucional (tutelado)
+G05,Armas nucleares,Francia,11,18.2,Guido,constitucional (tutelado)
+G05,Armas nucleares,Brasil,11,100.0,Guido,constitucional (tutelado)
+G05,Armas nucleares,Chile,11,100.0,Guido,constitucional (tutelado)
+G05,Armas nucleares,México,11,100.0,Guido,constitucional (tutelado)
+G05,Armas nucleares,Cuba,1,,Guido,constitucional (tutelado)
+G05,Armas nucleares,Uruguay,11,100.0,Guido,constitucional (tutelado)
+G05,Desarme,EE. UU.,6,,Guido,constitucional (tutelado)
+G05,Desarme,URSS/Rusia,6,,Guido,constitucional (tutelado)
+G05,Desarme,China,0,,Guido,constitucional (tutelado)
+G05,Desarme,Reino Unido,6,,Guido,constitucional (tutelado)
+G05,Desarme,Francia,6,,Guido,constitucional (tutelado)
+G05,Desarme,Brasil,6,,Guido,constitucional (tutelado)
+G05,Desarme,Chile,6,,Guido,constitucional (tutelado)
+G05,Desarme,México,6,,Guido,constitucional (tutelado)
+G05,Desarme,Cuba,0,,Guido,constitucional (tutelado)
+G05,Desarme,Uruguay,6,,Guido,constitucional (tutelado)
+G05,Derechos humanos,EE. UU.,2,,Guido,constitucional (tutelado)
+G05,Derechos humanos,URSS/Rusia,2,,Guido,constitucional (tutelado)
+G05,Derechos humanos,China,0,,Guido,constitucional (tutelado)
+G05,Derechos humanos,Reino Unido,2,,Guido,constitucional (tutelado)
+G05,Derechos humanos,Francia,2,,Guido,constitucional (tutelado)
+G05,Derechos humanos,Brasil,2,,Guido,constitucional (tutelado)
+G05,Derechos humanos,Chile,2,,Guido,constitucional (tutelado)
+G05,Derechos humanos,México,2,,Guido,constitucional (tutelado)
+G05,Derechos humanos,Cuba,2,,Guido,constitucional (tutelado)
+G05,Derechos humanos,Uruguay,2,,Guido,constitucional (tutelado)
+G05,Colonialismo,EE. UU.,23,60.9,Guido,constitucional (tutelado)
+G05,Colonialismo,URSS/Rusia,23,39.1,Guido,constitucional (tutelado)
+G05,Colonialismo,China,0,,Guido,constitucional (tutelado)
+G05,Colonialismo,Reino Unido,17,58.8,Guido,constitucional (tutelado)
+G05,Colonialismo,Francia,23,56.5,Guido,constitucional (tutelado)
+G05,Colonialismo,Brasil,23,69.6,Guido,constitucional (tutelado)
+G05,Colonialismo,Chile,23,73.9,Guido,constitucional (tutelado)
+G05,Colonialismo,México,23,82.6,Guido,constitucional (tutelado)
+G05,Colonialismo,Cuba,21,47.6,Guido,constitucional (tutelado)
+G05,Colonialismo,Uruguay,23,73.9,Guido,constitucional (tutelado)
+G05,Desarrollo económico,EE. UU.,5,,Guido,constitucional (tutelado)
+G05,Desarrollo económico,URSS/Rusia,5,,Guido,constitucional (tutelado)
+G05,Desarrollo económico,China,0,,Guido,constitucional (tutelado)
+G05,Desarrollo económico,Reino Unido,5,,Guido,constitucional (tutelado)
+G05,Desarrollo económico,Francia,5,,Guido,constitucional (tutelado)
+G05,Desarrollo económico,Brasil,5,,Guido,constitucional (tutelado)
+G05,Desarrollo económico,Chile,5,,Guido,constitucional (tutelado)
+G05,Desarrollo económico,México,5,,Guido,constitucional (tutelado)
+G05,Desarrollo económico,Cuba,5,,Guido,constitucional (tutelado)
+G05,Desarrollo económico,Uruguay,5,,Guido,constitucional (tutelado)
+G06,Medio Oriente,EE. UU.,2,,Illia,constitucional
+G06,Medio Oriente,URSS/Rusia,2,,Illia,constitucional
+G06,Medio Oriente,China,0,,Illia,constitucional
+G06,Medio Oriente,Reino Unido,2,,Illia,constitucional
+G06,Medio Oriente,Francia,2,,Illia,constitucional
+G06,Medio Oriente,Brasil,2,,Illia,constitucional
+G06,Medio Oriente,Chile,2,,Illia,constitucional
+G06,Medio Oriente,México,2,,Illia,constitucional
+G06,Medio Oriente,Cuba,2,,Illia,constitucional
+G06,Medio Oriente,Uruguay,2,,Illia,constitucional
+G06,Armas nucleares,EE. UU.,5,,Illia,constitucional
+G06,Armas nucleares,URSS/Rusia,5,,Illia,constitucional
+G06,Armas nucleares,China,0,,Illia,constitucional
+G06,Armas nucleares,Reino Unido,5,,Illia,constitucional
+G06,Armas nucleares,Francia,5,,Illia,constitucional
+G06,Armas nucleares,Brasil,5,,Illia,constitucional
+G06,Armas nucleares,Chile,5,,Illia,constitucional
+G06,Armas nucleares,México,5,,Illia,constitucional
+G06,Armas nucleares,Cuba,5,,Illia,constitucional
+G06,Armas nucleares,Uruguay,5,,Illia,constitucional
+G06,Desarme,EE. UU.,9,,Illia,constitucional
+G06,Desarme,URSS/Rusia,9,,Illia,constitucional
+G06,Desarme,China,0,,Illia,constitucional
+G06,Desarme,Reino Unido,9,,Illia,constitucional
+G06,Desarme,Francia,9,,Illia,constitucional
+G06,Desarme,Brasil,9,,Illia,constitucional
+G06,Desarme,Chile,9,,Illia,constitucional
+G06,Desarme,México,9,,Illia,constitucional
+G06,Desarme,Cuba,9,,Illia,constitucional
+G06,Desarme,Uruguay,9,,Illia,constitucional
+G06,Derechos humanos,EE. UU.,5,,Illia,constitucional
+G06,Derechos humanos,URSS/Rusia,5,,Illia,constitucional
+G06,Derechos humanos,China,0,,Illia,constitucional
+G06,Derechos humanos,Reino Unido,5,,Illia,constitucional
+G06,Derechos humanos,Francia,5,,Illia,constitucional
+G06,Derechos humanos,Brasil,5,,Illia,constitucional
+G06,Derechos humanos,Chile,5,,Illia,constitucional
+G06,Derechos humanos,México,5,,Illia,constitucional
+G06,Derechos humanos,Cuba,5,,Illia,constitucional
+G06,Derechos humanos,Uruguay,5,,Illia,constitucional
+G06,Colonialismo,EE. UU.,20,25.0,Illia,constitucional
+G06,Colonialismo,URSS/Rusia,20,65.0,Illia,constitucional
+G06,Colonialismo,China,0,,Illia,constitucional
+G06,Colonialismo,Reino Unido,17,17.6,Illia,constitucional
+G06,Colonialismo,Francia,20,15.0,Illia,constitucional
+G06,Colonialismo,Brasil,20,60.0,Illia,constitucional
+G06,Colonialismo,Chile,20,95.0,Illia,constitucional
+G06,Colonialismo,México,20,85.0,Illia,constitucional
+G06,Colonialismo,Cuba,20,65.0,Illia,constitucional
+G06,Colonialismo,Uruguay,19,73.7,Illia,constitucional
+G06,Desarrollo económico,EE. UU.,2,,Illia,constitucional
+G06,Desarrollo económico,URSS/Rusia,2,,Illia,constitucional
+G06,Desarrollo económico,China,0,,Illia,constitucional
+G06,Desarrollo económico,Reino Unido,2,,Illia,constitucional
+G06,Desarrollo económico,Francia,2,,Illia,constitucional
+G06,Desarrollo económico,Brasil,2,,Illia,constitucional
+G06,Desarrollo económico,Chile,2,,Illia,constitucional
+G06,Desarrollo económico,México,2,,Illia,constitucional
+G06,Desarrollo económico,Cuba,2,,Illia,constitucional
+G06,Desarrollo económico,Uruguay,2,,Illia,constitucional
+G07,Medio Oriente,EE. UU.,46,54.3,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Medio Oriente,URSS/Rusia,46,17.4,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Medio Oriente,China,21,0.0,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Medio Oriente,Reino Unido,45,71.1,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Medio Oriente,Francia,46,41.3,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Medio Oriente,Brasil,46,91.3,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Medio Oriente,Chile,44,56.8,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Medio Oriente,México,46,84.8,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Medio Oriente,Cuba,45,13.3,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Medio Oriente,Uruguay,46,43.5,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Armas nucleares,EE. UU.,30,66.7,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Armas nucleares,URSS/Rusia,30,36.7,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Armas nucleares,China,10,10.0,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Armas nucleares,Reino Unido,30,63.3,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Armas nucleares,Francia,30,33.3,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Armas nucleares,Brasil,30,100.0,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Armas nucleares,Chile,28,78.6,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Armas nucleares,México,30,80.0,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Armas nucleares,Cuba,29,27.6,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Armas nucleares,Uruguay,26,73.1,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarme,EE. UU.,39,56.4,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarme,URSS/Rusia,39,59.0,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarme,China,15,33.3,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarme,Reino Unido,39,56.4,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarme,Francia,39,20.5,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarme,Brasil,38,97.4,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarme,Chile,38,84.2,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarme,México,38,89.5,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarme,Cuba,38,52.6,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarme,Uruguay,36,77.8,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Derechos humanos,EE. UU.,79,57.0,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Derechos humanos,URSS/Rusia,78,39.7,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Derechos humanos,China,25,60.0,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Derechos humanos,Reino Unido,78,57.7,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Derechos humanos,Francia,78,66.7,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Derechos humanos,Brasil,78,80.8,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Derechos humanos,Chile,75,58.7,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Derechos humanos,México,71,70.4,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Derechos humanos,Cuba,76,38.2,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Derechos humanos,Uruguay,76,72.4,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Colonialismo,EE. UU.,118,23.7,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Colonialismo,URSS/Rusia,120,53.3,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Colonialismo,China,20,50.0,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Colonialismo,Reino Unido,113,27.4,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Colonialismo,Francia,117,32.5,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Colonialismo,Brasil,117,57.3,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Colonialismo,Chile,116,68.1,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Colonialismo,México,120,67.5,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Colonialismo,Cuba,109,54.1,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Colonialismo,Uruguay,108,75.0,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarrollo económico,EE. UU.,39,28.2,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarrollo económico,URSS/Rusia,41,41.5,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarrollo económico,China,9,,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarrollo económico,Reino Unido,41,36.6,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarrollo económico,Francia,37,37.8,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarrollo económico,Brasil,36,61.1,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarrollo económico,Chile,40,65.0,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarrollo económico,México,41,68.3,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarrollo económico,Cuba,39,59.0,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Desarrollo económico,Uruguay,36,80.6,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G08,Medio Oriente,EE. UU.,26,23.1,Cámpora–Perón–Isabel Perón,constitucional
+G08,Medio Oriente,URSS/Rusia,26,88.5,Cámpora–Perón–Isabel Perón,constitucional
+G08,Medio Oriente,China,22,95.5,Cámpora–Perón–Isabel Perón,constitucional
+G08,Medio Oriente,Reino Unido,26,26.9,Cámpora–Perón–Isabel Perón,constitucional
+G08,Medio Oriente,Francia,26,46.2,Cámpora–Perón–Isabel Perón,constitucional
+G08,Medio Oriente,Brasil,23,69.6,Cámpora–Perón–Isabel Perón,constitucional
+G08,Medio Oriente,Chile,19,63.2,Cámpora–Perón–Isabel Perón,constitucional
+G08,Medio Oriente,México,26,84.6,Cámpora–Perón–Isabel Perón,constitucional
+G08,Medio Oriente,Cuba,24,91.7,Cámpora–Perón–Isabel Perón,constitucional
+G08,Medio Oriente,Uruguay,25,32.0,Cámpora–Perón–Isabel Perón,constitucional
+G08,Armas nucleares,EE. UU.,32,37.5,Cámpora–Perón–Isabel Perón,constitucional
+G08,Armas nucleares,URSS/Rusia,32,43.8,Cámpora–Perón–Isabel Perón,constitucional
+G08,Armas nucleares,China,22,50.0,Cámpora–Perón–Isabel Perón,constitucional
+G08,Armas nucleares,Reino Unido,32,31.2,Cámpora–Perón–Isabel Perón,constitucional
+G08,Armas nucleares,Francia,32,53.1,Cámpora–Perón–Isabel Perón,constitucional
+G08,Armas nucleares,Brasil,32,90.6,Cámpora–Perón–Isabel Perón,constitucional
+G08,Armas nucleares,Chile,30,73.3,Cámpora–Perón–Isabel Perón,constitucional
+G08,Armas nucleares,México,32,78.1,Cámpora–Perón–Isabel Perón,constitucional
+G08,Armas nucleares,Cuba,31,58.1,Cámpora–Perón–Isabel Perón,constitucional
+G08,Armas nucleares,Uruguay,30,80.0,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarme,EE. UU.,41,31.7,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarme,URSS/Rusia,41,43.9,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarme,China,23,52.2,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarme,Reino Unido,41,26.8,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarme,Francia,40,47.5,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarme,Brasil,41,92.7,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarme,Chile,39,66.7,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarme,México,41,68.3,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarme,Cuba,40,60.0,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarme,Uruguay,39,66.7,Cámpora–Perón–Isabel Perón,constitucional
+G08,Derechos humanos,EE. UU.,49,14.3,Cámpora–Perón–Isabel Perón,constitucional
+G08,Derechos humanos,URSS/Rusia,49,73.5,Cámpora–Perón–Isabel Perón,constitucional
+G08,Derechos humanos,China,36,88.9,Cámpora–Perón–Isabel Perón,constitucional
+G08,Derechos humanos,Reino Unido,49,24.5,Cámpora–Perón–Isabel Perón,constitucional
+G08,Derechos humanos,Francia,49,28.6,Cámpora–Perón–Isabel Perón,constitucional
+G08,Derechos humanos,Brasil,48,85.4,Cámpora–Perón–Isabel Perón,constitucional
+G08,Derechos humanos,Chile,40,77.5,Cámpora–Perón–Isabel Perón,constitucional
+G08,Derechos humanos,México,49,85.7,Cámpora–Perón–Isabel Perón,constitucional
+G08,Derechos humanos,Cuba,48,79.2,Cámpora–Perón–Isabel Perón,constitucional
+G08,Derechos humanos,Uruguay,42,64.3,Cámpora–Perón–Isabel Perón,constitucional
+G08,Colonialismo,EE. UU.,55,18.2,Cámpora–Perón–Isabel Perón,constitucional
+G08,Colonialismo,URSS/Rusia,55,89.1,Cámpora–Perón–Isabel Perón,constitucional
+G08,Colonialismo,China,52,96.2,Cámpora–Perón–Isabel Perón,constitucional
+G08,Colonialismo,Reino Unido,53,20.8,Cámpora–Perón–Isabel Perón,constitucional
+G08,Colonialismo,Francia,53,20.8,Cámpora–Perón–Isabel Perón,constitucional
+G08,Colonialismo,Brasil,54,70.4,Cámpora–Perón–Isabel Perón,constitucional
+G08,Colonialismo,Chile,50,84.0,Cámpora–Perón–Isabel Perón,constitucional
+G08,Colonialismo,México,55,96.4,Cámpora–Perón–Isabel Perón,constitucional
+G08,Colonialismo,Cuba,55,90.9,Cámpora–Perón–Isabel Perón,constitucional
+G08,Colonialismo,Uruguay,54,55.6,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarrollo económico,EE. UU.,17,23.5,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarrollo económico,URSS/Rusia,17,88.2,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarrollo económico,China,15,86.7,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarrollo económico,Reino Unido,17,5.9,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarrollo económico,Francia,17,11.8,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarrollo económico,Brasil,17,94.1,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarrollo económico,Chile,17,82.4,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarrollo económico,México,17,100.0,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarrollo económico,Cuba,16,100.0,Cámpora–Perón–Isabel Perón,constitucional
+G08,Desarrollo económico,Uruguay,17,64.7,Cámpora–Perón–Isabel Perón,constitucional
+G09,Medio Oriente,EE. UU.,187,16.6,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Medio Oriente,URSS/Rusia,188,82.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Medio Oriente,China,173,87.3,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Medio Oriente,Reino Unido,188,46.3,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Medio Oriente,Francia,188,50.5,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Medio Oriente,Brasil,187,92.0,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Medio Oriente,Chile,164,85.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Medio Oriente,México,185,91.9,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Medio Oriente,Cuba,182,83.5,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Medio Oriente,Uruguay,178,80.3,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Armas nucleares,EE. UU.,136,15.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Armas nucleares,URSS/Rusia,137,72.3,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Armas nucleares,China,93,59.1,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Armas nucleares,Reino Unido,137,27.0,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Armas nucleares,Francia,136,34.6,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Armas nucleares,Brasil,135,82.2,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Armas nucleares,Chile,131,71.8,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Armas nucleares,México,137,74.5,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Armas nucleares,Cuba,134,79.9,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Armas nucleares,Uruguay,133,66.2,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarme,EE. UU.,157,22.9,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarme,URSS/Rusia,157,59.9,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarme,China,98,63.3,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarme,Reino Unido,157,32.5,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarme,Francia,156,42.9,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarme,Brasil,154,84.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarme,Chile,154,75.3,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarme,México,157,74.5,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarme,Cuba,155,73.5,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarme,Uruguay,154,70.1,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Derechos humanos,EE. UU.,134,16.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Derechos humanos,URSS/Rusia,139,81.3,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Derechos humanos,China,123,89.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Derechos humanos,Reino Unido,139,19.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Derechos humanos,Francia,139,30.2,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Derechos humanos,Brasil,136,93.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Derechos humanos,Chile,126,90.5,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Derechos humanos,México,137,81.0,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Derechos humanos,Cuba,139,82.0,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Derechos humanos,Uruguay,128,83.6,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Colonialismo,EE. UU.,164,12.2,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Colonialismo,URSS/Rusia,164,87.8,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Colonialismo,China,155,91.0,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Colonialismo,Reino Unido,161,24.2,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Colonialismo,Francia,162,26.5,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Colonialismo,Brasil,163,92.0,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Colonialismo,Chile,145,83.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Colonialismo,México,161,90.7,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Colonialismo,Cuba,163,87.7,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Colonialismo,Uruguay,152,78.9,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarrollo económico,EE. UU.,74,13.5,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarrollo económico,URSS/Rusia,76,75.0,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarrollo económico,China,70,97.1,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarrollo económico,Reino Unido,76,18.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarrollo económico,Francia,76,18.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarrollo económico,Brasil,73,98.6,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarrollo económico,Chile,69,88.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarrollo económico,México,76,96.1,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarrollo económico,Cuba,72,95.8,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Desarrollo económico,Uruguay,71,87.3,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G10,Medio Oriente,EE. UU.,154,12.3,Alfonsín,constitucional
+G10,Medio Oriente,URSS/Rusia,152,92.8,Alfonsín,constitucional
+G10,Medio Oriente,China,155,96.1,Alfonsín,constitucional
+G10,Medio Oriente,Reino Unido,154,49.4,Alfonsín,constitucional
+G10,Medio Oriente,Francia,155,52.9,Alfonsín,constitucional
+G10,Medio Oriente,Brasil,155,98.1,Alfonsín,constitucional
+G10,Medio Oriente,Chile,133,83.5,Alfonsín,constitucional
+G10,Medio Oriente,México,155,97.4,Alfonsín,constitucional
+G10,Medio Oriente,Cuba,155,90.3,Alfonsín,constitucional
+G10,Medio Oriente,Uruguay,149,85.2,Alfonsín,constitucional
+G10,Armas nucleares,EE. UU.,119,8.4,Alfonsín,constitucional
+G10,Armas nucleares,URSS/Rusia,120,73.3,Alfonsín,constitucional
+G10,Armas nucleares,China,111,62.2,Alfonsín,constitucional
+G10,Armas nucleares,Reino Unido,119,13.4,Alfonsín,constitucional
+G10,Armas nucleares,Francia,119,14.3,Alfonsín,constitucional
+G10,Armas nucleares,Brasil,120,79.2,Alfonsín,constitucional
+G10,Armas nucleares,Chile,120,56.7,Alfonsín,constitucional
+G10,Armas nucleares,México,120,72.5,Alfonsín,constitucional
+G10,Armas nucleares,Cuba,120,82.5,Alfonsín,constitucional
+G10,Armas nucleares,Uruguay,119,66.4,Alfonsín,constitucional
+G10,Desarme,EE. UU.,152,9.2,Alfonsín,constitucional
+G10,Desarme,URSS/Rusia,153,81.7,Alfonsín,constitucional
+G10,Desarme,China,141,66.7,Alfonsín,constitucional
+G10,Desarme,Reino Unido,152,22.4,Alfonsín,constitucional
+G10,Desarme,Francia,151,31.8,Alfonsín,constitucional
+G10,Desarme,Brasil,152,81.6,Alfonsín,constitucional
+G10,Desarme,Chile,153,69.9,Alfonsín,constitucional
+G10,Desarme,México,152,84.9,Alfonsín,constitucional
+G10,Desarme,Cuba,153,86.3,Alfonsín,constitucional
+G10,Desarme,Uruguay,151,76.8,Alfonsín,constitucional
+G10,Derechos humanos,EE. UU.,110,7.3,Alfonsín,constitucional
+G10,Derechos humanos,URSS/Rusia,107,94.4,Alfonsín,constitucional
+G10,Derechos humanos,China,108,88.9,Alfonsín,constitucional
+G10,Derechos humanos,Reino Unido,111,27.0,Alfonsín,constitucional
+G10,Derechos humanos,Francia,111,42.3,Alfonsín,constitucional
+G10,Derechos humanos,Brasil,111,91.9,Alfonsín,constitucional
+G10,Derechos humanos,Chile,87,78.2,Alfonsín,constitucional
+G10,Derechos humanos,México,111,98.2,Alfonsín,constitucional
+G10,Derechos humanos,Cuba,111,92.8,Alfonsín,constitucional
+G10,Derechos humanos,Uruguay,107,96.3,Alfonsín,constitucional
+G10,Colonialismo,EE. UU.,77,1.3,Alfonsín,constitucional
+G10,Colonialismo,URSS/Rusia,76,96.1,Alfonsín,constitucional
+G10,Colonialismo,China,77,94.8,Alfonsín,constitucional
+G10,Colonialismo,Reino Unido,77,13.0,Alfonsín,constitucional
+G10,Colonialismo,Francia,72,16.7,Alfonsín,constitucional
+G10,Colonialismo,Brasil,77,97.4,Alfonsín,constitucional
+G10,Colonialismo,Chile,55,92.7,Alfonsín,constitucional
+G10,Colonialismo,México,77,96.1,Alfonsín,constitucional
+G10,Colonialismo,Cuba,77,96.1,Alfonsín,constitucional
+G10,Colonialismo,Uruguay,76,90.8,Alfonsín,constitucional
+G10,Desarrollo económico,EE. UU.,91,2.2,Alfonsín,constitucional
+G10,Desarrollo económico,URSS/Rusia,91,93.4,Alfonsín,constitucional
+G10,Desarrollo económico,China,91,93.4,Alfonsín,constitucional
+G10,Desarrollo económico,Reino Unido,91,20.9,Alfonsín,constitucional
+G10,Desarrollo económico,Francia,91,29.7,Alfonsín,constitucional
+G10,Desarrollo económico,Brasil,90,97.8,Alfonsín,constitucional
+G10,Desarrollo económico,Chile,83,74.7,Alfonsín,constitucional
+G10,Desarrollo económico,México,91,98.9,Alfonsín,constitucional
+G10,Desarrollo económico,Cuba,91,96.7,Alfonsín,constitucional
+G10,Desarrollo económico,Uruguay,91,91.2,Alfonsín,constitucional
+G11,Medio Oriente,EE. UU.,259,8.9,Menem,constitucional
+G11,Medio Oriente,URSS/Rusia,258,79.8,Menem,constitucional
+G11,Medio Oriente,China,257,74.7,Menem,constitucional
+G11,Medio Oriente,Reino Unido,258,83.3,Menem,constitucional
+G11,Medio Oriente,Francia,258,82.6,Menem,constitucional
+G11,Medio Oriente,Brasil,258,77.5,Menem,constitucional
+G11,Medio Oriente,Chile,255,76.5,Menem,constitucional
+G11,Medio Oriente,México,258,77.1,Menem,constitucional
+G11,Medio Oriente,Cuba,255,74.9,Menem,constitucional
+G11,Medio Oriente,Uruguay,254,71.7,Menem,constitucional
+G11,Armas nucleares,EE. UU.,139,33.1,Menem,constitucional
+G11,Armas nucleares,URSS/Rusia,138,75.4,Menem,constitucional
+G11,Armas nucleares,China,130,56.2,Menem,constitucional
+G11,Armas nucleares,Reino Unido,139,41.7,Menem,constitucional
+G11,Armas nucleares,Francia,132,47.0,Menem,constitucional
+G11,Armas nucleares,Brasil,137,63.5,Menem,constitucional
+G11,Armas nucleares,Chile,139,62.6,Menem,constitucional
+G11,Armas nucleares,México,137,60.6,Menem,constitucional
+G11,Armas nucleares,Cuba,139,47.5,Menem,constitucional
+G11,Armas nucleares,Uruguay,138,60.1,Menem,constitucional
+G11,Desarme,EE. UU.,167,34.7,Menem,constitucional
+G11,Desarme,URSS/Rusia,167,74.3,Menem,constitucional
+G11,Desarme,China,161,66.5,Menem,constitucional
+G11,Desarme,Reino Unido,167,53.3,Menem,constitucional
+G11,Desarme,Francia,165,57.0,Menem,constitucional
+G11,Desarme,Brasil,165,75.2,Menem,constitucional
+G11,Desarme,Chile,166,75.3,Menem,constitucional
+G11,Desarme,México,167,66.5,Menem,constitucional
+G11,Desarme,Cuba,166,53.0,Menem,constitucional
+G11,Desarme,Uruguay,166,75.9,Menem,constitucional
+G11,Derechos humanos,EE. UU.,151,36.4,Menem,constitucional
+G11,Derechos humanos,URSS/Rusia,151,71.5,Menem,constitucional
+G11,Derechos humanos,China,148,37.2,Menem,constitucional
+G11,Derechos humanos,Reino Unido,151,67.5,Menem,constitucional
+G11,Derechos humanos,Francia,150,70.0,Menem,constitucional
+G11,Derechos humanos,Brasil,151,64.9,Menem,constitucional
+G11,Derechos humanos,Chile,149,65.8,Menem,constitucional
+G11,Derechos humanos,México,150,63.3,Menem,constitucional
+G11,Derechos humanos,Cuba,143,39.2,Menem,constitucional
+G11,Derechos humanos,Uruguay,151,65.6,Menem,constitucional
+G11,Colonialismo,EE. UU.,115,7.0,Menem,constitucional
+G11,Colonialismo,URSS/Rusia,114,70.2,Menem,constitucional
+G11,Colonialismo,China,115,67.8,Menem,constitucional
+G11,Colonialismo,Reino Unido,115,31.3,Menem,constitucional
+G11,Colonialismo,Francia,114,33.3,Menem,constitucional
+G11,Colonialismo,Brasil,114,69.3,Menem,constitucional
+G11,Colonialismo,Chile,112,67.0,Menem,constitucional
+G11,Colonialismo,México,115,68.7,Menem,constitucional
+G11,Colonialismo,Cuba,114,68.4,Menem,constitucional
+G11,Colonialismo,Uruguay,114,73.7,Menem,constitucional
+G11,Desarrollo económico,EE. UU.,71,5.6,Menem,constitucional
+G11,Desarrollo económico,URSS/Rusia,71,78.9,Menem,constitucional
+G11,Desarrollo económico,China,71,73.2,Menem,constitucional
+G11,Desarrollo económico,Reino Unido,71,36.6,Menem,constitucional
+G11,Desarrollo económico,Francia,71,45.1,Menem,constitucional
+G11,Desarrollo económico,Brasil,71,80.3,Menem,constitucional
+G11,Desarrollo económico,Chile,71,74.6,Menem,constitucional
+G11,Desarrollo económico,México,69,75.4,Menem,constitucional
+G11,Desarrollo económico,Cuba,69,76.8,Menem,constitucional
+G11,Desarrollo económico,Uruguay,69,75.4,Menem,constitucional
+G12,Medio Oriente,EE. UU.,45,4.4,De la Rúa,constitucional
+G12,Medio Oriente,URSS/Rusia,45,100.0,De la Rúa,constitucional
+G12,Medio Oriente,China,45,86.7,De la Rúa,constitucional
+G12,Medio Oriente,Reino Unido,45,93.3,De la Rúa,constitucional
+G12,Medio Oriente,Francia,44,95.5,De la Rúa,constitucional
+G12,Medio Oriente,Brasil,45,82.2,De la Rúa,constitucional
+G12,Medio Oriente,Chile,45,86.7,De la Rúa,constitucional
+G12,Medio Oriente,México,45,86.7,De la Rúa,constitucional
+G12,Medio Oriente,Cuba,44,86.4,De la Rúa,constitucional
+G12,Medio Oriente,Uruguay,45,84.4,De la Rúa,constitucional
+G12,Armas nucleares,EE. UU.,22,36.4,De la Rúa,constitucional
+G12,Armas nucleares,URSS/Rusia,22,59.1,De la Rúa,constitucional
+G12,Armas nucleares,China,22,72.7,De la Rúa,constitucional
+G12,Armas nucleares,Reino Unido,22,54.5,De la Rúa,constitucional
+G12,Armas nucleares,Francia,22,45.5,De la Rúa,constitucional
+G12,Armas nucleares,Brasil,22,68.2,De la Rúa,constitucional
+G12,Armas nucleares,Chile,22,63.6,De la Rúa,constitucional
+G12,Armas nucleares,México,22,59.1,De la Rúa,constitucional
+G12,Armas nucleares,Cuba,22,45.5,De la Rúa,constitucional
+G12,Armas nucleares,Uruguay,22,63.6,De la Rúa,constitucional
+G12,Desarme,EE. UU.,30,30.0,De la Rúa,constitucional
+G12,Desarme,URSS/Rusia,30,60.0,De la Rúa,constitucional
+G12,Desarme,China,30,53.3,De la Rúa,constitucional
+G12,Desarme,Reino Unido,30,60.0,De la Rúa,constitucional
+G12,Desarme,Francia,30,53.3,De la Rúa,constitucional
+G12,Desarme,Brasil,30,80.0,De la Rúa,constitucional
+G12,Desarme,Chile,30,73.3,De la Rúa,constitucional
+G12,Desarme,México,30,56.7,De la Rúa,constitucional
+G12,Desarme,Cuba,28,42.9,De la Rúa,constitucional
+G12,Desarme,Uruguay,30,86.7,De la Rúa,constitucional
+G12,Derechos humanos,EE. UU.,33,21.2,De la Rúa,constitucional
+G12,Derechos humanos,URSS/Rusia,33,60.6,De la Rúa,constitucional
+G12,Derechos humanos,China,33,42.4,De la Rúa,constitucional
+G12,Derechos humanos,Reino Unido,33,57.6,De la Rúa,constitucional
+G12,Derechos humanos,Francia,33,57.6,De la Rúa,constitucional
+G12,Derechos humanos,Brasil,33,78.8,De la Rúa,constitucional
+G12,Derechos humanos,Chile,33,75.8,De la Rúa,constitucional
+G12,Derechos humanos,México,33,69.7,De la Rúa,constitucional
+G12,Derechos humanos,Cuba,33,45.5,De la Rúa,constitucional
+G12,Derechos humanos,Uruguay,33,78.8,De la Rúa,constitucional
+G12,Colonialismo,EE. UU.,22,0.0,De la Rúa,constitucional
+G12,Colonialismo,URSS/Rusia,22,90.9,De la Rúa,constitucional
+G12,Colonialismo,China,22,90.9,De la Rúa,constitucional
+G12,Colonialismo,Reino Unido,22,50.0,De la Rúa,constitucional
+G12,Colonialismo,Francia,22,50.0,De la Rúa,constitucional
+G12,Colonialismo,Brasil,22,90.9,De la Rúa,constitucional
+G12,Colonialismo,Chile,22,90.9,De la Rúa,constitucional
+G12,Colonialismo,México,22,90.9,De la Rúa,constitucional
+G12,Colonialismo,Cuba,22,90.9,De la Rúa,constitucional
+G12,Colonialismo,Uruguay,22,95.5,De la Rúa,constitucional
+G12,Desarrollo económico,EE. UU.,8,,De la Rúa,constitucional
+G12,Desarrollo económico,URSS/Rusia,8,,De la Rúa,constitucional
+G12,Desarrollo económico,China,8,,De la Rúa,constitucional
+G12,Desarrollo económico,Reino Unido,8,,De la Rúa,constitucional
+G12,Desarrollo económico,Francia,8,,De la Rúa,constitucional
+G12,Desarrollo económico,Brasil,8,,De la Rúa,constitucional
+G12,Desarrollo económico,Chile,7,,De la Rúa,constitucional
+G12,Desarrollo económico,México,8,,De la Rúa,constitucional
+G12,Desarrollo económico,Cuba,8,,De la Rúa,constitucional
+G12,Desarrollo económico,Uruguay,8,,De la Rúa,constitucional
+G13,Medio Oriente,EE. UU.,22,4.5,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Medio Oriente,URSS/Rusia,21,100.0,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Medio Oriente,China,22,86.4,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Medio Oriente,Reino Unido,22,90.9,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Medio Oriente,Francia,22,90.9,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Medio Oriente,Brasil,22,81.8,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Medio Oriente,Chile,22,86.4,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Medio Oriente,México,22,86.4,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Medio Oriente,Cuba,22,86.4,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Medio Oriente,Uruguay,22,81.8,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Armas nucleares,EE. UU.,13,15.4,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Armas nucleares,URSS/Rusia,13,69.2,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Armas nucleares,China,12,66.7,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Armas nucleares,Reino Unido,13,46.2,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Armas nucleares,Francia,13,46.2,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Armas nucleares,Brasil,13,61.5,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Armas nucleares,Chile,13,61.5,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Armas nucleares,México,13,53.8,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Armas nucleares,Cuba,13,53.8,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Armas nucleares,Uruguay,13,61.5,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarme,EE. UU.,17,17.6,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarme,URSS/Rusia,17,70.6,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarme,China,16,50.0,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarme,Reino Unido,17,47.1,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarme,Francia,17,52.9,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarme,Brasil,17,64.7,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarme,Chile,17,64.7,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarme,México,17,52.9,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarme,Cuba,16,50.0,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarme,Uruguay,17,76.5,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Derechos humanos,EE. UU.,22,13.6,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Derechos humanos,URSS/Rusia,22,59.1,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Derechos humanos,China,22,59.1,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Derechos humanos,Reino Unido,22,59.1,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Derechos humanos,Francia,21,57.1,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Derechos humanos,Brasil,22,86.4,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Derechos humanos,Chile,22,86.4,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Derechos humanos,México,22,77.3,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Derechos humanos,Cuba,22,59.1,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Derechos humanos,Uruguay,22,81.8,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Colonialismo,EE. UU.,11,0.0,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Colonialismo,URSS/Rusia,9,,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Colonialismo,China,11,90.9,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Colonialismo,Reino Unido,11,54.5,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Colonialismo,Francia,11,54.5,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Colonialismo,Brasil,11,90.9,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Colonialismo,Chile,11,90.9,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Colonialismo,México,11,90.9,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Colonialismo,Cuba,11,90.9,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Colonialismo,Uruguay,11,100.0,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarrollo económico,EE. UU.,5,,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarrollo económico,URSS/Rusia,5,,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarrollo económico,China,5,,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarrollo económico,Reino Unido,5,,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarrollo económico,Francia,5,,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarrollo económico,Brasil,5,,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarrollo económico,Chile,5,,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarrollo económico,México,5,,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarrollo económico,Cuba,5,,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Desarrollo económico,Uruguay,5,,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G14,Medio Oriente,EE. UU.,84,3.6,Néstor Kirchner,constitucional
+G14,Medio Oriente,URSS/Rusia,84,91.7,Néstor Kirchner,constitucional
+G14,Medio Oriente,China,84,91.7,Néstor Kirchner,constitucional
+G14,Medio Oriente,Reino Unido,84,83.3,Néstor Kirchner,constitucional
+G14,Medio Oriente,Francia,84,84.5,Néstor Kirchner,constitucional
+G14,Medio Oriente,Brasil,84,92.9,Néstor Kirchner,constitucional
+G14,Medio Oriente,Chile,84,92.9,Néstor Kirchner,constitucional
+G14,Medio Oriente,México,83,94.0,Néstor Kirchner,constitucional
+G14,Medio Oriente,Cuba,84,91.7,Néstor Kirchner,constitucional
+G14,Medio Oriente,Uruguay,83,89.2,Néstor Kirchner,constitucional
+G14,Armas nucleares,EE. UU.,63,12.7,Néstor Kirchner,constitucional
+G14,Armas nucleares,URSS/Rusia,61,62.3,Néstor Kirchner,constitucional
+G14,Armas nucleares,China,62,72.6,Néstor Kirchner,constitucional
+G14,Armas nucleares,Reino Unido,63,41.3,Néstor Kirchner,constitucional
+G14,Armas nucleares,Francia,62,41.9,Néstor Kirchner,constitucional
+G14,Armas nucleares,Brasil,63,74.6,Néstor Kirchner,constitucional
+G14,Armas nucleares,Chile,63,76.2,Néstor Kirchner,constitucional
+G14,Armas nucleares,México,62,71.0,Néstor Kirchner,constitucional
+G14,Armas nucleares,Cuba,62,66.1,Néstor Kirchner,constitucional
+G14,Armas nucleares,Uruguay,60,71.7,Néstor Kirchner,constitucional
+G14,Desarme,EE. UU.,67,10.4,Néstor Kirchner,constitucional
+G14,Desarme,URSS/Rusia,66,62.1,Néstor Kirchner,constitucional
+G14,Desarme,China,65,73.8,Néstor Kirchner,constitucional
+G14,Desarme,Reino Unido,67,47.8,Néstor Kirchner,constitucional
+G14,Desarme,Francia,66,47.0,Néstor Kirchner,constitucional
+G14,Desarme,Brasil,67,85.1,Néstor Kirchner,constitucional
+G14,Desarme,Chile,67,85.1,Néstor Kirchner,constitucional
+G14,Desarme,México,67,80.6,Néstor Kirchner,constitucional
+G14,Desarme,Cuba,65,67.7,Néstor Kirchner,constitucional
+G14,Desarme,Uruguay,67,91.0,Néstor Kirchner,constitucional
+G14,Derechos humanos,EE. UU.,55,32.7,Néstor Kirchner,constitucional
+G14,Derechos humanos,URSS/Rusia,54,51.9,Néstor Kirchner,constitucional
+G14,Derechos humanos,China,55,50.9,Néstor Kirchner,constitucional
+G14,Derechos humanos,Reino Unido,55,50.9,Néstor Kirchner,constitucional
+G14,Derechos humanos,Francia,55,52.7,Néstor Kirchner,constitucional
+G14,Derechos humanos,Brasil,55,65.5,Néstor Kirchner,constitucional
+G14,Derechos humanos,Chile,55,81.8,Néstor Kirchner,constitucional
+G14,Derechos humanos,México,55,74.5,Néstor Kirchner,constitucional
+G14,Derechos humanos,Cuba,55,50.9,Néstor Kirchner,constitucional
+G14,Derechos humanos,Uruguay,54,83.3,Néstor Kirchner,constitucional
+G14,Colonialismo,EE. UU.,46,2.2,Néstor Kirchner,constitucional
+G14,Colonialismo,URSS/Rusia,47,91.5,Néstor Kirchner,constitucional
+G14,Colonialismo,China,45,91.1,Néstor Kirchner,constitucional
+G14,Colonialismo,Reino Unido,47,53.2,Néstor Kirchner,constitucional
+G14,Colonialismo,Francia,47,57.4,Néstor Kirchner,constitucional
+G14,Colonialismo,Brasil,47,87.2,Néstor Kirchner,constitucional
+G14,Colonialismo,Chile,45,88.9,Néstor Kirchner,constitucional
+G14,Colonialismo,México,46,95.7,Néstor Kirchner,constitucional
+G14,Colonialismo,Cuba,47,89.4,Néstor Kirchner,constitucional
+G14,Colonialismo,Uruguay,45,95.6,Néstor Kirchner,constitucional
+G14,Desarrollo económico,EE. UU.,30,3.3,Néstor Kirchner,constitucional
+G14,Desarrollo económico,URSS/Rusia,30,93.3,Néstor Kirchner,constitucional
+G14,Desarrollo económico,China,30,100.0,Néstor Kirchner,constitucional
+G14,Desarrollo económico,Reino Unido,30,73.3,Néstor Kirchner,constitucional
+G14,Desarrollo económico,Francia,30,56.7,Néstor Kirchner,constitucional
+G14,Desarrollo económico,Brasil,30,100.0,Néstor Kirchner,constitucional
+G14,Desarrollo económico,Chile,30,100.0,Néstor Kirchner,constitucional
+G14,Desarrollo económico,México,30,96.7,Néstor Kirchner,constitucional
+G14,Desarrollo económico,Cuba,30,100.0,Néstor Kirchner,constitucional
+G14,Desarrollo económico,Uruguay,30,100.0,Néstor Kirchner,constitucional
+G15,Medio Oriente,EE. UU.,96,2.1,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,URSS/Rusia,97,87.6,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,China,97,92.8,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,Reino Unido,97,80.4,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,Francia,97,80.4,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,Brasil,96,94.8,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,Chile,97,94.8,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,México,97,100.0,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,Cuba,97,92.8,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,Uruguay,96,95.8,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,EE. UU.,53,22.6,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,URSS/Rusia,53,60.4,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,China,51,76.5,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,Reino Unido,52,38.5,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,Francia,53,35.8,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,Brasil,53,79.2,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,Chile,52,82.7,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,México,53,83.0,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,Cuba,53,75.5,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,Uruguay,52,82.7,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,EE. UU.,66,27.3,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,URSS/Rusia,66,54.5,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,China,65,83.1,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,Reino Unido,66,53.0,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,Francia,66,53.0,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,Brasil,66,90.9,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,Chile,66,93.9,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,México,66,90.9,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,Cuba,62,69.4,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,Uruguay,66,93.9,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,EE. UU.,105,19.0,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,URSS/Rusia,105,69.5,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,China,105,63.8,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,Reino Unido,105,56.2,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,Francia,105,58.1,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,Brasil,105,76.2,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,Chile,105,83.8,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,México,105,94.3,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,Cuba,104,65.4,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,Uruguay,105,87.6,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,EE. UU.,63,7.9,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,URSS/Rusia,63,100.0,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,China,63,84.1,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,Reino Unido,63,60.3,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,Francia,63,61.9,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,Brasil,63,84.1,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,Chile,63,79.4,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,México,63,88.9,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,Cuba,63,84.1,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,Uruguay,63,92.1,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,EE. UU.,45,11.1,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,URSS/Rusia,45,80.0,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,China,45,95.6,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,Reino Unido,45,55.6,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,Francia,45,57.8,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,Brasil,44,100.0,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,Chile,45,100.0,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,México,45,93.3,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,Cuba,43,88.4,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,Uruguay,44,100.0,Cristina Fernández de Kirchner,constitucional
