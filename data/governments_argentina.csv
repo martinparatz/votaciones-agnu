@@ -1,0 +1,19 @@
+gov_id,government,type,start,end,note
+G01,Farrell,de facto,1944-03-09,1946-06-03,Gobierno militar (Revolución del 43)
+G02,Perón (1ª y 2ª presidencia),constitucional,1946-06-04,1955-09-20,Hasta el golpe de septiembre de 1955
+G03,Revolución Libertadora (Lonardi–Aramburu),de facto,1955-09-21,1958-04-30,
+G04,Frondizi,constitucional,1958-05-01,1962-03-28,Derrocado por golpe
+G05,Guido,constitucional (tutelado),1962-03-29,1963-10-11,Presidente provisional bajo tutela militar
+G06,Illia,constitucional,1963-10-12,1966-06-27,Derrocado por golpe
+G07,Revolución Argentina (Onganía–Levingston–Lanusse),de facto,1966-06-28,1973-05-24,
+G08,Cámpora–Perón–Isabel Perón,constitucional,1973-05-25,1976-03-23,
+G09,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto,1976-03-24,1983-12-09,Incluye la guerra de Malvinas (1982)
+G10,Alfonsín,constitucional,1983-12-10,1989-07-07,
+G11,Menem,constitucional,1989-07-08,1999-12-09,
+G12,De la Rúa,constitucional,1999-12-10,2001-12-20,
+G13,Transición (Rodríguez Saá–Duhalde),constitucional (transición),2001-12-21,2003-05-24,
+G14,Néstor Kirchner,constitucional,2003-05-25,2007-12-09,
+G15,Cristina Fernández de Kirchner,constitucional,2007-12-10,2015-12-09,Dos mandatos
+G16,Macri,constitucional,2015-12-10,2019-12-09,
+G17,Alberto Fernández,constitucional,2019-12-10,2023-12-09,
+G18,Milei,constitucional,2023-12-10,2027-12-09,Mandato en curso

@@ -1,0 +1,151 @@
+gov_id,reference,n_common_votes,pct_agreement,government,type
+G01,EE. UU.,17,76.5,Farrell,de facto
+G01,URSS/Rusia,17,23.5,Farrell,de facto
+G01,China,0,,Farrell,de facto
+G01,Reino Unido,17,70.6,Farrell,de facto
+G01,Francia,17,35.3,Farrell,de facto
+G01,Brasil,17,58.8,Farrell,de facto
+G01,Chile,17,58.8,Farrell,de facto
+G01,México,13,46.2,Farrell,de facto
+G01,Cuba,15,80.0,Farrell,de facto
+G01,Uruguay,17,82.4,Farrell,de facto
+G02,EE. UU.,413,55.4,Perón (1ª y 2ª presidencia),constitucional
+G02,URSS/Rusia,411,29.2,Perón (1ª y 2ª presidencia),constitucional
+G02,China,0,,Perón (1ª y 2ª presidencia),constitucional
+G02,Reino Unido,413,51.1,Perón (1ª y 2ª presidencia),constitucional
+G02,Francia,402,51.5,Perón (1ª y 2ª presidencia),constitucional
+G02,Brasil,413,65.1,Perón (1ª y 2ª presidencia),constitucional
+G02,Chile,411,61.3,Perón (1ª y 2ª presidencia),constitucional
+G02,México,404,60.9,Perón (1ª y 2ª presidencia),constitucional
+G02,Cuba,401,62.1,Perón (1ª y 2ª presidencia),constitucional
+G02,Uruguay,404,62.1,Perón (1ª y 2ª presidencia),constitucional
+G03,EE. UU.,135,77.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,URSS/Rusia,135,36.3,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,China,0,,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Reino Unido,135,77.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Francia,124,71.0,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Brasil,135,77.8,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Chile,135,83.7,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,México,135,73.3,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Cuba,133,73.7,Revolución Libertadora (Lonardi–Aramburu),de facto
+G03,Uruguay,133,82.7,Revolución Libertadora (Lonardi–Aramburu),de facto
+G04,EE. UU.,252,75.0,Frondizi,constitucional
+G04,URSS/Rusia,253,27.3,Frondizi,constitucional
+G04,China,0,,Frondizi,constitucional
+G04,Reino Unido,251,63.3,Frondizi,constitucional
+G04,Francia,233,57.9,Frondizi,constitucional
+G04,Brasil,253,79.1,Frondizi,constitucional
+G04,Chile,253,83.8,Frondizi,constitucional
+G04,México,250,65.2,Frondizi,constitucional
+G04,Cuba,253,37.9,Frondizi,constitucional
+G04,Uruguay,244,77.5,Frondizi,constitucional
+G05,EE. UU.,64,65.6,Guido,constitucional (tutelado)
+G05,URSS/Rusia,64,29.7,Guido,constitucional (tutelado)
+G05,China,0,,Guido,constitucional (tutelado)
+G05,Reino Unido,58,62.1,Guido,constitucional (tutelado)
+G05,Francia,64,50.0,Guido,constitucional (tutelado)
+G05,Brasil,64,85.9,Guido,constitucional (tutelado)
+G05,Chile,64,82.8,Guido,constitucional (tutelado)
+G05,México,64,85.9,Guido,constitucional (tutelado)
+G05,Cuba,52,26.9,Guido,constitucional (tutelado)
+G05,Uruguay,64,81.2,Guido,constitucional (tutelado)
+G06,EE. UU.,65,55.4,Illia,constitucional
+G06,URSS/Rusia,65,49.2,Illia,constitucional
+G06,China,0,,Illia,constitucional
+G06,Reino Unido,62,54.8,Illia,constitucional
+G06,Francia,65,36.9,Illia,constitucional
+G06,Brasil,65,76.9,Illia,constitucional
+G06,Chile,65,86.2,Illia,constitucional
+G06,México,65,84.6,Illia,constitucional
+G06,Cuba,63,47.6,Illia,constitucional
+G06,Uruguay,61,82.0,Illia,constitucional
+G07,EE. UU.,498,51.2,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,URSS/Rusia,501,41.7,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,China,132,51.5,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Reino Unido,490,51.6,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Francia,492,47.2,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Brasil,491,77.6,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Chile,490,69.8,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,México,490,76.3,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Cuba,459,44.7,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G07,Uruguay,470,78.5,Revolución Argentina (Onganía–Levingston–Lanusse),de facto
+G08,EE. UU.,233,26.2,Cámpora–Perón–Isabel Perón,constitucional
+G08,URSS/Rusia,233,60.5,Cámpora–Perón–Isabel Perón,constitucional
+G08,China,175,75.4,Cámpora–Perón–Isabel Perón,constitucional
+G08,Reino Unido,231,29.0,Cámpora–Perón–Isabel Perón,constitucional
+G08,Francia,229,32.3,Cámpora–Perón–Isabel Perón,constitucional
+G08,Brasil,226,81.0,Cámpora–Perón–Isabel Perón,constitucional
+G08,Chile,214,75.7,Cámpora–Perón–Isabel Perón,constitucional
+G08,México,231,84.8,Cámpora–Perón–Isabel Perón,constitucional
+G08,Cuba,227,67.8,Cámpora–Perón–Isabel Perón,constitucional
+G08,Uruguay,218,65.1,Cámpora–Perón–Isabel Perón,constitucional
+G09,EE. UU.,955,22.9,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,URSS/Rusia,962,66.1,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,China,791,85.2,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Reino Unido,959,34.8,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Francia,958,38.6,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Brasil,950,91.6,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Chile,893,86.6,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,México,959,87.9,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Cuba,941,78.4,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G09,Uruguay,913,83.2,Proceso de Reorganización Nacional (Videla–Viola–Galtieri–Bignone),de facto
+G10,EE. UU.,727,12.0,Alfonsín,constitucional
+G10,URSS/Rusia,727,84.7,Alfonsín,constitucional
+G10,China,709,87.7,Alfonsín,constitucional
+G10,Reino Unido,730,29.7,Alfonsín,constitucional
+G10,Francia,724,36.7,Alfonsín,constitucional
+G10,Brasil,733,91.0,Alfonsín,constitucional
+G10,Chile,658,80.7,Alfonsín,constitucional
+G10,México,733,91.8,Alfonsín,constitucional
+G10,Cuba,734,88.1,Alfonsín,constitucional
+G10,Uruguay,715,88.8,Alfonsín,constitucional
+G11,EE. UU.,825,25.1,Menem,constitucional
+G11,URSS/Rusia,822,75.8,Menem,constitucional
+G11,China,807,65.3,Menem,constitucional
+G11,Reino Unido,825,57.9,Menem,constitucional
+G11,Francia,813,62.9,Menem,constitucional
+G11,Brasil,823,75.2,Menem,constitucional
+G11,Chile,810,73.5,Menem,constitucional
+G11,México,825,71.3,Menem,constitucional
+G11,Cuba,804,62.2,Menem,constitucional
+G11,Uruguay,812,74.5,Menem,constitucional
+G12,EE. UU.,134,23.1,De la Rúa,constitucional
+G12,URSS/Rusia,132,75.8,De la Rúa,constitucional
+G12,China,134,69.4,De la Rúa,constitucional
+G12,Reino Unido,134,64.9,De la Rúa,constitucional
+G12,Francia,133,63.2,De la Rúa,constitucional
+G12,Brasil,134,84.3,De la Rúa,constitucional
+G12,Chile,133,82.0,De la Rúa,constitucional
+G12,México,134,76.1,De la Rúa,constitucional
+G12,Cuba,129,65.9,De la Rúa,constitucional
+G12,Uruguay,134,84.3,De la Rúa,constitucional
+G13,EE. UU.,73,17.8,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,URSS/Rusia,71,76.1,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,China,72,70.8,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Reino Unido,73,61.6,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Francia,72,63.9,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Brasil,73,82.2,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Chile,73,82.2,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,México,73,78.1,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Cuba,71,69.0,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G13,Uruguay,73,83.6,Transición (Rodríguez Saá–Duhalde),constitucional (transición)
+G14,EE. UU.,334,15.6,Néstor Kirchner,constitucional
+G14,URSS/Rusia,332,76.2,Néstor Kirchner,constitucional
+G14,China,329,78.4,Néstor Kirchner,constitucional
+G14,Reino Unido,335,59.4,Néstor Kirchner,constitucional
+G14,Francia,333,60.1,Néstor Kirchner,constitucional
+G14,Brasil,335,84.2,Néstor Kirchner,constitucional
+G14,Chile,333,87.7,Néstor Kirchner,constitucional
+G14,México,332,84.9,Néstor Kirchner,constitucional
+G14,Cuba,328,75.3,Néstor Kirchner,constitucional
+G14,Uruguay,327,87.8,Néstor Kirchner,constitucional
+G15,EE. UU.,392,20.2,Cristina Fernández de Kirchner,constitucional
+G15,URSS/Rusia,393,74.6,Cristina Fernández de Kirchner,constitucional
+G15,China,388,81.2,Cristina Fernández de Kirchner,constitucional
+G15,Reino Unido,387,57.4,Cristina Fernández de Kirchner,constitucional
+G15,Francia,393,58.5,Cristina Fernández de Kirchner,constitucional
+G15,Brasil,391,88.0,Cristina Fernández de Kirchner,constitucional
+G15,Chile,392,90.8,Cristina Fernández de Kirchner,constitucional
+G15,México,393,91.6,Cristina Fernández de Kirchner,constitucional
+G15,Cuba,385,77.7,Cristina Fernández de Kirchner,constitucional
+G15,Uruguay,389,90.5,Cristina Fernández de Kirchner,constitucional

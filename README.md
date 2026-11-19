@@ -16,6 +16,7 @@ replicable para el resto de los miembros.
 
 ## Estado
 - [x] Votos 1946–2012 (`scripts/01_build_votes_1946_2012.py`)
+- [x] Épocas por gobierno (`data/governments_argentina.csv`, `scripts/04_argentina_by_government.py`)
 - [ ] Votos 2013–2025
 - [x] Ideal points 1946–2025 y borrador de épocas de Argentina (`scripts/02_build_ideal_points.py`)
 - [x] Análisis temático y coincidencias de Argentina 1946–2012 (`scripts/03_argentina_thematic.py`)
