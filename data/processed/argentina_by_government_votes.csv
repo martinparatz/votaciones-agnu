@@ -94,10 +94,31 @@ G14,Desarme,67,82.1,17.9,0.0,Néstor Kirchner,constitucional
 G14,Derechos humanos,55,72.7,21.8,5.5,Néstor Kirchner,constitucional
 G14,Colonialismo,47,89.4,8.5,2.1,Néstor Kirchner,constitucional
 G14,Desarrollo económico,30,100.0,0.0,0.0,Néstor Kirchner,constitucional
-G15,Todos,393,89.8,9.9,0.3,Cristina Fernández de Kirchner,constitucional
-G15,Medio Oriente,97,94.8,5.2,0.0,Cristina Fernández de Kirchner,constitucional
-G15,Armas nucleares,53,83.0,17.0,0.0,Cristina Fernández de Kirchner,constitucional
-G15,Desarme,66,93.9,6.1,0.0,Cristina Fernández de Kirchner,constitucional
-G15,Derechos humanos,105,83.8,15.2,1.0,Cristina Fernández de Kirchner,constitucional
-G15,Colonialismo,63,84.1,15.9,0.0,Cristina Fernández de Kirchner,constitucional
-G15,Desarrollo económico,45,93.3,6.7,0.0,Cristina Fernández de Kirchner,constitucional
+G15,Todos,591,90.0,9.6,0.3,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,149,94.6,5.4,0.0,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,104,85.6,14.4,0.0,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,133,94.0,6.0,0.0,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,149,85.9,12.8,1.3,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,81,84.0,16.0,0.0,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,79,92.4,7.6,0.0,Cristina Fernández de Kirchner,constitucional
+G16,Todos,324,89.5,10.5,0.0,Macri,constitucional
+G16,Medio Oriente,65,87.7,12.3,0.0,Macri,constitucional
+G16,Armas nucleares,55,85.5,14.5,0.0,Macri,constitucional
+G16,Desarme,80,90.0,10.0,0.0,Macri,constitucional
+G16,Derechos humanos,85,91.8,8.2,0.0,Macri,constitucional
+G16,Colonialismo,25,88.0,12.0,0.0,Macri,constitucional
+G16,Desarrollo económico,72,93.1,6.9,0.0,Macri,constitucional
+G17,Todos,413,89.6,10.4,0.0,Alberto Fernández,constitucional
+G17,Medio Oriente,66,90.9,9.1,0.0,Alberto Fernández,constitucional
+G17,Armas nucleares,92,83.7,16.3,0.0,Alberto Fernández,constitucional
+G17,Desarme,134,88.1,11.9,0.0,Alberto Fernández,constitucional
+G17,Derechos humanos,76,90.8,9.2,0.0,Alberto Fernández,constitucional
+G17,Colonialismo,34,85.3,14.7,0.0,Alberto Fernández,constitucional
+G17,Desarrollo económico,80,95.0,5.0,0.0,Alberto Fernández,constitucional
+G18,Todos,280,40.4,16.1,43.6,Milei,constitucional
+G18,Medio Oriente,36,8.3,16.7,75.0,Milei,constitucional
+G18,Armas nucleares,47,36.2,19.1,44.7,Milei,constitucional
+G18,Desarme,68,50.0,23.5,26.5,Milei,constitucional
+G18,Derechos humanos,60,41.7,6.7,51.7,Milei,constitucional
+G18,Colonialismo,21,71.4,9.5,19.0,Milei,constitucional
+G18,Desarrollo económico,67,37.3,11.9,50.7,Milei,constitucional

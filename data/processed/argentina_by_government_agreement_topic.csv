@@ -839,63 +839,243 @@ G14,Desarrollo económico,Chile,30,100.0,Néstor Kirchner,constitucional
 G14,Desarrollo económico,México,30,96.7,Néstor Kirchner,constitucional
 G14,Desarrollo económico,Cuba,30,100.0,Néstor Kirchner,constitucional
 G14,Desarrollo económico,Uruguay,30,100.0,Néstor Kirchner,constitucional
-G15,Medio Oriente,EE. UU.,96,2.1,Cristina Fernández de Kirchner,constitucional
-G15,Medio Oriente,URSS/Rusia,97,87.6,Cristina Fernández de Kirchner,constitucional
-G15,Medio Oriente,China,97,92.8,Cristina Fernández de Kirchner,constitucional
-G15,Medio Oriente,Reino Unido,97,80.4,Cristina Fernández de Kirchner,constitucional
-G15,Medio Oriente,Francia,97,80.4,Cristina Fernández de Kirchner,constitucional
-G15,Medio Oriente,Brasil,96,94.8,Cristina Fernández de Kirchner,constitucional
-G15,Medio Oriente,Chile,97,94.8,Cristina Fernández de Kirchner,constitucional
-G15,Medio Oriente,México,97,100.0,Cristina Fernández de Kirchner,constitucional
-G15,Medio Oriente,Cuba,97,92.8,Cristina Fernández de Kirchner,constitucional
-G15,Medio Oriente,Uruguay,96,95.8,Cristina Fernández de Kirchner,constitucional
-G15,Armas nucleares,EE. UU.,53,22.6,Cristina Fernández de Kirchner,constitucional
-G15,Armas nucleares,URSS/Rusia,53,60.4,Cristina Fernández de Kirchner,constitucional
-G15,Armas nucleares,China,51,76.5,Cristina Fernández de Kirchner,constitucional
-G15,Armas nucleares,Reino Unido,52,38.5,Cristina Fernández de Kirchner,constitucional
-G15,Armas nucleares,Francia,53,35.8,Cristina Fernández de Kirchner,constitucional
-G15,Armas nucleares,Brasil,53,79.2,Cristina Fernández de Kirchner,constitucional
-G15,Armas nucleares,Chile,52,82.7,Cristina Fernández de Kirchner,constitucional
-G15,Armas nucleares,México,53,83.0,Cristina Fernández de Kirchner,constitucional
-G15,Armas nucleares,Cuba,53,75.5,Cristina Fernández de Kirchner,constitucional
-G15,Armas nucleares,Uruguay,52,82.7,Cristina Fernández de Kirchner,constitucional
-G15,Desarme,EE. UU.,66,27.3,Cristina Fernández de Kirchner,constitucional
-G15,Desarme,URSS/Rusia,66,54.5,Cristina Fernández de Kirchner,constitucional
-G15,Desarme,China,65,83.1,Cristina Fernández de Kirchner,constitucional
-G15,Desarme,Reino Unido,66,53.0,Cristina Fernández de Kirchner,constitucional
-G15,Desarme,Francia,66,53.0,Cristina Fernández de Kirchner,constitucional
-G15,Desarme,Brasil,66,90.9,Cristina Fernández de Kirchner,constitucional
-G15,Desarme,Chile,66,93.9,Cristina Fernández de Kirchner,constitucional
-G15,Desarme,México,66,90.9,Cristina Fernández de Kirchner,constitucional
-G15,Desarme,Cuba,62,69.4,Cristina Fernández de Kirchner,constitucional
-G15,Desarme,Uruguay,66,93.9,Cristina Fernández de Kirchner,constitucional
-G15,Derechos humanos,EE. UU.,105,19.0,Cristina Fernández de Kirchner,constitucional
-G15,Derechos humanos,URSS/Rusia,105,69.5,Cristina Fernández de Kirchner,constitucional
-G15,Derechos humanos,China,105,63.8,Cristina Fernández de Kirchner,constitucional
-G15,Derechos humanos,Reino Unido,105,56.2,Cristina Fernández de Kirchner,constitucional
-G15,Derechos humanos,Francia,105,58.1,Cristina Fernández de Kirchner,constitucional
-G15,Derechos humanos,Brasil,105,76.2,Cristina Fernández de Kirchner,constitucional
-G15,Derechos humanos,Chile,105,83.8,Cristina Fernández de Kirchner,constitucional
-G15,Derechos humanos,México,105,94.3,Cristina Fernández de Kirchner,constitucional
-G15,Derechos humanos,Cuba,104,65.4,Cristina Fernández de Kirchner,constitucional
-G15,Derechos humanos,Uruguay,105,87.6,Cristina Fernández de Kirchner,constitucional
-G15,Colonialismo,EE. UU.,63,7.9,Cristina Fernández de Kirchner,constitucional
-G15,Colonialismo,URSS/Rusia,63,100.0,Cristina Fernández de Kirchner,constitucional
-G15,Colonialismo,China,63,84.1,Cristina Fernández de Kirchner,constitucional
-G15,Colonialismo,Reino Unido,63,60.3,Cristina Fernández de Kirchner,constitucional
-G15,Colonialismo,Francia,63,61.9,Cristina Fernández de Kirchner,constitucional
-G15,Colonialismo,Brasil,63,84.1,Cristina Fernández de Kirchner,constitucional
-G15,Colonialismo,Chile,63,79.4,Cristina Fernández de Kirchner,constitucional
-G15,Colonialismo,México,63,88.9,Cristina Fernández de Kirchner,constitucional
-G15,Colonialismo,Cuba,63,84.1,Cristina Fernández de Kirchner,constitucional
-G15,Colonialismo,Uruguay,63,92.1,Cristina Fernández de Kirchner,constitucional
-G15,Desarrollo económico,EE. UU.,45,11.1,Cristina Fernández de Kirchner,constitucional
-G15,Desarrollo económico,URSS/Rusia,45,80.0,Cristina Fernández de Kirchner,constitucional
-G15,Desarrollo económico,China,45,95.6,Cristina Fernández de Kirchner,constitucional
-G15,Desarrollo económico,Reino Unido,45,55.6,Cristina Fernández de Kirchner,constitucional
-G15,Desarrollo económico,Francia,45,57.8,Cristina Fernández de Kirchner,constitucional
-G15,Desarrollo económico,Brasil,44,100.0,Cristina Fernández de Kirchner,constitucional
-G15,Desarrollo económico,Chile,45,100.0,Cristina Fernández de Kirchner,constitucional
-G15,Desarrollo económico,México,45,93.3,Cristina Fernández de Kirchner,constitucional
-G15,Desarrollo económico,Cuba,43,88.4,Cristina Fernández de Kirchner,constitucional
-G15,Desarrollo económico,Uruguay,44,100.0,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,EE. UU.,148,1.4,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,URSS/Rusia,149,87.9,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,China,148,93.2,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,Reino Unido,149,79.9,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,Francia,149,79.9,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,Brasil,148,94.6,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,Chile,149,94.6,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,México,149,100.0,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,Cuba,149,93.3,Cristina Fernández de Kirchner,constitucional
+G15,Medio Oriente,Uruguay,148,97.3,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,EE. UU.,104,24.0,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,URSS/Rusia,104,49.0,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,China,102,70.6,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,Reino Unido,103,33.0,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,Francia,104,31.7,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,Brasil,104,81.7,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,Chile,102,85.3,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,México,104,85.6,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,Cuba,103,77.7,Cristina Fernández de Kirchner,constitucional
+G15,Armas nucleares,Uruguay,103,85.4,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,EE. UU.,133,33.1,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,URSS/Rusia,133,44.4,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,China,132,75.8,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,Reino Unido,133,50.4,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,Francia,133,50.4,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,Brasil,133,91.0,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,Chile,132,93.9,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,México,133,92.5,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,Cuba,128,72.7,Cristina Fernández de Kirchner,constitucional
+G15,Desarme,Uruguay,132,93.9,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,EE. UU.,148,20.3,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,URSS/Rusia,149,73.8,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,China,149,67.1,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,Reino Unido,149,57.0,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,Francia,149,59.7,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,Brasil,149,79.2,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,Chile,149,84.6,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,México,149,92.6,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,Cuba,147,68.7,Cristina Fernández de Kirchner,constitucional
+G15,Derechos humanos,Uruguay,149,89.9,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,EE. UU.,81,9.9,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,URSS/Rusia,81,100.0,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,China,81,84.0,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,Reino Unido,81,53.1,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,Francia,81,54.3,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,Brasil,81,84.0,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,Chile,81,80.2,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,México,81,85.2,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,Cuba,81,84.0,Cristina Fernández de Kirchner,constitucional
+G15,Colonialismo,Uruguay,81,90.1,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,EE. UU.,79,17.7,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,URSS/Rusia,77,72.7,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,China,79,93.7,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,Reino Unido,79,50.6,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,Francia,79,54.4,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,Brasil,78,100.0,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,Chile,79,100.0,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,México,79,91.1,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,Cuba,77,80.5,Cristina Fernández de Kirchner,constitucional
+G15,Desarrollo económico,Uruguay,78,100.0,Cristina Fernández de Kirchner,constitucional
+G16,Medio Oriente,EE. UU.,65,0.0,Macri,constitucional
+G16,Medio Oriente,URSS/Rusia,65,89.2,Macri,constitucional
+G16,Medio Oriente,China,65,87.7,Macri,constitucional
+G16,Medio Oriente,Reino Unido,65,78.5,Macri,constitucional
+G16,Medio Oriente,Francia,65,78.5,Macri,constitucional
+G16,Medio Oriente,Brasil,65,87.7,Macri,constitucional
+G16,Medio Oriente,Chile,65,87.7,Macri,constitucional
+G16,Medio Oriente,México,65,72.3,Macri,constitucional
+G16,Medio Oriente,Cuba,65,87.7,Macri,constitucional
+G16,Medio Oriente,Uruguay,65,92.3,Macri,constitucional
+G16,Armas nucleares,EE. UU.,55,18.2,Macri,constitucional
+G16,Armas nucleares,URSS/Rusia,55,30.9,Macri,constitucional
+G16,Armas nucleares,China,55,58.2,Macri,constitucional
+G16,Armas nucleares,Reino Unido,55,21.8,Macri,constitucional
+G16,Armas nucleares,Francia,55,21.8,Macri,constitucional
+G16,Armas nucleares,Brasil,55,80.0,Macri,constitucional
+G16,Armas nucleares,Chile,54,85.2,Macri,constitucional
+G16,Armas nucleares,México,55,83.6,Macri,constitucional
+G16,Armas nucleares,Cuba,55,76.4,Macri,constitucional
+G16,Armas nucleares,Uruguay,55,85.5,Macri,constitucional
+G16,Desarme,EE. UU.,80,32.5,Macri,constitucional
+G16,Desarme,URSS/Rusia,80,33.8,Macri,constitucional
+G16,Desarme,China,80,63.7,Macri,constitucional
+G16,Desarme,Reino Unido,80,45.0,Macri,constitucional
+G16,Desarme,Francia,80,42.5,Macri,constitucional
+G16,Desarme,Brasil,80,90.0,Macri,constitucional
+G16,Desarme,Chile,79,89.9,Macri,constitucional
+G16,Desarme,México,80,88.8,Macri,constitucional
+G16,Desarme,Cuba,80,67.5,Macri,constitucional
+G16,Desarme,Uruguay,80,90.0,Macri,constitucional
+G16,Derechos humanos,EE. UU.,85,28.2,Macri,constitucional
+G16,Derechos humanos,URSS/Rusia,85,74.1,Macri,constitucional
+G16,Derechos humanos,China,84,69.0,Macri,constitucional
+G16,Derechos humanos,Reino Unido,85,50.6,Macri,constitucional
+G16,Derechos humanos,Francia,85,51.8,Macri,constitucional
+G16,Derechos humanos,Brasil,85,91.8,Macri,constitucional
+G16,Derechos humanos,Chile,85,89.4,Macri,constitucional
+G16,Derechos humanos,México,85,80.0,Macri,constitucional
+G16,Derechos humanos,Cuba,82,73.2,Macri,constitucional
+G16,Derechos humanos,Uruguay,85,92.9,Macri,constitucional
+G16,Colonialismo,EE. UU.,25,8.0,Macri,constitucional
+G16,Colonialismo,URSS/Rusia,25,100.0,Macri,constitucional
+G16,Colonialismo,China,24,87.5,Macri,constitucional
+G16,Colonialismo,Reino Unido,25,32.0,Macri,constitucional
+G16,Colonialismo,Francia,25,28.0,Macri,constitucional
+G16,Colonialismo,Brasil,25,88.0,Macri,constitucional
+G16,Colonialismo,Chile,25,84.0,Macri,constitucional
+G16,Colonialismo,México,25,68.0,Macri,constitucional
+G16,Colonialismo,Cuba,25,88.0,Macri,constitucional
+G16,Colonialismo,Uruguay,25,88.0,Macri,constitucional
+G16,Desarrollo económico,EE. UU.,72,13.9,Macri,constitucional
+G16,Desarrollo económico,URSS/Rusia,72,80.6,Macri,constitucional
+G16,Desarrollo económico,China,72,90.3,Macri,constitucional
+G16,Desarrollo económico,Reino Unido,72,62.5,Macri,constitucional
+G16,Desarrollo económico,Francia,71,63.4,Macri,constitucional
+G16,Desarrollo económico,Brasil,71,95.8,Macri,constitucional
+G16,Desarrollo económico,Chile,72,95.8,Macri,constitucional
+G16,Desarrollo económico,México,72,91.7,Macri,constitucional
+G16,Desarrollo económico,Cuba,71,77.5,Macri,constitucional
+G16,Desarrollo económico,Uruguay,72,95.8,Macri,constitucional
+G17,Medio Oriente,EE. UU.,66,0.0,Alberto Fernández,constitucional
+G17,Medio Oriente,URSS/Rusia,66,97.0,Alberto Fernández,constitucional
+G17,Medio Oriente,China,66,90.9,Alberto Fernández,constitucional
+G17,Medio Oriente,Reino Unido,66,72.7,Alberto Fernández,constitucional
+G17,Medio Oriente,Francia,66,81.8,Alberto Fernández,constitucional
+G17,Medio Oriente,Brasil,66,53.0,Alberto Fernández,constitucional
+G17,Medio Oriente,Chile,65,90.8,Alberto Fernández,constitucional
+G17,Medio Oriente,México,66,87.9,Alberto Fernández,constitucional
+G17,Medio Oriente,Cuba,66,90.9,Alberto Fernández,constitucional
+G17,Medio Oriente,Uruguay,66,60.6,Alberto Fernández,constitucional
+G17,Armas nucleares,EE. UU.,92,23.9,Alberto Fernández,constitucional
+G17,Armas nucleares,URSS/Rusia,92,38.0,Alberto Fernández,constitucional
+G17,Armas nucleares,China,92,59.8,Alberto Fernández,constitucional
+G17,Armas nucleares,Reino Unido,92,31.5,Alberto Fernández,constitucional
+G17,Armas nucleares,Francia,91,29.7,Alberto Fernández,constitucional
+G17,Armas nucleares,Brasil,92,72.8,Alberto Fernández,constitucional
+G17,Armas nucleares,Chile,91,82.4,Alberto Fernández,constitucional
+G17,Armas nucleares,México,92,80.4,Alberto Fernández,constitucional
+G17,Armas nucleares,Cuba,92,73.9,Alberto Fernández,constitucional
+G17,Armas nucleares,Uruguay,92,83.7,Alberto Fernández,constitucional
+G17,Desarme,EE. UU.,134,38.1,Alberto Fernández,constitucional
+G17,Desarme,URSS/Rusia,134,34.3,Alberto Fernández,constitucional
+G17,Desarme,China,134,61.2,Alberto Fernández,constitucional
+G17,Desarme,Reino Unido,134,50.0,Alberto Fernández,constitucional
+G17,Desarme,Francia,133,47.4,Alberto Fernández,constitucional
+G17,Desarme,Brasil,133,83.5,Alberto Fernández,constitucional
+G17,Desarme,Chile,133,87.2,Alberto Fernández,constitucional
+G17,Desarme,México,134,85.8,Alberto Fernández,constitucional
+G17,Desarme,Cuba,134,63.4,Alberto Fernández,constitucional
+G17,Desarme,Uruguay,134,88.1,Alberto Fernández,constitucional
+G17,Derechos humanos,EE. UU.,75,22.7,Alberto Fernández,constitucional
+G17,Derechos humanos,URSS/Rusia,76,75.0,Alberto Fernández,constitucional
+G17,Derechos humanos,China,76,68.4,Alberto Fernández,constitucional
+G17,Derechos humanos,Reino Unido,76,46.1,Alberto Fernández,constitucional
+G17,Derechos humanos,Francia,76,50.0,Alberto Fernández,constitucional
+G17,Derechos humanos,Brasil,76,51.3,Alberto Fernández,constitucional
+G17,Derechos humanos,Chile,76,86.8,Alberto Fernández,constitucional
+G17,Derechos humanos,México,76,77.6,Alberto Fernández,constitucional
+G17,Derechos humanos,Cuba,74,74.3,Alberto Fernández,constitucional
+G17,Derechos humanos,Uruguay,76,77.6,Alberto Fernández,constitucional
+G17,Colonialismo,EE. UU.,34,0.0,Alberto Fernández,constitucional
+G17,Colonialismo,URSS/Rusia,31,93.5,Alberto Fernández,constitucional
+G17,Colonialismo,China,33,84.8,Alberto Fernández,constitucional
+G17,Colonialismo,Reino Unido,34,26.5,Alberto Fernández,constitucional
+G17,Colonialismo,Francia,33,27.3,Alberto Fernández,constitucional
+G17,Colonialismo,Brasil,34,73.5,Alberto Fernández,constitucional
+G17,Colonialismo,Chile,34,85.3,Alberto Fernández,constitucional
+G17,Colonialismo,México,34,73.5,Alberto Fernández,constitucional
+G17,Colonialismo,Cuba,34,85.3,Alberto Fernández,constitucional
+G17,Colonialismo,Uruguay,34,85.3,Alberto Fernández,constitucional
+G17,Desarrollo económico,EE. UU.,80,26.2,Alberto Fernández,constitucional
+G17,Desarrollo económico,URSS/Rusia,79,70.9,Alberto Fernández,constitucional
+G17,Desarrollo económico,China,80,83.8,Alberto Fernández,constitucional
+G17,Desarrollo económico,Reino Unido,80,61.3,Alberto Fernández,constitucional
+G17,Desarrollo económico,Francia,80,61.3,Alberto Fernández,constitucional
+G17,Desarrollo económico,Brasil,80,90.0,Alberto Fernández,constitucional
+G17,Desarrollo económico,Chile,80,92.5,Alberto Fernández,constitucional
+G17,Desarrollo económico,México,80,90.0,Alberto Fernández,constitucional
+G17,Desarrollo económico,Cuba,80,71.2,Alberto Fernández,constitucional
+G17,Desarrollo económico,Uruguay,80,90.0,Alberto Fernández,constitucional
+G18,Medio Oriente,EE. UU.,36,72.2,Milei,constitucional
+G18,Medio Oriente,URSS/Rusia,36,8.3,Milei,constitucional
+G18,Medio Oriente,China,36,8.3,Milei,constitucional
+G18,Medio Oriente,Reino Unido,36,16.7,Milei,constitucional
+G18,Medio Oriente,Francia,36,11.1,Milei,constitucional
+G18,Medio Oriente,Brasil,36,8.3,Milei,constitucional
+G18,Medio Oriente,Chile,36,8.3,Milei,constitucional
+G18,Medio Oriente,México,36,13.9,Milei,constitucional
+G18,Medio Oriente,Cuba,36,8.3,Milei,constitucional
+G18,Medio Oriente,Uruguay,36,16.7,Milei,constitucional
+G18,Armas nucleares,EE. UU.,46,65.2,Milei,constitucional
+G18,Armas nucleares,URSS/Rusia,47,44.7,Milei,constitucional
+G18,Armas nucleares,China,47,36.2,Milei,constitucional
+G18,Armas nucleares,Reino Unido,47,68.1,Milei,constitucional
+G18,Armas nucleares,Francia,47,59.6,Milei,constitucional
+G18,Armas nucleares,Brasil,47,29.8,Milei,constitucional
+G18,Armas nucleares,Chile,47,36.2,Milei,constitucional
+G18,Armas nucleares,México,47,34.0,Milei,constitucional
+G18,Armas nucleares,Cuba,47,27.7,Milei,constitucional
+G18,Armas nucleares,Uruguay,47,36.2,Milei,constitucional
+G18,Desarme,EE. UU.,67,59.7,Milei,constitucional
+G18,Desarme,URSS/Rusia,68,41.2,Milei,constitucional
+G18,Desarme,China,68,42.6,Milei,constitucional
+G18,Desarme,Reino Unido,68,69.1,Milei,constitucional
+G18,Desarme,Francia,68,63.2,Milei,constitucional
+G18,Desarme,Brasil,67,47.8,Milei,constitucional
+G18,Desarme,Chile,68,48.5,Milei,constitucional
+G18,Desarme,México,68,48.5,Milei,constitucional
+G18,Desarme,Cuba,68,32.4,Milei,constitucional
+G18,Desarme,Uruguay,68,50.0,Milei,constitucional
+G18,Derechos humanos,EE. UU.,60,71.7,Milei,constitucional
+G18,Derechos humanos,URSS/Rusia,60,25.0,Milei,constitucional
+G18,Derechos humanos,China,59,18.6,Milei,constitucional
+G18,Derechos humanos,Reino Unido,60,45.0,Milei,constitucional
+G18,Derechos humanos,Francia,60,45.0,Milei,constitucional
+G18,Derechos humanos,Brasil,60,28.3,Milei,constitucional
+G18,Derechos humanos,Chile,60,38.3,Milei,constitucional
+G18,Derechos humanos,México,60,33.3,Milei,constitucional
+G18,Derechos humanos,Cuba,58,24.1,Milei,constitucional
+G18,Derechos humanos,Uruguay,59,40.7,Milei,constitucional
+G18,Colonialismo,EE. UU.,21,19.0,Milei,constitucional
+G18,Colonialismo,URSS/Rusia,21,71.4,Milei,constitucional
+G18,Colonialismo,China,21,71.4,Milei,constitucional
+G18,Colonialismo,Reino Unido,21,23.8,Milei,constitucional
+G18,Colonialismo,Francia,21,23.8,Milei,constitucional
+G18,Colonialismo,Brasil,21,71.4,Milei,constitucional
+G18,Colonialismo,Chile,21,66.7,Milei,constitucional
+G18,Colonialismo,México,21,66.7,Milei,constitucional
+G18,Colonialismo,Cuba,21,71.4,Milei,constitucional
+G18,Colonialismo,Uruguay,21,71.4,Milei,constitucional
+G18,Desarrollo económico,EE. UU.,67,64.2,Milei,constitucional
+G18,Desarrollo económico,URSS/Rusia,67,20.9,Milei,constitucional
+G18,Desarrollo económico,China,67,29.9,Milei,constitucional
+G18,Desarrollo económico,Reino Unido,67,37.3,Milei,constitucional
+G18,Desarrollo económico,Francia,67,35.8,Milei,constitucional
+G18,Desarrollo económico,Brasil,67,32.8,Milei,constitucional
+G18,Desarrollo económico,Chile,67,34.3,Milei,constitucional
+G18,Desarrollo económico,México,67,35.8,Milei,constitucional
+G18,Desarrollo económico,Cuba,67,23.9,Milei,constitucional
+G18,Desarrollo económico,Uruguay,67,35.8,Milei,constitucional

@@ -1,6 +1,6 @@
 """Ideal points anuales (Voeten/Bailey/Strezhnev, 1946-2025) y primer esbozo de épocas de Argentina.
 
-Entrada : data/raw/IdealpointsJuly2025.tab
+Entrada : data/raw/IdealpointestimatesFP_2026FP.csv (versión 2026, 1946-2025, votos de aprobación final)
 Salida  : data/processed/ideal_points_1946_2025.csv
           data/processed/argentina_ideal_points.csv   (serie de Argentina + referentes y distancias)
           data/processed/argentina_epochs_draft.csv   (corte automático por segmentación binaria, solo borrador)
@@ -13,12 +13,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 raw, out = ROOT / "data/raw", ROOT / "data/processed"
 
-ip = pd.read_csv(raw / "IdealpointsJuly2025.tab", sep="\t", quotechar='"')
+ip = pd.read_csv(raw / "IdealpointestimatesFP_2026FP.csv")
+ip = ip.rename(columns={"Countryname": "country", "IdealPointFP": "ideal_point", "NVotesFP": "nvotesfp",
+                        "Q5%FP": "q5fp", "Q95%FP": "q95fp"})
 ip["year"] = ip["year"].astype(int)
-ip = ip.rename(columns={"countryname": "country", "idealpointfp": "ideal_point"})
-keep = ["ccode", "iso3c", "country", "year", "ideal_point", "idealpointall", "idealpointlegacy",
-        "nvotesfp", "q5fp", "q95fp"]
-ip = ip[keep]
+ip = ip[["ccode", "iso3c", "country", "year", "ideal_point", "nvotesfp", "q5fp", "q95fp"]]
 ip.to_csv(out / "ideal_points_1946_2025.csv", index=False)
 
 # se pivotea por código COW porque la fuente asigna el mismo iso3c (YAR) a los dos Yemen

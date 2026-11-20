@@ -1,6 +1,6 @@
-"""Votación de Argentina en la AGNU por gobierno (incluidos los de facto).
+"""Votación de Argentina en la AGNU por gobierno (incluidos los de facto), 1946-2026.
 
-Entrada : data/governments_argentina.csv (fechas de cada gobierno), votes/resolutions 1946-2012, ideal points 1946-2025
+Entrada : data/governments_argentina.csv (fechas de cada gobierno), votes/resolutions 1946-2026 (script 07), ideal points 1946-2025
 Salida  : data/processed/argentina_by_government_votes.csv      (reparto de votos por gobierno, todos los temas y por tema)
           data/processed/argentina_by_government_agreement.csv  (coincidencia con referentes por gobierno)
           data/processed/argentina_by_government_ideal_points.csv (ideal point anual y medio por gobierno, hasta 2025)
@@ -24,12 +24,12 @@ def gov_of(d):
     m = gov[(gov.start <= d) & (d <= gov.end)]
     return m.gov_id.iloc[0] if len(m) else None
 
-res = pd.read_csv(P / "resolutions_1946_2012.csv", parse_dates=["date"])
+res = pd.read_csv(P / "resolutions_1946_2026.csv", parse_dates=["date"])
 res["topics"] = res["topics"].fillna("")
 res["gov_id"] = res["date"].map(gov_of)
 for t in TOPICS: res[t] = res["topics"].str.contains(t, regex=False)
 
-v = pd.read_csv(P / "votes_1946_2012.csv.gz")
+v = pd.read_csv(P / "votes_1946_2026.csv.gz")
 v = v[v["vote_label"].isin(CAST)].merge(res[["rcid", "gov_id"] + TOPICS], on="rcid")
 a = v[v.ccode == ARG][["rcid", "vote_label", "gov_id"] + TOPICS].rename(columns={"vote_label": "arg"})
 

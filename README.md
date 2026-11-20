@@ -20,12 +20,12 @@ replicable para el resto de los miembros.
 ## Fuentes
 - Voeten, E. *United Nations General Assembly Voting Data* (Harvard Dataverse, doi:10.7910/DVN/LEJUQZ, versión 7, 2015): votos por país y resolución, sesiones 1–67 (1946–2012).
 - Voeten, E. *United Nations General Assembly Ideal Points* (misma doi, versión vigente): ideal points anuales 1946–2025.
-- UN Digital Library (voting data): sesiones posteriores a 2012.
+- UN Digital Library (colección *Voting Data*, votos registrados 2013–2025): votos por país y resolución, descargados por año (`scripts/06a`). Los temas de este tramo se asignan por palabras clave sobre el título, no por la codificación de Voeten.
 
 ## Estado
 - [x] Votos 1946–2012 (`scripts/01_build_votes_1946_2012.py`)
 - [x] Épocas por gobierno (`data/governments_argentina.csv`, `scripts/04_argentina_by_government.py`)
-- [ ] Votos 2013–2025
+- [x] Votos 2013–2025 desde la UN Digital Library (`scripts/06a`, `06b`, `07`)
 - [x] Ideal points 1946–2025 y borrador de épocas de Argentina (`scripts/02_build_ideal_points.py`)
 - [x] Análisis temático y coincidencias de Argentina 1946–2012 (`scripts/03_argentina_thematic.py`)
 - [x] Figuras en R (`R/01_figuras_argentina.R`) y prototipo web (`docs/`)
