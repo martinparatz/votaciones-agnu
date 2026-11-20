@@ -65,7 +65,7 @@ g2 <- ggplot(todos, aes(pct, government, fill = voto)) +
             inherit.aes = FALSE, hjust = 0, size = 3.2) +
   scale_fill_manual(values = c(`A favor` = "#2a9d8f", `Abstención` = "#e9c46a", `En contra` = "#e76f51"), name = NULL) +
   scale_x_continuous(labels = label_percent(scale = 1), breaks = seq(0, 100, 25), expand = expansion(mult = c(0, 0.22))) +
-  labs(title = "Cómo vota Argentina, por gobierno (1946-2025)", x = NULL, y = NULL,
+  labs(title = "Cómo vota Argentina, por gobierno (1946-2026)", x = NULL, y = NULL,
        caption = "Votaciones nominales con voto emitido (sí, abstención o no). Fuentes: Voeten (hasta 2012) y UN Digital Library (desde 2013)") +
   tema_base
 guardar("figures/02_votos_por_gobierno.png", g2, 11, 6.5)
@@ -80,7 +80,7 @@ g3 <- ggplot(ag, aes(reference, government, fill = pct_agreement)) +
   geom_text(aes(label = ifelse(is.na(pct_agreement), "s/d", round(pct_agreement))), size = 3) +
   scale_fill_gradient2(low = "#b2182b", mid = "#f7f7f7", high = "#2166ac", midpoint = 55, na.value = "grey90",
                        limits = c(0, 100), name = "% de coincidencia") +
-  labs(title = "Con quién coincide Argentina en sus votos, por gobierno (1946-2025)", x = NULL, y = NULL,
+  labs(title = "Con quién coincide Argentina en sus votos, por gobierno (1946-2026)", x = NULL, y = NULL,
        caption = "Porcentaje de votaciones en que ambos países votaron igual, sobre las votaciones en que los dos emitieron voto") +
   tema_base + theme(axis.text.x = element_text(angle = 30, hjust = 1))
 guardar("figures/03_coincidencia_por_gobierno.png", g3, 11, 6.5)
@@ -94,7 +94,7 @@ g4 <- ggplot(tm, aes(topic, government, fill = pct_yes)) +
   geom_tile(colour = "white") +
   geom_text(aes(label = round(pct_yes)), size = 3) +
   scale_fill_gradient(low = "#fde0dd", high = "#1a9850", limits = c(0, 100), name = "% a favor") +
-  labs(title = "Votos a favor de Argentina por tema y gobierno (1946-2025)", x = NULL, y = NULL,
+  labs(title = "Votos a favor de Argentina por tema y gobierno (1946-2026)", x = NULL, y = NULL,
        caption = "Temas: codificación de Voeten hasta 2012 y palabras clave sobre el título desde 2013; una resolución puede tener más de un tema") +
   tema_base + theme(axis.text.x = element_text(angle = 30, hjust = 1))
 guardar("figures/04_votos_por_tema_y_gobierno.png", g4, 11, 6.5)

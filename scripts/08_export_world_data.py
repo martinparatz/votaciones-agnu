@@ -15,13 +15,13 @@ from country_names_es import NAMES_ES
 
 P, D = ROOT / "data/processed", ROOT / "docs/data"
 PERIODS = [
-    ("all", "Todo el período (1946–2025)", 1946, 2025),
+    ("all", "Todo el período (1946–2026)", 1946, 2026),
     ("p1", "Guerra Fría temprana (1946–1962)", 1946, 1962),
     ("p2", "Descolonización y distensión (1963–1979)", 1963, 1979),
     ("p3", "Guerra Fría tardía (1980–1991)", 1980, 1991),
     ("p4", "Posguerra fría (1992–2000)", 1992, 2000),
     ("p5", "Siglo XXI hasta 2011", 2001, 2011),
-    ("p6", "Desde 2012 (2012–2025)", 2012, 2025),
+    ("p6", "Desde 2012 (2012–2026)", 2012, 2026),
 ]
 TOPICS = ["Medio Oriente", "Armas nucleares", "Desarme", "Derechos humanos", "Colonialismo", "Desarrollo económico"]
 
