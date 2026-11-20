@@ -9,6 +9,9 @@ replicable para el resto de los miembros.
 - **Web:** el sitio interactivo está en `docs/` (HTML + Plotly). Para publicarlo: *Settings → Pages → Deploy from a branch → `main` / `/docs`*. Para verlo en local: `python3 -m http.server -d docs`.
 - **Regenerar datos:** `python3 scripts/01…08` en orden (06a/06b/07 para 2013–2025; 08 genera `docs/data/world.json`) (los scripts 01 y 02 necesitan los archivos de `data/raw/`, ver Fuentes).
 
+## Licencias
+Código: MIT (`LICENSE`). Análisis, textos y figuras propios: CC BY 4.0. Los datos de origen conservan las condiciones de sus fuentes (ver `LICENSE-CONTENT.md` y la pestaña *Metodología y fuentes* de la web). Proyecto independiente, no avalado por la ONU.
+
 ## Estructura
 - `scripts/` — recolección, limpieza y análisis (Python).
 - `R/` — figuras y análisis en R/RStudio.
