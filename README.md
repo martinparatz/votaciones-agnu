@@ -27,6 +27,6 @@ replicable para el resto de los miembros.
 - [x] Épocas por gobierno (`data/governments_argentina.csv`, `scripts/04_argentina_by_government.py`)
 - [x] Votos 2013–2025 desde la UN Digital Library (`scripts/06a`, `06b`, `07`)
 - [x] Ideal points 1946–2025 y borrador de épocas de Argentina (`scripts/02_build_ideal_points.py`)
-- [x] Análisis temático y coincidencias de Argentina 1946–2012 (`scripts/03_argentina_thematic.py`)
+- [x] Análisis temático y coincidencias de Argentina por época (borrador, 1946–2012: `scripts/03_argentina_thematic.py`) y por gobierno hasta 2025 (`scripts/04_argentina_by_government.py`)
 - [x] Figuras en R (`R/01_figuras_argentina.R`) y prototipo web (`docs/`)
-- [ ] Pulir la web, versión para todos los países y datos 2013–2025
+- [ ] Pulir la web y extender las vistas a todos los países
