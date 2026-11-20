@@ -57,7 +57,16 @@ def tidy(t):
 A["t"] = A["title_short"].fillna("").map(tidy)
 print("títulos sin traducir:", int((~A["title_short"].fillna("").str.strip().str.lower().isin(TES)).sum()))
 A = A.sort_values(["date", "rcid"])
-out = [{"d": r.date.strftime("%Y-%m-%d"), "s": r.unres if isinstance(r.unres, str) else "", "t": r.t, "tp": r.topics or "",
+# enlace al texto: id de registro de la UN Digital Library (2013+) o, para el resto, símbolo oficial para buscar
+_new = pd.read_csv(ROOT / "data/processed/resolutions_2013_2026.csv", usecols=["rcid", "undl_record"])
+A = A.merge(_new, on="rcid", how="left")
+def symbol(u):
+    if not isinstance(u, str): return ""
+    for a, b in (("R/", "A/RES/"), ("ESS/", "A/RES/ES-"), ("SS/", "A/RES/S-")):
+        if u.startswith(a): return b + u[len(a):]
+    return u
+A["sym"] = A["unres"].map(symbol)
+out = [{"d": r.date.strftime("%Y-%m-%d"), "s": r.sym, "k": int(r.undl_record) if pd.notna(r.undl_record) else 0, "t": r.t, "tp": r.topics or "",
         "v": r.arg, "y": int(r.yes), "n": int(r.no), "a": int(r.abstain), "g": r.g} for r in A.itertuples()]
 dump("argentina_votes.json", out)
 print("ok", {p.name: p.stat().st_size for p in D.iterdir()})

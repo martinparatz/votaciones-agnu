@@ -484,6 +484,11 @@ function drawAgree() {
 const VL = { yes: "A favor", abstain: "Abstención", no: "En contra", absent: "Ausente" };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+function linkOf(r) {
+  if (!r.s) return "";
+  const u = r.k ? `https://digitallibrary.un.org/record/${r.k}?ln=es` : `https://digitallibrary.un.org/search?ln=es&p=${encodeURIComponent('"' + r.s + '"')}`;
+  return `<a href="${u}" target="_blank" rel="noopener" title="Abrir el texto en la Biblioteca Digital de la ONU">${esc(r.s)}</a>`;
+}
 function drawTable() {
   if (!visible("tab-table")) return;
   const g = $("f-gov").value, tp = $("f-topic").value, vt = $("f-vote").value, q = norm($("f-q").value.trim()), against = $("f-against").checked;
@@ -493,7 +498,7 @@ function drawTable() {
   page = Math.min(Math.max(page, 0), pages - 1);
   const slice = rows.slice().reverse().slice(page * per, page * per + per);
   $("tcount").textContent = `${rows.length.toLocaleString("es-AR")} votaciones${rows.length ? " (más recientes primero)" : ""}.`;
-  $("tbody").innerHTML = slice.map(r => `<tr><td class="num">${r.d}</td><td class="num">${esc(r.s || "")}</td><td>${esc(r.t)}</td><td>${esc(r.tp.replace(/;/g, ", "))}</td>
+  $("tbody").innerHTML = slice.map(r => `<tr><td class="num">${r.d}</td><td class="num">${linkOf(r)}</td><td>${esc(r.t)}</td><td>${esc(r.tp.replace(/;/g, ", "))}</td>
     <td><span class="v ${r.v}">${VL[r.v] || r.v}</span></td><td class="num">${r.y}–${r.n}–${r.a}</td></tr>`).join("") || '<tr><td colspan="6">Sin resultados.</td></tr>';
   $("pageinfo").textContent = `Página ${page + 1} de ${pages}`;
   $("prev").disabled = page === 0; $("next").disabled = page >= pages - 1;
