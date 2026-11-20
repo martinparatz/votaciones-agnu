@@ -1,9 +1,11 @@
 """Exporta los datos procesados a JSON para el sitio web (docs/data/)."""
-import json
+import json, sys
 import pandas as pd
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from country_names_es import NAMES_ES
 P, D = ROOT / "data/processed", ROOT / "docs/data"
 D.mkdir(parents=True, exist_ok=True)
 
@@ -15,7 +17,7 @@ ip = pd.read_csv(P / "ideal_points_1946_2025.csv").dropna(subset=["ideal_point"]
 ip["label"] = ip["country"] + " (" + ip["iso3c"].fillna("") + ")"
 countries = {}
 for (cc, name), g in ip.groupby(["ccode", "country"]):
-    countries[str(cc)] = {"name": name, "iso3": g["iso3c"].iloc[0] if pd.notna(g["iso3c"].iloc[0]) else "",
+    countries[str(cc)] = {"name": NAMES_ES.get(int(cc), name), "iso3": g["iso3c"].iloc[0] if pd.notna(g["iso3c"].iloc[0]) else "",
                           "years": g["year"].astype(int).tolist(), "ip": g["ideal_point"].round(3).tolist()}
 world = ip.groupby("year")["ideal_point"].mean().round(3)
 dump("ideal_points.json", {"countries": countries, "world": {"years": world.index.astype(int).tolist(), "ip": world.tolist()}})
@@ -46,10 +48,14 @@ def gid(d):
     return m.gov_id.iloc[0] if len(m) else None
 A["date"] = pd.to_datetime(A["date"]); A["topics"] = A["topics"].fillna("")
 A["g"] = A["date"].map(gid)
+TES = json.loads((ROOT / "data/i18n/titles_es.json").read_text(encoding="utf-8"))
 def tidy(t):
     t = str(t).strip()
-    return t[:1] + t[1:].lower() if t.isupper() else t
+    k = t.lower()
+    if k in TES: return TES[k]
+    return t[:1] + t[1:].lower() if t.isupper() else t   # sin traducción: se deja el original
 A["t"] = A["title_short"].fillna("").map(tidy)
+print("títulos sin traducir:", int((~A["title_short"].fillna("").str.strip().str.lower().isin(TES)).sum()))
 A = A.sort_values(["date", "rcid"])
 out = [{"d": r.date.strftime("%Y-%m-%d"), "s": r.unres if isinstance(r.unres, str) else "", "t": r.t, "tp": r.topics or "",
         "v": r.arg, "y": int(r.yes), "n": int(r.no), "a": int(r.abstain), "g": r.g} for r in A.itertuples()]

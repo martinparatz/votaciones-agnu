@@ -7,7 +7,7 @@ replicable para el resto de los miembros.
 ## Cómo usarlo
 - **RStudio:** abrir `votaciones-agnu.Rproj` y ejecutar `R/01_figuras_argentina.R` (paquetes: readr, dplyr, tidyr, ggplot2, scales; todos vienen con tidyverse). Genera las figuras en `figures/`.
 - **Web:** el sitio interactivo está en `docs/` (HTML + Plotly). Para publicarlo: *Settings → Pages → Deploy from a branch → `main` / `/docs`*. Para verlo en local: `python3 -m http.server -d docs`.
-- **Regenerar datos:** `python3 scripts/01…05` en orden (los scripts 01 y 02 necesitan los archivos de `data/raw/`, ver Fuentes).
+- **Regenerar datos:** `python3 scripts/01…08` en orden (06a/06b/07 para 2013–2025; 08 genera `docs/data/world.json`) (los scripts 01 y 02 necesitan los archivos de `data/raw/`, ver Fuentes).
 
 ## Estructura
 - `scripts/` — recolección, limpieza y análisis (Python).
@@ -29,4 +29,7 @@ replicable para el resto de los miembros.
 - [x] Ideal points 1946–2025 y borrador de épocas de Argentina (`scripts/02_build_ideal_points.py`)
 - [x] Análisis temático y coincidencias de Argentina por época (borrador, 1946–2012: `scripts/03_argentina_thematic.py`) y por gobierno hasta 2025 (`scripts/04_argentina_by_government.py`)
 - [x] Figuras en R (`R/01_figuras_argentina.R`) y prototipo web (`docs/`)
-- [ ] Pulir la web y extender las vistas a todos los países
+- [x] Web con sección **Mundo** (mapa planisferio de alineamientos por país de referencia y período, o de ideal points por año; explorador de países; línea de tiempo comparable) y sección **Argentina** (por gobierno, votos, coincidencias, tabla de votaciones). Datos de todos los países en `docs/data/world.json` (`scripts/08_export_world_data.py`).
+- [x] Títulos de resoluciones en español: 160 oficiales de la ONU y el resto traducidos (`data/i18n/`); nombres de países en `scripts/country_names_es.py`.
+- Limitaciones: la geometría del mapa (110m) omite los Estados pequeños; los Estados desaparecidos figuran con su nombre histórico; los temas desde 2013 son aproximados.
+- [ ] Textos contextuales por gobierno (para revisión)
