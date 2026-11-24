@@ -1,0 +1,195 @@
+# El sitio web: arquitectura, datos y publicación {#sec-sitio}
+
+```{r}
+#| include: false
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+## Arquitectura: un sitio estático
+
+El sitio publicado en <https://martinparatz.github.io/votaciones-agnu/> es **estático**: no hay servidor que
+calcule nada ni base de datos. Son archivos que GitHub Pages entrega tal cual al navegador, y el navegador hace
+el resto. Esto tiene tres ventajas: es gratis, es rápido y no se rompe (no hay nada que mantener encendido).
+
+```{mermaid}
+flowchart TB
+  subgraph GitHub["Repositorio en GitHub (carpeta docs/)"]
+    H["index.html<br/>HTML + CSS + JavaScript"]
+    J["data/*.json<br/>(generados por R)"]
+    T["data/topojson/world_110m.json<br/>(geometría del mapa)"]
+  end
+  CDN["Plotly.js 2.35.2<br/>(cdn.jsdelivr.net)"]
+  N["Navegador del visitante"]
+  H --> N
+  J -- "fetch()" --> N
+  T --> N
+  CDN --> N
+```
+
+El navegador baja `index.html`, que a su vez pide la biblioteca de gráficos Plotly.js y los siete archivos JSON
+de `docs/data/`. Con eso arma todas las pestañas. Cuando el visitante cambia un menú (país, período, tema),
+JavaScript vuelve a dibujar el gráfico con los datos que ya tiene en memoria: no hay que volver a pedir nada.
+
+### Qué archivo alimenta cada pestaña
+
+| Sección | Pestaña | JSON que usa | Lo genera |
+|---|---|---|---|
+| Mundo | Mapa | `world.json` (coincidencias) e `ideal_points.json` (modo ideal points) | `07_exportar_mundo.R`, `06_exportar_web.R` |
+| Mundo | Países | `world.json`, `ideal_points.json` | ídem |
+| Mundo | Línea de tiempo | `ideal_points.json`, `governments.json` | `06_exportar_web.R` |
+| Argentina | Por gobierno | `governments.json`, `votes_by_government.json`, `agreement_by_government.json`, `government_ideal_points.json` | `06_exportar_web.R` |
+| Argentina | Votos | `votes_by_government.json` | `06_exportar_web.R` |
+| Argentina | Coincidencias | `agreement_by_government.json` | `06_exportar_web.R` |
+| Argentina | Votaciones | `argentina_votes.json` | `06_exportar_web.R` |
+| Acerca de | Metodología y fuentes | (texto fijo en `index.html`) | a mano |
+
+### Cómo está hecho `index.html`
+
+Es un solo archivo de unas 550 líneas con tres partes:
+
+1. **`<style>`**: el diseño. Los colores están definidos como variables al principio (`--yes`, `--no`,
+   `--accent`...), con una segunda tanda para el modo oscuro (`@media (prefers-color-scheme: dark)`).
+   Para cambiar un color en todo el sitio, se cambia una sola línea.
+2. **`<body>`**: la estructura. Un encabezado con los botones de las pestañas y una `<section>` por pestaña
+   (`id="tab-mapa"`, `id="tab-votes"`...), cada una con sus menús y un `<div>` vacío donde va el gráfico.
+3. **`<script>`**: la lógica. Primero carga los datos:
+
+```js
+Promise.all(["ideal_points", "governments", "votes_by_government", "agreement_by_government",
+             "government_ideal_points", "argentina_votes", "world"]
+  .map(n => fetch("data/" + n + ".json").then(r => r.json())))
+  .then(([ip, gov, votes, agree, gip, av, world]) => { D = { ip, gov, votes, agree, gip, av }; W = world; init(); });
+```
+
+Después, una función por pestaña (`drawMap()`, `drawVotes()`, `drawTable()`...) filtra los datos según los menús
+y llama a `Plotly.react()` para dibujar. Por ejemplo, la pestaña *Votos* arma tres series de barras
+horizontales (a favor, abstención, en contra) a partir de `votes_by_government.json`:
+
+```js
+const rows = D.votes.filter(r => r.topic === t);           // el tema elegido en el menú
+const mk = (k, name, color) => ({ type: "bar", orientation: "h", name, y,
+                                  x: order.map(id => by[id][k]), marker: { color } });
+Plotly.react($("chart-votes"), [mk("pct_yes", "A favor", "#2a9d8f"), ...], { barmode: "stack", ... });
+```
+
+No hace falta saber JavaScript para mantener el sitio: mientras los JSON tengan la misma estructura, el sitio
+los muestra. Lo que sí conviene saber es **qué forma tiene cada JSON**, porque es el "contrato" entre R y la web.
+
+## Del data frame al JSON
+
+JSON es un formato de texto para datos. Tiene objetos (`{"clave": valor}`) y listas (`[1, 2, 3]`).
+El paquete **jsonlite** traduce objetos de R a JSON y viceversa. Hay tres formas que usa el proyecto.
+
+**1. Una tabla → una lista de objetos** (una fila = un objeto). Así son `governments.json`,
+`votes_by_government.json`, `agreement_by_government.json` y `argentina_votes.json`:
+
+```{r}
+library(tidyverse)
+library(jsonlite)
+gov <- read_csv("data/governments_argentina.csv", col_types = cols(.default = col_character()))
+toJSON(head(gov, 2), na = "null", pretty = TRUE)
+```
+
+**2. Una lista con nombres → un objeto**. Así es `ideal_points.json`, que tiene un objeto por país con sus series:
+
+```{r}
+toJSON(list(countries = list(`160` = list(name = "Argentina", iso3 = "ARG",
+                                          years = I(c(2024L, 2025L)), ip = I(c(-0.12, 1.91))))),
+       auto_unbox = TRUE, pretty = TRUE)
+```
+
+**3. Una matriz → una lista de listas** (filas). Así son las matrices de coincidencias de `world.json`:
+
+```{r}
+toJSON(matrix(c(100L, 62L, 62L, 100L), nrow = 2))
+```
+
+::: {.callout-important}
+## Tres detalles de jsonlite que importan
+- `auto_unbox = TRUE` escribe `"name": "Argentina"` en vez de `"name": ["Argentina"]` (en R todo es un vector,
+  aunque tenga un solo elemento). Pero entonces una serie de **un solo año** también quedaría como número suelto
+  y el sitio esperaría una lista: por eso las series se envuelven en `I()`, que las protege.
+- `digits = NA` conserva todos los decimales (por defecto jsonlite redondea a 4).
+- `na = "null"` escribe los faltantes como `null`, que JavaScript entiende; si no, jsonlite omite el campo.
+
+Los scripts usan la función `escribir_json()` de `00_config.R`, que aplica las tres opciones siempre.
+:::
+
+## La sección Mundo: coincidencias de todos contra todos con matrices
+
+Calcular la coincidencia entre cada par de 199 países en 7 períodos con un loop sería muy lento. El script
+`07_exportar_mundo.R` usa un truco de álgebra lineal. Primero arma una matriz `M` con una fila por votación y una
+columna por país, con el voto codificado (1 = sí, 2 = abstención, 3 = no, 4 = ausente, 0 = sin dato). Después
+crea tres matrices de ceros y unos: `Y` (votó sí), `A` (se abstuvo), `N` (votó no).
+
+El producto `t(Y) %*% Y` (en R, `crossprod(Y)`) da, para cada par de países (i, j), **cuántas veces votaron sí
+los dos**. Sumando lo mismo para abstenciones y para "no", se obtienen las veces que votaron igual. Y
+`crossprod(Y + A + N)` da cuántas veces votaron los dos. El cociente es la coincidencia. Un ejemplo con
+3 países y 4 votaciones:
+
+```{r}
+M <- matrix(c(1, 1, 3,     # votación 1: país 1 sí, país 2 sí, país 3 no
+              1, 2, 3,     # votación 2
+              3, 3, 1,     # votación 3
+              1, 1, 0),    # votación 4: el país 3 no tiene dato
+            ncol = 3, byrow = TRUE, dimnames = list(NULL, c("A", "B", "C")))
+Y <- (M == 1) * 1; A <- (M == 2) * 1; N <- (M == 3) * 1
+iguales <- crossprod(Y) + crossprod(A) + crossprod(N)
+ambos   <- crossprod(Y + A + N)
+round(100 * iguales / ambos)
+```
+
+A y B coincidieron en 3 de 4 votaciones (75 %); A y C en ninguna de las 3 que votaron los dos (0 %).
+Con los datos reales, la matriz tiene 6.501 filas y 199 columnas, y el cálculo tarda menos de un segundo por período.
+
+## Ver el sitio en tu computadora antes de publicarlo
+
+Si abrís `docs/index.html` con doble clic, el navegador **no** carga los datos: por seguridad, no deja que una
+página abierta desde el disco (`file://`) pida otros archivos con `fetch()`. Hay que servirla con un pequeño
+servidor local. Desde la consola de RStudio:
+
+```{r}
+#| eval: false
+servr::httd("docs")          # abre http://127.0.0.1:4321 en el navegador (o en el Viewer)
+# para cortarlo: servr::daemon_stop()
+```
+
+Si cambiás un JSON o `index.html`, recargá la página en el navegador para ver el cambio.
+
+## Modificar el sitio
+
+`index.html` se puede editar en RStudio como cualquier archivo de texto. Lo más habitual:
+
+| Querés... | Dónde |
+|---|---|
+| Cambiar textos (títulos, explicaciones, metodología) | Dentro de `<header>` y de cada `<section>` en `index.html` |
+| Actualizar la fecha del último voto cargado | En la sección `tab-metodologia` y en el `<footer>` de `index.html` |
+| Cambiar colores | Variables `--yes`, `--abs`, `--no`, `--accent` al principio de `<style>` |
+| Agregar un gobierno | Una fila en `data/governments_argentina.csv` **y** su nombre corto en el objeto `SHORT` del `<script>` de `index.html` |
+| Agregar un país de referencia para Argentina | Vector `REFS` en `R/pipeline/00_config.R` |
+| Cambiar los períodos de la sección Mundo | `PERIODS` en `R/pipeline/07_exportar_mundo.R` |
+| Agregar o ajustar un tema (desde 2013) | `TOPIC_RULES` en `R/pipeline/03_votos_2013_2026.R` |
+
+## Publicar en GitHub Pages
+
+La configuración se hace **una sola vez** (y en este repositorio ya está hecha):
+
+1. En GitHub, en el repositorio: *Settings → Pages*.
+2. *Source*: **Deploy from a branch**. *Branch*: **main**, carpeta **/docs**. *Save*.
+
+Desde entonces, **cada vez que llega a `main` un cambio en `docs/`**, GitHub vuelve a publicar el sitio en uno o
+dos minutos. Podés seguir el proceso en la pestaña *Actions* del repositorio ("pages build and deployment").
+El circuito completo desde RStudio es:
+
+1. **Pull**.
+2. `source("R/pipeline/correr_todo.R")` (o solo los scripts que hagan falta).
+3. `servr::httd("docs")` y revisar que todo se vea bien.
+4. En la pestaña Git: revisar los cambios, **Commit**, **Push**.
+5. Esperar un par de minutos y abrir <https://martinparatz.github.io/votaciones-agnu/> (con Ctrl+F5 o
+   Cmd+Shift+R para que el navegador no muestre la versión vieja guardada).
+
+::: {.callout-note}
+## ¿Por qué `docs/` y no la raíz?
+GitHub Pages solo permite publicar la raíz del repositorio o una carpeta llamada `docs/`. Usar `docs/` deja
+separado lo que se publica (el sitio) de lo que no (datos de trabajo, scripts, esta guía).
+:::

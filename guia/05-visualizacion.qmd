@@ -1,0 +1,211 @@
+# Visualización: gráficos estáticos e interactivos {#sec-visualizacion}
+
+```{r}
+#| include: false
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+El proyecto tiene dos tipos de gráficos:
+
+- **Estáticos** (PNG), hechos con **ggplot2** en `R/01_figuras_argentina.R`. Sirven para documentos,
+  presentaciones e informes.
+- **Interactivos**, los del sitio, hechos con **Plotly**. En el sitio actual los dibuja JavaScript
+  (capítulo 6), pero desde R se puede hacer lo mismo con el paquete **plotly**, y eso es lo que permite
+  armar un sitio enteramente en R (capítulo 7).
+
+Este capítulo se ejecuta sobre los datos del repositorio.
+
+```{r}
+library(tidyverse)
+library(scales)
+gov <- read_csv("data/governments_argentina.csv", show_col_types = FALSE)
+```
+
+## La gramática de ggplot2 en un ejemplo
+
+Todo gráfico de ggplot2 se arma por capas: **datos** + **estética** (qué variable va en cada eje, color,
+tamaño) + **geometría** (líneas, barras, mosaicos) + escalas, títulos y tema.
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5.5
+ip <- read_csv("data/processed/argentina_ideal_points.csv", show_col_types = FALSE)
+
+serie <- ip |>
+  select(year, Argentina = ARG, `EE. UU.` = USA, China = CHN, `Promedio mundial` = mean_world) |>
+  pivot_longer(-year, names_to = "pais", values_to = "ideal_point")   # a formato largo
+
+ggplot(serie, aes(x = year, y = ideal_point, colour = pais)) +
+  geom_line(linewidth = 0.8, na.rm = TRUE) +
+  scale_colour_manual(values = c(Argentina = "#1f77b4", `EE. UU.` = "#d62728",
+                                 China = "#e6a100", `Promedio mundial` = "#555555")) +
+  labs(title = "Argentina en la Asamblea General de la ONU, 1946-2025",
+       subtitle = "Ideal point anual: alto = más cerca de EE. UU.; bajo = más cerca del mundo en desarrollo",
+       x = NULL, y = "Ideal point", colour = NULL,
+       caption = "Fuente: Bailey, Strezhnev y Voeten") +
+  theme_minimal(base_size = 12) +
+  theme(legend.position = "bottom")
+```
+
+::: {.callout-tip}
+## Concepto de R: por qué formato largo para graficar
+ggplot2 quiere **una columna por variable**. Para dibujar cuatro líneas no se le pasan cuatro columnas, sino una
+columna `pais` (que va al color) y una columna `ideal_point` (que va al eje y). Por eso el `pivot_longer()`.
+:::
+
+### Sombrear los gobiernos de facto
+
+El gráfico del proyecto agrega bandas grises para los gobiernos de facto. Es otra capa, `geom_rect()`, con
+otros datos (la tabla de gobiernos):
+
+```{r}
+#| fig-width: 10
+#| fig-height: 5.5
+bandas <- gov |>
+  filter(type == "de facto") |>
+  mutate(xmin = pmax(as.integer(format(start, "%Y")), 1946),
+         xmax = as.integer(format(end, "%Y")) + 1)
+
+ggplot() +
+  geom_rect(data = bandas, aes(xmin = xmin, xmax = xmax, ymin = -Inf, ymax = Inf),
+            fill = "grey60", alpha = 0.25) +
+  geom_line(data = filter(serie, pais %in% c("Argentina", "EE. UU.")),
+            aes(year, ideal_point, colour = pais), linewidth = 0.9, na.rm = TRUE) +
+  scale_colour_manual(values = c(Argentina = "#1f77b4", `EE. UU.` = "#d62728"), name = NULL) +
+  labs(title = "Ideal point de Argentina y EE. UU.", subtitle = "En gris: gobiernos de facto",
+       x = NULL, y = "Ideal point") +
+  theme_minimal(base_size = 12) + theme(legend.position = "bottom")
+```
+
+### Guardar en PNG
+
+```{r}
+#| eval: false
+g <- last_plot()
+ggsave("figures/mi_grafico.png", g, width = 11, height = 6, dpi = 150, bg = "white",
+       device = ragg::agg_png)   # ragg dibuja bien tildes y eñes en cualquier sistema
+```
+
+## Los cuatro gráficos del proyecto
+
+`R/01_figuras_argentina.R` genera cuatro figuras en `figures/` y es un buen script para estudiar, porque usa
+las geometrías más comunes:
+
+| Figura | Geometría | Datos |
+|---|---|---|
+| `01_ideal_point_argentina.png` | `geom_line` + `geom_rect` | `argentina_ideal_points.csv` |
+| `02_votos_por_gobierno.png` | `geom_col` (barras apiladas) | `argentina_by_government_votes.csv` |
+| `03_coincidencia_por_gobierno.png` | `geom_tile` (mapa de calor) | `argentina_by_government_agreement.csv` |
+| `04_votos_por_tema_y_gobierno.png` | `geom_tile` | `argentina_by_government_votes.csv` |
+
+Corrélo con `source("R/01_figuras_argentina.R")` y mirá los PNG en la pestaña *Files*. Un ejemplo de la técnica
+de la figura 2, barras horizontales apiladas que suman 100 %:
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6.5
+vg <- read_csv("data/processed/argentina_by_government_votes.csv", show_col_types = FALSE)
+orden <- gov$government[gov$government %in% vg$government]
+
+vg |>
+  filter(topic == "Todos") |>
+  pivot_longer(starts_with("pct_"), names_to = "voto", values_to = "pct") |>
+  mutate(voto = factor(voto, levels = c("pct_no", "pct_abstain", "pct_yes"),
+                       labels = c("En contra", "Abstención", "A favor")),
+         government = factor(government, levels = rev(orden))) |>
+  ggplot(aes(pct, government, fill = voto)) +
+  geom_col(width = 0.75) +
+  scale_fill_manual(values = c(`A favor` = "#2a9d8f", `Abstención` = "#e9c46a", `En contra` = "#e76f51"),
+                    name = NULL) +
+  scale_x_continuous(labels = label_percent(scale = 1)) +
+  labs(title = "Cómo vota Argentina, por gobierno (1946-2026)", x = NULL, y = NULL) +
+  theme_minimal(base_size = 12) + theme(legend.position = "bottom")
+```
+
+::: {.callout-tip}
+## Concepto de R: factores para ordenar
+ggplot2 ordena el texto alfabéticamente. Para que los gobiernos salgan en orden cronológico, se convierte la
+columna en **factor** con `factor(x, levels = ...)`, que fija el orden. Lo mismo con el tipo de voto, para que
+"A favor" quede siempre del mismo lado.
+:::
+
+## Gráficos interactivos con plotly
+
+El paquete **plotly** de R usa la misma biblioteca (Plotly.js) que el sitio. Hay dos formas de usarlo.
+
+### 1. Convertir un ggplot: `ggplotly()`
+
+La más rápida: hacés el gráfico con ggplot2 y lo convertís. Pasá el mouse por las líneas para ver los valores.
+
+```{r}
+library(plotly)
+g <- ggplot(filter(serie, pais %in% c("Argentina", "EE. UU.", "China")),
+            aes(year, ideal_point, colour = pais)) +
+  geom_line(na.rm = TRUE) +
+  labs(x = NULL, y = "Ideal point", colour = NULL) +
+  theme_minimal()
+ggplotly(g)
+```
+
+### 2. Escribir directamente con `plot_ly()`
+
+Da más control y es lo más parecido a lo que hace el sitio. El mapa de la sección *Mundo* es un
+*choropleth* (mapa coloreado por país) con el porcentaje de coincidencia de cada país con un país de referencia.
+Se puede reproducir leyendo el mismo `docs/data/world.json` que usa la web:
+
+```{r}
+library(jsonlite)
+W <- fromJSON("docs/data/world.json")
+
+paises <- W$countries                  # tabla: c (código COW), es (nombre), iso, y0, y1
+i_arg  <- which(paises$c == 160)
+periodo <- "p6"                         # "Desde 2012 (2012–2026)"
+pct <- W$agree[[periodo]][i_arg, ]      # fila de Argentina en la matriz de coincidencias
+pct[pct < 0] <- NA                      # -1 = menos de 10 votaciones en común
+
+mapa <- tibble(c = paises$c, iso = paises$iso, nombre = paises$es, pct = pct) |>
+  filter(iso != "", c != 160)          # sin Argentina y sin los Estados que no tienen ISO
+
+plot_ly(mapa, type = "choropleth", locationmode = "ISO-3",
+        locations = ~iso, z = ~pct, text = ~nombre,
+        colorscale = list(c(0, "#b2182b"), c(0.5, "#f1f1f1"), c(1, "#2166ac")),
+        zmin = 0, zmax = 100,
+        hovertemplate = "<b>%{text}</b><br>%{z:.0f}% de coincidencia<extra></extra>",
+        colorbar = list(title = "Coincidencia (%)")) |>
+  layout(title = "Coincidencia con Argentina, 2012-2026",
+         geo = list(projection = list(type = "natural earth"), showframe = FALSE, showcoastlines = FALSE))
+```
+
+::: {.callout-tip}
+## Concepto de R: la fórmula `~`
+En `plot_ly()`, `~iso` significa "la columna `iso` de los datos". Es la forma que tiene plotly de saber que
+`iso` no es una variable suelta sino una columna de `mapa`.
+:::
+
+### Una tabla interactiva
+
+La pestaña *Votaciones* del sitio es una tabla con búsqueda y filtros. En R, el paquete **DT** hace eso en una línea:
+
+```{r}
+library(DT)
+av <- fromJSON("docs/data/argentina_votes.json")   # una fila por votación en la que votó Argentina
+av |>
+  filter(g == "G18") |>                             # gobierno de Milei
+  transmute(Fecha = d, Resolución = s, Título = t, Tema = tp, `Voto de Argentina` = v,
+            `Sí` = y, `No` = n, `Abst.` = a) |>
+  datatable(rownames = FALSE, filter = "top", options = list(pageLength = 8, language = list(search = "Buscar:")))
+```
+
+### Guardar un gráfico interactivo como página web
+
+Cualquier gráfico de plotly (o tabla de DT) se puede guardar como un archivo HTML independiente, que se abre en
+cualquier navegador o se sube al sitio:
+
+```{r}
+#| eval: false
+p <- ggplotly(g)
+htmlwidgets::saveWidget(p, "figures/ideal_points_interactivo.html", selfcontained = TRUE)
+```
+
+Con esto ya tenés todas las piezas para armar un sitio. El capítulo 6 explica cómo está hecho el actual;
+el capítulo 7, cómo hacer uno equivalente solo con R.

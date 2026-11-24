@@ -1,0 +1,101 @@
+# Mantener el sitio al día {#sec-actualizar}
+
+Los datos no se actualizan solos. Este capítulo reúne las tareas recurrentes y los problemas más comunes.
+
+## Cuando la ONU publica una versión nueva del dataset
+
+La Biblioteca Dag Hammarskjöld publica nuevas versiones del dataset de votos cada tanto
+(<https://digitallibrary.un.org/record/4060887>).
+
+1. Bajá el CSV nuevo a `data/raw/undl_oficial/` (no borres el anterior hasta comprobar que todo anda).
+2. En `R/pipeline/03_votos_2013_2026.R`, cambiá el nombre en `ARCHIVO_OFICIAL <- ...`.
+3. Corré `source("R/pipeline/correr_todo.R")`.
+4. Mirá los controles que imprime el script 03 en la consola:
+   - `sin código COW:` tiene que quedar vacío. Si aparece un código ISO, agregalo a `MANUAL` con su código COW.
+   - `votaciones cuyo conteo no coincide con los totales: 0` (si da más, revisá esas votaciones).
+   - `última fecha:` tiene que ser la del nuevo dataset.
+5. Si ya hay votaciones de un año nuevo (2027 en adelante), extendé los períodos `"all"` y `"p6"` en `PERIODS`
+   de `R/pipeline/07_exportar_mundo.R` (años y rótulos), o no van a aparecer en la sección Mundo.
+6. Actualizá a mano la fecha del último voto en `docs/index.html` (sección *Metodología* y pie de página) y en la
+   cita de la fuente.
+7. Revisá el sitio en local (`servr::httd("docs")`), y después **Commit** y **Push**.
+
+## Cuando hay votaciones nuevas que todavía no están en el dataset
+
+Seguí la sección "(Opcional) Votaciones posteriores al dataset oficial" del capítulo 2: exportá los registros en
+MARCXML, corré `R/pipeline/03a_registros_undl.R` y después `correr_todo.R`. Cuando salga el dataset oficial
+nuevo, esos registros quedan reemplazados solos.
+
+## Cuando Voeten publica nuevos ideal points
+
+1. En `R/pipeline/00_descargar_datos.R`, cambiá `"39.0"` por la versión nueva y el nombre del archivo si cambió
+   (mirá la lista en <https://doi.org/10.7910/DVN/LEJUQZ>).
+2. Si cambió el nombre del archivo o de sus columnas, ajustá `R/pipeline/02_ideal_points.R`.
+3. Corré `correr_todo.R`.
+
+## Cuando cambia el gobierno argentino
+
+1. Agregá una fila en `data/governments_argentina.csv` (y cerrá la fecha `end` del anterior).
+2. Agregá su nombre corto en el objeto `SHORT` del `<script>` de `docs/index.html`
+   (por ejemplo `G19: "Apellido"`).
+3. Corré `correr_todo.R` desde el paso 05.
+
+## Rutina mínima, de punta a punta
+
+```{r}
+#| eval: false
+# 0. En la pestaña Git: Pull
+source("R/pipeline/correr_todo.R")   # 1. regenerar datos, JSON y figuras
+servr::httd("docs")                  # 2. revisar el sitio en local
+# 3. En la pestaña Git: revisar Diff, Commit, Push
+# 4. Esperar 1-2 minutos y abrir https://martinparatz.github.io/votaciones-agnu/
+```
+
+## Problemas frecuentes
+
+| Síntoma | Causa probable | Solución |
+|---|---|---|
+| `cannot open file 'data/...': No such file or directory` | El directorio de trabajo no es la raíz del proyecto | Abrí `votaciones-agnu.Rproj`; comprobá con `getwd()` |
+| `there is no package called 'xxx'` | Falta instalar un paquete | `install.packages("xxx")` |
+| `could not find function "list_rbind"` o error con `.by =` | Paquetes viejos | `update.packages(ask = FALSE)` (hace falta dplyr ≥ 1.1 y purrr ≥ 1.0) |
+| Tildes que se ven como `Ã©` | Archivo leído con la codificación equivocada | En `read_csv()`, `locale = locale(encoding = "latin1")` para los archivos de Voeten; todo lo demás es UTF-8 |
+| `Timeout of 60 seconds was reached` al bajar | El archivo es grande | `options(timeout = 1200)` antes de `download.file()` |
+| El sitio local se ve sin datos | Se abrió `index.html` con doble clic | Usá `servr::httd("docs")` |
+| El sitio publicado no cambia | GitHub Pages todavía no terminó o el navegador muestra la versión guardada | Esperá y mirá la pestaña *Actions*; recargá con Ctrl+F5 / Cmd+Shift+R |
+| Git marca cambios en todos los CSV y JSON | Se alternó entre el pipeline de Python y el de R | Usá siempre el mismo (ver la nota al final del capítulo 3) |
+| R se queda sin memoria al leer el CSV de la ONU | El archivo pesa 370 MB | Cerrá otros programas; leer con `col_select =` solo las columnas necesarias |
+
+## Glosario
+
+AGNU
+: Asamblea General de las Naciones Unidas.
+
+Votación nominal (*recorded vote*)
+: Votación en la que queda registrado el voto de cada país. Las resoluciones por consenso no la tienen.
+
+`rcid`
+: Identificador de cada votación en la base del proyecto.
+
+Código COW
+: Código numérico de país del proyecto *Correlates of War* (Argentina = 160). Cubre Estados desaparecidos.
+
+Ideal point
+: Posición estimada de un país, año por año, en una escala que resume sus votos.
+
+Coincidencia
+: Porcentaje de votaciones en que dos países, habiendo votado ambos, votaron igual.
+
+Formato largo / ancho
+: Largo: una fila por observación (país-votación). Ancho: una columna por país o categoría.
+
+Pipeline
+: Cadena de scripts en la que cada uno toma la salida del anterior.
+
+JSON
+: Formato de texto para datos que usan las páginas web.
+
+GitHub Pages
+: Servicio gratuito de GitHub que publica como sitio web la carpeta `docs/` de un repositorio.
+
+Quarto
+: Sistema para escribir documentos, libros y sitios que combinan texto y código (esta guía está hecha con Quarto).

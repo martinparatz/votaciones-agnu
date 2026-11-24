@@ -3,3 +3,6 @@ data/raw/
 .Rhistory
 .RData
 __pycache__/
+.quarto/
+guia/_book/
+guia/ejemplo-sitio-quarto/_site/

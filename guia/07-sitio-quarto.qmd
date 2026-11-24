@@ -1,0 +1,139 @@
+# Alternativa: un sitio hecho 100 % en R con Quarto {#sec-quarto}
+
+El sitio actual mezcla dos mundos: R (o Python) prepara los datos y JavaScript los dibuja. Si preferís quedarte
+solo en R, **Quarto** permite armar un sitio web completo con páginas `.qmd` como las de esta guía:
+texto, código R y gráficos interactivos de plotly, todo renderizado a HTML.
+
+En `guia/ejemplo-sitio-quarto/` hay un sitio de ejemplo listo para renderizar, con tres páginas:
+
+| Archivo | Página | Qué muestra |
+|---|---|---|
+| `_quarto.yml` | — | Configuración: tipo de proyecto, menú, tema, opciones |
+| `_comun.R` | — | Paquetes y lectura de datos, compartidos por todas las páginas |
+| `index.qmd` | Mundo | Mapas de coincidencia con Argentina (en pestañas por período) y línea de tiempo de ideal points |
+| `argentina.qmd` | Argentina | Votos por gobierno, coincidencias por gobierno y tabla de todas las votaciones |
+| `metodologia.qmd` | Metodología | Texto |
+
+## Renderizarlo
+
+En RStudio, abrí `guia/ejemplo-sitio-quarto/index.qmd` y apretá **Render**; o, en la pestaña *Terminal*:
+
+```bash
+quarto render guia/ejemplo-sitio-quarto
+```
+
+Quarto corre el código de cada página, arma el HTML en `guia/ejemplo-sitio-quarto/_site/` y lo muestra en el
+Viewer. Para verlo mientras lo editás, con recarga automática cada vez que guardás:
+
+```bash
+quarto preview guia/ejemplo-sitio-quarto
+```
+
+## Cómo está armado
+
+### La configuración: `_quarto.yml`
+
+```yaml
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Votaciones en la ONU (versión R)"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Mundo
+      - href: argentina.qmd
+        text: Argentina
+      - href: metodologia.qmd
+        text: Metodología
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+
+execute:
+  echo: false        # el visitante ve los gráficos, no el código
+```
+
+`navbar` arma el menú superior; `theme` define el aspecto (hay [más de 25 temas](https://quarto.org/docs/output-formats/html-themes.html)),
+con una versión clara y otra oscura; `echo: false` oculta el código en el sitio.
+
+### Una página: texto + bloques de R
+
+Cada página es un `.qmd`: un encabezado YAML con el título, texto en Markdown y bloques de código. Este es el
+esqueleto de `index.qmd`:
+
+````markdown
+---
+title: "Mundo"
+---
+
+```{{r}}
+source("_comun.R")
+mapa_coincidencia <- function(ref = 160, periodo = "all") { ... }   # plot_ly(type = "choropleth", ...)
+```
+
+## Con quién coincide Argentina
+
+::: {.panel-tabset}
+### Todo el período
+```{{r}}
+mapa_coincidencia(160, "all")
+```
+### Desde 2012
+```{{r}}
+mapa_coincidencia(160, "p6")
+```
+:::
+````
+
+`::: {.panel-tabset}` convierte cada subtítulo `###` en una pestaña: es la manera más simple de ofrecer
+"menús" sin programar nada. Los gráficos de plotly y las tablas de DT conservan su interactividad
+(información al pasar el mouse, zoom, búsqueda, filtros).
+
+### Los datos
+
+`_comun.R` lee los mismos archivos que la web actual (`docs/data/*.json` y `data/processed/*.csv`). Así, el
+pipeline de los capítulos 3 y 4 sirve para los dos sitios sin cambios. Usa `here::here()` para encontrar la raíz
+del repositorio desde la carpeta del sitio:
+
+```r
+raiz <- here::here()
+leer <- function(...) file.path(raiz, ...)
+W <- fromJSON(leer("docs/data/world.json"))
+```
+
+## Publicarlo junto al sitio actual
+
+Para publicar la versión R **sin reemplazar** el sitio actual, cambiá en `_quarto.yml`:
+
+```yaml
+project:
+  output-dir: ../../docs/r
+```
+
+Al renderizar, el sitio queda en `docs/r/`, y después de hacer commit y push se ve en
+<https://martinparatz.github.io/votaciones-agnu/r/>.
+
+::: {.callout-warning}
+## Antes de reemplazar el sitio principal
+Si algún día quisieras que la versión R **sea** el sitio principal (`output-dir: ../../docs`), tené en cuenta
+que Quarto borra y reescribe esa carpeta: hay que mover antes `docs/data/` a otro lugar, porque el pipeline
+escribe ahí los JSON. Conviene probarlo en una rama de Git.
+:::
+
+## ¿Cuál conviene?
+
+| | Sitio actual (HTML + JavaScript) | Sitio Quarto (100 % R) |
+|---|---|---|
+| Interactividad | Total: menús que recalculan al instante, clic en el mapa para cambiar de país | Limitada a lo que se precalcula: pestañas, zoom, información al pasar el mouse, filtros de tablas |
+| Qué hay que saber | R para los datos; HTML, CSS y JavaScript para cambiar la web | Solo R y Markdown |
+| Peso | Liviano: unos 2,5 MB de datos que el navegador combina | Cada gráfico lleva sus datos: más pesado si hay muchas combinaciones |
+| Ideal para | La herramienta de exploración pública | Informes, notas de análisis, páginas temáticas, borradores de vistas nuevas |
+
+Una combinación práctica: mantener el sitio actual como herramienta principal y usar Quarto para páginas de
+análisis (por ejemplo, una nota sobre un gobierno o un tema) publicadas en `docs/r/` o en otra subcarpeta.

@@ -1,0 +1,149 @@
+# Recolección de datos {#sec-recoleccion}
+
+```{r}
+#| include: false
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+El proyecto no produce datos propios de votación: los toma de dos fuentes públicas y las une.
+Este capítulo explica qué trae cada una, por qué se eligió y cómo bajarla.
+
+## Qué es una votación nominal
+
+La Asamblea General adopta muchas resoluciones **sin votación** (por consenso). Solo cuando un país pide
+votación queda registrado qué votó cada Estado: **sí, no o abstención**, o bien que no votó. Esas son las
+*votaciones nominales* (*recorded votes*), y son las únicas que permiten comparar posiciones país por país.
+El sitio usa solo esas: unas 6.500 entre 1946 y 2026.
+
+## Las fuentes
+
+| Fuente | Qué aporta | Período | Archivo |
+|---|---|---|---|
+| Voeten, *UNGA Voting Data*, Harvard Dataverse (doi:10.7910/DVN/LEJUQZ), **versión 7** | Votos por país y resolución, con temas codificados a mano | 1946-2012 (sesiones 1-67) | `undata-213.tab`, `descriptions-213.tab` |
+| Voeten, mismo dataverse, **versión 39** (2026) | Ideal points anuales (Bailey, Strezhnev y Voeten) | 1946-2025 | `IdealpointestimatesFP_2026FP.csv` |
+| Biblioteca Dag Hammarskjöld de la ONU, *UNGA Voting Data* (versión 6, 15/10/2026) | Votos por país y resolución, oficial | 1946-17/9/2026 (se usa desde 2013) | `2026_10_15_votes_ga.csv` |
+| Biblioteca Digital de la ONU, registros sueltos (opcional) | Votaciones posteriores al dataset oficial | sesión 81 en adelante | MARCXML exportados a mano |
+
+¿Por qué dos fuentes para los votos? La base de Voeten tiene una ventaja única: cada votación viene
+clasificada por tema (Medio Oriente, armas nucleares, desarme, derechos humanos, colonialismo, desarrollo
+económico). Pero sus versiones nuevas ya no traen los votos por resolución, solo los ideal points. Para
+2013 en adelante se usa el dataset oficial de la ONU, que está al día pero no trae temas: en ese tramo los
+temas se asignan con palabras clave (capítulo 3).
+
+::: {.callout-important}
+## Condiciones de uso
+- Datos de Voeten: licencia CC0 1.0; se pide citar a los autores.
+- Dataset de la ONU: © Naciones Unidas, **uso no comercial con atribución**. Por eso el sitio cita la fuente
+  en el pie y en "Metodología y fuentes", y aclara que no es oficial ni está avalado por la ONU.
+- Los archivos originales **no se suben a GitHub** (`data/raw/` está en `.gitignore`): son grandes y
+  conservan las condiciones de sus fuentes.
+:::
+
+## Descargar lo de Voeten desde R
+
+Harvard Dataverse tiene una API pública: con una dirección web le pedís la lista de archivos de una
+versión, y con otra bajás cada archivo por su número. El script `R/pipeline/00_descargar_datos.R` hace eso.
+Lo central es esta función:
+
+```{r}
+#| eval: false
+library(jsonlite)
+DOI <- "doi:10.7910/DVN/LEJUQZ"
+options(timeout = 1200)   # el archivo de votos pesa 126 MB: R espera 60 s por defecto
+
+bajar_de_dataverse <- function(version, archivos, destino = "data/raw") {
+  # 1. pedir la lista de archivos de esa versión (viene en JSON)
+  url_lista <- sprintf("https://dataverse.harvard.edu/api/datasets/:persistentId/versions/%s/files?persistentId=%s",
+                       version, DOI)
+  lista <- fromJSON(url_lista)$data$dataFile
+  # 2. bajar cada archivo pedido, buscándolo por nombre
+  for (a in archivos) {
+    fila <- lista[lista$filename == a, ]
+    download.file(sprintf("https://dataverse.harvard.edu/api/access/datafile/%s", fila$id),
+                  file.path(destino, a), mode = "wb")
+  }
+}
+
+bajar_de_dataverse("7.0",  c("undata-213.tab", "descriptions-213.tab"))
+bajar_de_dataverse("39.0", "IdealpointestimatesFP_2026FP.csv")
+```
+
+Para correrlo entero: `source("R/pipeline/00_descargar_datos.R")`. Si un archivo ya existe, no lo vuelve a bajar.
+
+::: {.callout-tip}
+## Concepto de R: funciones
+`bajar_de_dataverse <- function(version, archivos, destino = "data/raw") { ... }` define una función:
+un bloque de código con nombre que recibe datos (*argumentos*) y se puede reusar. `destino` tiene un valor
+por defecto, así que si no lo indicás usa `"data/raw"`. Conviene escribir una función cada vez que copiarías
+y pegarías el mismo código cambiando un par de valores.
+:::
+
+::: {.callout-note}
+## ¿Por qué fijar la versión?
+Un dataverse cambia con el tiempo: la versión 39 de hoy puede ser la 40 mañana, con otros archivos.
+Pedir `"7.0"` y `"39.0"` explícitamente hace que el resultado sea **reproducible**: cualquiera que corra el
+script obtiene los mismos archivos que usó el sitio. Cuando salga una versión nueva y quieras usarla,
+cambiás el número a propósito y revisás qué cambió.
+:::
+
+## Descargar el dataset oficial de la ONU (a mano)
+
+1. Entrá a <https://digitallibrary.un.org/record/4060887>.
+2. Bajá el archivo de votos de la Asamblea General (`2026_10_15_votes_ga.csv`, unos 370 MB).
+3. Guardalo en `data/raw/undl_oficial/` dentro del proyecto.
+
+Se baja a mano porque la Biblioteca Digital no ofrece un enlace estable para descargas automáticas
+y porque así queda claro qué versión se usó. El nombre del archivo incluye la fecha de la versión:
+si la ONU publica una nueva, cambiás el nombre en la línea `ARCHIVO_OFICIAL <- ...` de
+`R/pipeline/03_votos_2013_2026.R` (ver capítulo 8).
+
+Una vez bajado, podés mirarlo sin cargarlo entero:
+
+```{r}
+#| eval: false
+library(readr)
+muestra <- read_csv("data/raw/undl_oficial/2026_10_15_votes_ga.csv", n_max = 1000)
+glimpse(muestra)          # columnas y tipos
+count(muestra, ms_vote)   # Y = sí, N = no, A = abstención, X = no votó
+```
+
+Cada fila es **un país en una votación**: `undl_id` (número de registro), `ms_code` (código ISO del país),
+`ms_vote` (voto), `date`, `resolution` (símbolo, por ejemplo `A/RES/79/1`), `title`, y los totales de la votación.
+
+## (Opcional) Votaciones posteriores al dataset oficial
+
+El dataset oficial se actualiza cada tanto (la versión 6 llega hasta el 17/9/2026). Las votaciones
+posteriores aparecen antes como registros sueltos en la Biblioteca Digital. Para sumarlas:
+
+1. En <https://digitallibrary.un.org> buscá `989__a:"Voting Data" 791__a:A/RES/81*`
+   (cambiá `81` por la sesión que te interese).
+2. *Export → MARCXML* y guardá el archivo en `data/raw/undl_registros/`.
+3. Corré `R/pipeline/03a_registros_undl.R`: convierte los registros al mismo formato que el CSV oficial
+   y los deja en `data/undl_registros/votes_ga_registros.csv`.
+
+El script 03 los suma **solo si son posteriores** a la última fecha del dataset oficial; cuando la ONU publique
+una versión nueva que ya los incluya, quedan reemplazados solos.
+
+## Cómo tiene que quedar `data/raw/`
+
+```
+data/raw/
+├── undata-213.tab                       (126 MB, Voeten v7)
+├── descriptions-213.tab                 (1,3 MB, Voeten v7)
+├── IdealpointestimatesFP_2026FP.csv     (1,4 MB, Voeten v39)
+├── undl_oficial/
+│   └── 2026_10_15_votes_ga.csv          (370 MB, ONU)
+└── undl_registros/                      (opcional)
+    └── *.xml
+```
+
+Comprobación rápida:
+
+```{r}
+#| eval: false
+archivos <- c("data/raw/undata-213.tab", "data/raw/descriptions-213.tab",
+              "data/raw/IdealpointestimatesFP_2026FP.csv",
+              "data/raw/undl_oficial/2026_10_15_votes_ga.csv")
+data.frame(archivo = archivos, existe = file.exists(archivos),
+           MB = round(file.size(archivos) / 1e6, 1))
+```

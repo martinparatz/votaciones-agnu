@@ -1,0 +1,18 @@
+---
+title: "Metodología y fuentes"
+---
+
+Este sitio de ejemplo se genera con Quarto y R a partir de los mismos datos que el sitio principal
+(<https://martinparatz.github.io/votaciones-agnu/>). Allí está la metodología completa.
+
+- **Votaciones:** solo las nominales (con voto registrado país por país), de 1946 a septiembre de 2026.
+- **Coincidencia entre dos países:** porcentaje de votaciones en que ambos emitieron voto y votaron igual,
+  con un mínimo de 10 votaciones en común.
+- **Ideal points:** estimaciones anuales de Bailey, Strezhnev y Voeten; valores altos = más cerca de EE. UU.
+- **Temas:** códigos de Voeten hasta 2012; palabras clave sobre el título desde 2013 (aproximados).
+- **Gobiernos de Argentina:** los 18 de `data/governments_argentina.csv`, incluidos los de facto.
+
+**Fuentes.** Voeten, E., *United Nations General Assembly Voting Data* e *Ideal Points*, Harvard Dataverse,
+doi:10.7910/DVN/LEJUQZ (CC0 1.0). Biblioteca Dag Hammarskjöld de las Naciones Unidas, *United Nations General
+Assembly Voting Data* (2026), <https://digitallibrary.un.org/record/4060887>, © Naciones Unidas, uso no comercial
+con atribución. Sitio independiente: no es oficial ni está avalado por las Naciones Unidas.
