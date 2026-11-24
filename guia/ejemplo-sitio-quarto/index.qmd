@@ -1,0 +1,67 @@
+---
+title: "Mundo"
+subtitle: "Alineamientos de los miembros de la Asamblea General de la ONU, 1946-2026"
+---
+
+```{r}
+source("_comun.R")
+
+# Mapa de coincidencia de cada país con un país de referencia en un período
+mapa_coincidencia <- function(ref = 160, periodo = "all") {
+  paises <- W$countries
+  pct <- W$agree[[periodo]][which(paises$c == ref), ]
+  pct[pct < 0] <- NA
+  datos <- tibble(c = paises$c, iso = paises$iso, nombre = paises$es, pct = pct) |>
+    filter(iso != "", c != ref)
+  plot_ly(datos, type = "choropleth", locationmode = "ISO-3", locations = ~iso, z = ~pct, text = ~nombre,
+          colorscale = list(c(0, "#b2182b"), c(0.5, "#f1f1f1"), c(1, "#2166ac")), zmin = 0, zmax = 100,
+          hovertemplate = "<b>%{text}</b><br>%{z:.0f}% de coincidencia<extra></extra>",
+          colorbar = list(title = "%")) |>
+    layout(geo = list(projection = list(type = "natural earth"), showframe = FALSE, showcoastlines = FALSE),
+           margin = list(l = 0, r = 0, t = 0, b = 0))
+}
+```
+
+## Con quién coincide Argentina
+
+Porcentaje de votaciones en que cada país votó igual que Argentina (sobre las votaciones en que los dos
+emitieron voto). Azul = vota parecido; rojo = vota distinto; gris = menos de 10 votaciones en común.
+
+::: {.panel-tabset}
+
+### Todo el período
+
+```{r}
+mapa_coincidencia(160, "all")
+```
+
+### Guerra Fría tardía (1980-1991)
+
+```{r}
+mapa_coincidencia(160, "p3")
+```
+
+### Desde 2012
+
+```{r}
+mapa_coincidencia(160, "p6")
+```
+
+:::
+
+## Línea de tiempo: ideal points
+
+Hacé clic en los nombres de la leyenda para mostrar u ocultar países; doble clic para dejar uno solo.
+
+```{r}
+serie_pais <- function(cc) {
+  s <- ipj$countries[[as.character(cc)]]
+  tibble(pais = s$name, year = unlist(s$years), ip = unlist(s$ip))
+}
+series <- map(c(160, 2, 710, 365, 140), serie_pais) |> list_rbind()
+
+plot_ly(series, x = ~year, y = ~ip, color = ~pais, type = "scatter", mode = "lines",
+        hovertemplate = "%{y:.2f}<extra>%{fullData.name}</extra>") |>
+  layout(xaxis = list(title = ""), yaxis = list(title = "Ideal point (alto = más cerca de EE. UU.)"),
+         legend = list(orientation = "h"))
+```

@@ -1,0 +1,87 @@
+# Presentación {.unnumbered}
+
+Esta guía explica, paso a paso, cómo se construyó el sitio **Votaciones en la ONU: el mundo y Argentina**
+(<https://martinparatz.github.io/votaciones-agnu/>) y cómo reconstruirlo entero desde **RStudio**, con código R.
+No es una guía de R en general: todo lo que aparece acá es lo que realmente hace este proyecto, con los mismos
+archivos, las mismas fuentes y los mismos cálculos.
+
+## Qué vas a poder hacer al terminar
+
+1. Preparar RStudio, Git y los paquetes de R para trabajar con el repositorio.
+2. Bajar los datos de origen (Voeten en Harvard Dataverse y el dataset oficial de la Biblioteca Dag Hammarskjöld).
+3. Limpiar y unir más de 1,2 millones de votos (1946-2026) en una sola base.
+4. Calcular cómo votó Argentina en cada gobierno y con quién coincidió.
+5. Hacer los gráficos estáticos (ggplot2) e interactivos (plotly) del proyecto.
+6. Generar los archivos que lee el sitio y publicarlo en GitHub Pages.
+7. Opcionalmente, armar una versión del sitio hecha 100 % en R con Quarto.
+
+## Cómo está organizado el proyecto
+
+El sitio es el último eslabón de una cadena. Cada eslabón es un script que lee archivos, los transforma y
+escribe otros archivos. Nada se calcula "en vivo": la web solo muestra lo que el pipeline ya dejó listo.
+
+```{mermaid}
+flowchart LR
+  A["Harvard Dataverse<br/>(Voeten)"] --> R1["data/raw/"]
+  B["Biblioteca Digital ONU<br/>(CSV oficial)"] --> R1
+  R1 --> S1["01-04: limpiar y unir<br/>(R/pipeline/)"]
+  S1 --> P["data/processed/<br/>bases limpias"]
+  P --> S2["05: análisis por gobierno"]
+  S2 --> P
+  P --> S3["06-07: exportar JSON"]
+  S3 --> W["docs/data/*.json"]
+  W --> H["docs/index.html<br/>+ Plotly.js"]
+  H --> GP["GitHub Pages<br/>(sitio publicado)"]
+  P --> F["R/01_figuras_argentina.R<br/>figures/*.png"]
+```
+
+| Carpeta | Qué hay | ¿Se sube a GitHub? |
+|---|---|---|
+| `data/raw/` | Descargas originales, sin tocar (cientos de MB) | No (está en `.gitignore`) |
+| `data/processed/` | Bases limpias en CSV, listas para analizar | Sí |
+| `data/i18n/` | Traducciones: títulos de resoluciones y nombres de países | Sí |
+| `data/governments_argentina.csv` | Los 18 gobiernos argentinos con sus fechas | Sí |
+| `R/pipeline/` | Los scripts de R de esta guía, del 00 al 07 | Sí |
+| `R/01_figuras_argentina.R` | Gráficos estáticos con ggplot2 | Sí |
+| `figures/` | Los PNG que genera el script anterior | Sí |
+| `docs/` | El sitio web: `index.html` y `docs/data/*.json` | Sí (GitHub Pages publica esta carpeta) |
+| `scripts/` | La versión original del pipeline, en Python | Sí |
+| `guia/` | Esta guía | Sí |
+
+## Python y R: dos caminos al mismo resultado
+
+El pipeline se escribió primero en Python (carpeta `scripts/`). Para esta guía se tradujo a R
+(carpeta `R/pipeline/`) y se comprobó que **los scripts de R producen los mismos archivos** que los de Python:
+mismas filas, mismas columnas y mismos valores (la única diferencia encontrada es un ideal point que redondea
+2,206 en vez de 2,207 en el tercer decimal). Podés usar cualquiera de los dos; esta guía usa R.
+
+| Paso | Script de R | Equivale a (Python) |
+|---|---|---|
+| Descargar datos de Voeten | `R/pipeline/00_descargar_datos.R` | (a mano) |
+| Configuración común | `R/pipeline/00_config.R` | — |
+| Votos 1946-2012 | `R/pipeline/01_votos_1946_2012.R` | `scripts/01_build_votes_1946_2012.py` |
+| Ideal points | `R/pipeline/02_ideal_points.R` | `scripts/02_build_ideal_points.py` |
+| Registros sueltos de la ONU (opcional) | `R/pipeline/03a_registros_undl.R` | `scripts/06a_registros_undl_a_csv.py` |
+| Votos 2013-2026 | `R/pipeline/03_votos_2013_2026.R` | `scripts/06b_build_votes_2013_2026.py` |
+| Unir 1946-2026 | `R/pipeline/04_unir_1946_2026.R` | `scripts/07_merge_votes_1946_2026.py` |
+| Argentina por gobierno | `R/pipeline/05_argentina_por_gobierno.R` | `scripts/04_argentina_by_government.py` |
+| JSON de Argentina e ideal points | `R/pipeline/06_exportar_web.R` | `scripts/05_export_web_data.py` |
+| JSON de la sección Mundo | `R/pipeline/07_exportar_mundo.R` | `scripts/08_export_world_data.py` |
+| Todo en orden | `R/pipeline/correr_todo.R` | — |
+
+::: {.callout-note}
+## Cómo leer esta guía
+- Cada capítulo corresponde a una etapa. Conviene leerlos en orden la primera vez.
+- Los bloques de código se pueden copiar (botón arriba a la derecha) o correr directamente desde RStudio
+  abriendo el archivo `.qmd` correspondiente y apretando el triángulo verde de cada bloque.
+- Los recuadros **"Concepto de R"** explican la herramienta de R que aparece por primera vez.
+- Los capítulos 4 y 5 corren de verdad sobre los datos del repositorio cuando se renderiza la guía,
+  así que lo que ves es el resultado real. Los capítulos 2 y 3 muestran el código sin correrlo,
+  porque necesitan las descargas originales y reescriben archivos.
+:::
+
+## Cómo ver esta guía
+
+Abrí `votaciones-agnu.Rproj` en RStudio, después abrí `guia/index.qmd` y apretá **Render** (o, en la consola,
+`quarto::quarto_render("guia")`). RStudio arma el libro en `guia/_book/` y lo muestra en el panel Viewer.
+También podés leer cada capítulo directamente como texto en el editor.

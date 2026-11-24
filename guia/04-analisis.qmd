@@ -1,0 +1,206 @@
+# Análisis: Argentina gobierno por gobierno {#sec-analisis}
+
+```{r}
+#| include: false
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+Con la base unificada se pueden responder las preguntas del proyecto: ¿cómo votó Argentina en cada gobierno?,
+¿con quién coincidió?, ¿dónde se ubicó en el mapa de alineamientos? Este capítulo **sí se ejecuta**: los
+resultados que ves salen de los archivos de `data/processed/` del repositorio. Es lo que hace el script
+`R/pipeline/05_argentina_por_gobierno.R`, explicado de a partes, y algunas cosas más para explorar.
+
+## Cargar las bases
+
+```{r}
+library(tidyverse)
+
+ARG <- 160
+CAST <- c("yes", "abstain", "no")
+
+gov <- read_csv("data/governments_argentina.csv", show_col_types = FALSE)
+res <- read_csv("data/processed/resolutions_1946_2026.csv", show_col_types = FALSE,
+                col_types = cols(topics = col_character()))
+votos <- read_csv("data/processed/votes_1946_2026.csv.gz", show_col_types = FALSE,
+                  col_select = c(rcid, ccode, date, vote_label))
+
+nrow(res); nrow(votos)
+```
+
+::: {.callout-tip}
+## Concepto de R: mirar antes de calcular
+Antes de analizar, mirá los datos: `glimpse(votos)` muestra columnas y tipos; `count(votos, vote_label)`
+cuenta valores; `View(gov)` abre la tabla en una pestaña de RStudio. Muchos errores se detectan acá.
+:::
+
+```{r}
+gov |> select(gov_id, government, type, start, end)
+```
+
+## Asignar cada votación a un gobierno
+
+La tabla `data/governments_argentina.csv` tiene la fecha de inicio y de fin de cada gobierno, incluidos los
+de facto. Para saber en qué gobierno cayó cada votación hay que unir por **rango de fechas**: la votación va al
+gobierno cuyo período contiene su fecha. dplyr lo hace con `join_by(between(...))`:
+
+```{r}
+res_gov <- res |>
+  mutate(date = as.Date(date)) |>
+  left_join(select(gov, gov_id, start, end), by = join_by(between(date, start, end))) |>
+  select(-start, -end)
+
+count(res_gov, gov_id)
+```
+
+::: {.callout-note}
+## Una decisión metodológica
+Las épocas del proyecto son **gobiernos**, no cortes estadísticos: así lo decidió el proyecto para poder leer
+los resultados en clave histórica y política. Si quisieras otra periodización (por ejemplo, por canciller),
+alcanza con armar otra tabla con `start` y `end` y repetir esta unión.
+:::
+
+## Cómo votó Argentina en cada gobierno
+
+Se filtran los votos de Argentina emitidos (sí, abstención o no), se les pega el gobierno y se calcula el
+porcentaje de cada tipo de voto:
+
+```{r}
+arg <- votos |>
+  filter(ccode == ARG, vote_label %in% CAST) |>
+  inner_join(select(res_gov, rcid, gov_id, topics), by = "rcid")
+
+reparto <- arg |>
+  summarise(n_votes = n(),
+            pct_yes = 100 * mean(vote_label == "yes"),
+            pct_abstain = 100 * mean(vote_label == "abstain"),
+            pct_no = 100 * mean(vote_label == "no"),
+            .by = gov_id) |>
+  left_join(select(gov, gov_id, government, type), by = "gov_id") |>
+  arrange(gov_id) |>
+  mutate(across(starts_with("pct_"), \(x) round(x, 1)))
+
+reparto |> select(government, type, n_votes, pct_yes, pct_abstain, pct_no)
+```
+
+::: {.callout-tip}
+## Concepto de R: `mean()` de una condición
+`vote_label == "yes"` da un vector de `TRUE`/`FALSE`. R trata `TRUE` como 1 y `FALSE` como 0, así que
+`mean(vote_label == "yes")` es directamente la **proporción** de votos a favor. Multiplicado por 100, el porcentaje.
+:::
+
+### Por tema
+
+Los temas están en una sola columna de texto (`"Medio Oriente;Derechos humanos"`). Para analizar uno se usa
+`str_detect()`. Por ejemplo, votos en contra en resoluciones sobre Medio Oriente:
+
+```{r}
+arg |>
+  filter(str_detect(coalesce(topics, ""), "Medio Oriente")) |>
+  summarise(n = n(), pct_no = round(100 * mean(vote_label == "no"), 1), .by = gov_id) |>
+  left_join(select(gov, gov_id, government), by = "gov_id") |>
+  arrange(gov_id) |>
+  select(government, n, pct_no)
+```
+
+## Coincidencia con otros países
+
+La medida central del sitio es simple y transparente: **de las votaciones en que los dos países emitieron voto,
+¿en qué porcentaje votaron igual?** Se exige un mínimo de 10 votaciones en común para no sacar conclusiones de
+muy pocos casos.
+
+Escrito como función, sirve para cualquier par de países:
+
+```{r}
+coincidencia <- function(votos, pais_a, pais_b, minimo = 10) {
+  a <- votos |> filter(ccode == pais_a, vote_label %in% CAST) |> select(rcid, voto_a = vote_label)
+  b <- votos |> filter(ccode == pais_b, vote_label %in% CAST) |> select(rcid, voto_b = vote_label)
+  ambos <- inner_join(a, b, by = "rcid")          # solo las votaciones en que votaron los dos
+  if (nrow(ambos) < minimo) return(NA_real_)
+  round(100 * mean(ambos$voto_a == ambos$voto_b), 1)
+}
+
+coincidencia(votos, ARG, 2)     # Argentina - EE. UU., 1946-2026
+coincidencia(votos, ARG, 140)   # Argentina - Brasil
+```
+
+Para hacerlo por gobierno, se agrega el gobierno a los votos y se aplica la función a cada grupo:
+
+```{r}
+votos_gov <- votos |> inner_join(select(res_gov, rcid, gov_id), by = "rcid")
+
+refs <- c("EE. UU." = 2, "Rusia/URSS" = 365, "China" = 710, "Brasil" = 140, "Cuba" = 40)
+
+coin <- expand_grid(gov_id = sort(unique(na.omit(votos_gov$gov_id))), ref = names(refs)) |>
+  mutate(pct = map2_dbl(gov_id, ref, \(g, r) coincidencia(filter(votos_gov, gov_id == g), ARG, refs[[r]])))
+
+coin |>
+  pivot_wider(names_from = ref, values_from = pct) |>
+  left_join(select(gov, gov_id, government), by = "gov_id") |>
+  relocate(government, .after = gov_id)
+```
+
+::: {.callout-tip}
+## Concepto de R: `expand_grid()` y `map2_dbl()`
+`expand_grid()` arma todas las combinaciones (cada gobierno con cada país de referencia).
+`map2_dbl(x, y, f)` recorre dos vectores en paralelo y aplica `f` a cada par, devolviendo números.
+Es la forma de "hacer un loop" sin escribir `for`.
+:::
+
+El script del proyecto hace lo mismo para los 10 países de referencia y para cada tema, y guarda el resultado
+en `data/processed/argentina_by_government_agreement.csv` y `..._agreement_topic.csv`.
+
+## El pipeline es genérico: cualquier país
+
+Nada de lo anterior es exclusivo de Argentina. Cambiando el código COW se obtiene el perfil de cualquier
+miembro. Por ejemplo, los países con los que más coincidió Brasil desde 2012:
+
+```{r}
+desde_2012 <- votos |> filter(date >= "2012-01-01")
+nombres <- read_csv("data/i18n/country_names_es.csv", show_col_types = FALSE)
+
+nombres |>
+  filter(ccode != 140, ccode %in% desde_2012$ccode) |>
+  mutate(pct = map_dbl(ccode, \(c) coincidencia(desde_2012, 140, c))) |>
+  slice_max(pct, n = 8)
+```
+
+::: {.callout-note}
+## Ojo con el costo
+Esa forma (un par de países a la vez) es clara pero lenta si querés **todos contra todos**: 199 países son
+casi 20.000 pares. El script `07_exportar_mundo.R` lo resuelve con álgebra de matrices en un par de segundos
+(ver capítulo 6).
+:::
+
+## Ideal points por gobierno
+
+Los ideal points son anuales. Para asignarlos a un gobierno, el proyecto toma el gobierno vigente el
+**1 de octubre** de cada año, porque el grueso de las votaciones ocurre en el período ordinario de sesiones
+(septiembre a diciembre).
+
+```{r}
+ipa <- read_csv("data/processed/argentina_ideal_points.csv", show_col_types = FALSE) |>
+  mutate(fecha = as.Date(paste0(year, "-10-01"))) |>
+  left_join(select(gov, gov_id, government, start, end), by = join_by(between(fecha, start, end)))
+
+ipa |>
+  summarise(desde = min(year), hasta = max(year),
+            ideal_point = round(mean(ARG), 2),
+            distancia_EEUU = round(mean(dist_USA), 2),
+            puesto_medio = round(mean(rank_from_us_side)),
+            .by = government)
+```
+
+`puesto_medio` es el lugar promedio de Argentina en el ranking anual (1 = el país más cercano a EE. UU.).
+
+## Para seguir explorando
+
+Algunas preguntas que se responden con lo que ya viste:
+
+1. ¿En qué votaciones Argentina votó **distinto que la mayoría** de la Asamblea? (Pista: calculá por `rcid`
+   el voto más frecuente y comparalo con el de Argentina; la tabla del sitio tiene ese filtro.)
+2. ¿Cómo cambia la coincidencia con EE. UU. **año por año**, y no por gobierno? (Pista: agrupá por
+   `year = as.integer(substr(date, 1, 4))`.)
+3. ¿Qué países de América Latina se parecen más a Argentina en cada gobierno?
+
+Si encontrás algo que valga la pena mostrar, el siguiente paso es convertirlo en un gráfico (capítulo 5) y,
+si corresponde, en una vista del sitio (capítulo 6).

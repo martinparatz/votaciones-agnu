@@ -1,0 +1,30 @@
+# Sitio de ejemplo hecho 100 % en R con Quarto (ver guia/07-sitio-quarto.qmd)
+project:
+  type: website
+  output-dir: _site          # para publicarlo junto al sitio actual: ../../docs/r
+
+website:
+  title: "Votaciones en la ONU (versión R)"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Mundo
+      - href: argentina.qmd
+        text: Argentina
+      - href: metodologia.qmd
+        text: Metodología
+  page-footer: "Fuentes: Voeten (Harvard Dataverse) y Biblioteca Dag Hammarskjöld de la ONU. Sitio independiente, no oficial."
+
+lang: es
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: false
+
+execute:
+  echo: false        # el visitante ve los gráficos, no el código
+  warning: false
+  message: false

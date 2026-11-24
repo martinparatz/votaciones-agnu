@@ -1,0 +1,339 @@
+# Procesamiento: de los archivos crudos a una base única {#sec-procesamiento}
+
+```{r}
+#| include: false
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+Este es el corazón del proyecto. El objetivo es pasar de cuatro archivos con formatos distintos a **dos tablas
+limpias** que sirven para todo lo demás:
+
+- `data/processed/resolutions_1946_2026.csv`: **una fila por votación** (6.501 filas).
+- `data/processed/votes_1946_2026.csv.gz`: **una fila por país y votación** (1,27 millones de filas).
+
+::: {.callout-warning}
+## Estos bloques no se ejecutan al renderizar la guía
+Necesitan los archivos de `data/raw/` y reescriben `data/processed/`. Para correrlos, usá los scripts
+completos (`source("R/pipeline/01_votos_1946_2012.R")`, etc.) o `source("R/pipeline/correr_todo.R")`.
+Acá se muestran las partes importantes de cada script, explicadas.
+:::
+
+## El modelo de datos
+
+Antes de escribir código conviene decidir **cómo tiene que quedar** la base. Este proyecto usa el formato
+*largo* (también llamado *tidy*): cada fila es una observación (un voto de un país en una votación) y cada
+columna una variable.
+
+| Columna | Qué es | Ejemplo |
+|---|---|---|
+| `rcid` | Identificador de la votación (*roll-call id*) | `3` (Voeten) o `100001` (ONU) |
+| `ccode` | Código del país, sistema *Correlates of War* (COW) | `160` = Argentina, `2` = EE. UU. |
+| `country` | Nombre del país (en inglés, el de la fuente) | `Argentina` |
+| `iso3` | Código ISO de tres letras | `ARG` |
+| `session` | Período de sesiones de la Asamblea | `79` |
+| `date` | Fecha de la votación | `2024-12-17` |
+| `unres` | Símbolo de la resolución | `A/RES/79/150` |
+| `vote_label` | Voto | `yes`, `no`, `abstain`, `absent`, `non_member` |
+
+Tres decisiones de diseño importan para todo lo que sigue:
+
+1. **Se usa el código COW (`ccode`) y no el ISO** como identificador del país, porque los ideal points de
+   Voeten vienen con COW y porque cubre Estados que ya no existen (URSS, Yugoslavia, las dos Alemanias,
+   los dos Yemen), que no tienen ISO propio o lo comparten.
+2. **Los `rcid` de la ONU empiezan en 100001**, para que nunca choquen con los de Voeten (que llegan a 9.056).
+3. **Solo cuentan los votos emitidos** (`yes`, `abstain`, `no`) para porcentajes y coincidencias.
+   `absent` (no votó) y `non_member` (todavía no era miembro) quedan en la base pero se filtran al analizar.
+
+## La configuración común: `00_config.R`
+
+Todos los scripts empiezan con `source("R/pipeline/00_config.R")`. Ese archivo carga los paquetes y define
+lo que se repite: rutas, el código de Argentina, los países de referencia y los temas.
+
+```{r}
+#| eval: false
+RAW  <- "data/raw"; PROC <- "data/processed"; WEB <- "docs/data"
+ARG <- 160
+REFS <- c("EE. UU." = 2, "URSS/Rusia" = 365, "China" = 710, "Reino Unido" = 200, "Francia" = 220,
+          "Brasil" = 140, "Chile" = 155, "México" = 70, "Cuba" = 40, "Uruguay" = 165)
+TOPICS_VOETEN <- c(me = "Medio Oriente", nu = "Armas nucleares", di = "Desarme",
+                   hr = "Derechos humanos", co = "Colonialismo", ec = "Desarrollo económico")
+CAST <- c("yes", "abstain", "no")
+```
+
+::: {.callout-tip}
+## Concepto de R: vectores con nombre
+`REFS` es un vector numérico cuyos elementos tienen nombre: `REFS["Brasil"]` devuelve `140`, y
+`names(REFS)` devuelve los nombres. Es una forma simple de guardar un "diccionario" de códigos.
+Si mañana querés comparar a Argentina con Venezuela, agregás `"Venezuela" = 101` acá y todos los
+scripts lo toman.
+:::
+
+## Paso 1: votos 1946-2012 (`01_votos_1946_2012.R`)
+
+### Las descripciones: un archivo con problemas
+
+`descriptions-213.tab` tiene una fila por votación, separada por tabulaciones, en codificación *latin-1* y con
+comillas mal escapadas. Una fila además trae campos de más. Si se lo lee directamente con `read_tsv()`,
+las columnas se desplazan. Por eso se lo lee como texto, línea por línea, y se arma la tabla a mano:
+
+```{r}
+#| eval: false
+lineas <- readLines(file.path(RAW, "descriptions-213.tab"), encoding = "latin1")
+lineas <- iconv(lineas, from = "latin1", to = "UTF-8")   # pasar tildes y eñes a UTF-8
+campos <- str_split(lineas, "\t")                       # cortar cada línea en campos
+campos <- map(campos, \(x) x[1:18])                     # quedarse con los 18 primeros
+tabla  <- do.call(rbind, campos)                        # apilar en una matriz
+res <- as_tibble(tabla[-1, ], .name_repair = "minimal")
+names(res) <- tabla[1, ]                                # la primera fila son los nombres
+```
+
+::: {.callout-tip}
+## Concepto de R: listas y `map()`
+`str_split()` devuelve una **lista**: un elemento por línea, cada uno con su vector de campos.
+`map(lista, funcion)` aplica la función a cada elemento y devuelve otra lista.
+`\(x) x[1:18]` es una función anónima (sin nombre) escrita en forma corta: "dado `x`, devolvé sus 18 primeros
+elementos". Si una línea tiene menos de 18, R completa con `NA`.
+:::
+
+Después se limpian las comillas sobrantes, se convierten a número las columnas numéricas y se renombran:
+
+```{r}
+#| eval: false
+res <- res |>
+  mutate(across(everything(), \(x) str_remove_all(str_trim(x), '^"+|"+$'))) |>
+  mutate(across(c(session, rcid, abstain, yes, no, amend, para, me, nu, di, hr, co, ec),
+                \(x) suppressWarnings(as.numeric(x)))) |>
+  rename(title_short = short, description = descr, is_paragraph = para,
+         is_amendment = amend, important_vote = importantvote)
+```
+
+::: {.callout-tip}
+## Concepto de R: el *pipe* `|>` y los verbos de dplyr
+`x |> f() |> g()` se lee "tomá `x`, aplicale `f`, y al resultado aplicale `g`". Evita anidar funciones
+(`g(f(x))`) y permite leer el código de arriba abajo como una receta.
+
+Los verbos básicos de **dplyr**, que vas a ver todo el tiempo:
+
+- `filter()`: quedarse con algunas filas (`filter(vote_label == "yes")`).
+- `select()`: quedarse con algunas columnas.
+- `mutate()`: crear o modificar columnas.
+- `rename()`: cambiar nombres de columnas (`nuevo = viejo`).
+- `summarise()` con `.by =`: resumir por grupo (contar, promediar).
+- `arrange()`: ordenar.
+- `left_join()`, `inner_join()`: unir dos tablas por una columna en común.
+
+`across(columnas, funcion)` dentro de `mutate()` aplica la misma función a varias columnas a la vez.
+La expresión regular `'^"+|"+$'` significa "una o más comillas al principio, o una o más al final".
+:::
+
+Los temas vienen como seis columnas de ceros y unos (`me`, `nu`, `di`, `hr`, `co`, `ec`). Se les pone
+nombre en español y se crea una columna `topics` que los junta, por ejemplo `"Medio Oriente;Derechos humanos"`:
+
+```{r}
+#| eval: false
+for (cod in names(TOPICS_VOETEN)) res[[TOPICS_VOETEN[[cod]]]] <- res[[cod]]
+res$topics <- apply(res[names(TOPICS_VOETEN)], 1, \(fila) {
+  paste(TOPICS_VOETEN[which(fila == 1)], collapse = ";")
+})
+```
+
+### Los votos: un archivo grande pero prolijo
+
+`undata-213.tab` tiene 1,2 millones de filas y 20 columnas, pero solo se necesitan 9.
+`col_select` lee únicamente esas, lo que ahorra memoria y tiempo:
+
+```{r}
+#| eval: false
+etiquetas <- c("1" = "yes", "2" = "abstain", "3" = "no", "8" = "absent", "9" = "non_member")
+
+v <- read_tsv(file.path(RAW, "undata-213.tab"),
+              col_select = c(rcid, session, date, unres, vote, ccode, voetenname, voetenshortcode, uncode),
+              locale = locale(encoding = "latin1")) |>
+  mutate(vote_label = unname(etiquetas[as.character(vote)])) |>
+  rename(country = voetenname, iso3_voeten = voetenshortcode, un_m49 = uncode)
+
+write_csv(v, file.path(PROC, "votes_1946_2012.csv.gz"))
+```
+
+El truco `etiquetas[as.character(vote)]` usa el vector con nombre como tabla de traducción:
+para cada código (`"1"`, `"3"`...) devuelve la etiqueta. Y como el nombre del archivo termina en `.gz`,
+`write_csv()` lo comprime automáticamente (pasa de 60 MB a 4 MB).
+
+## Paso 2: ideal points (`02_ideal_points.R`)
+
+El *ideal point* es una estimación, año por año, de dónde se ubica cada país en una dimensión que resume
+sus votos: valores **altos** = más cerca de EE. UU. y Occidente; valores **bajos** = más cerca del consenso
+del mundo en desarrollo. Lo calculan Bailey, Strezhnev y Voeten; el proyecto lo usa tal cual.
+
+El script hace dos cosas. Primero, una base larga de todos los países (`ideal_points_1946_2025.csv`).
+Segundo, una tabla **ancha** para Argentina, con una columna por país de referencia y la distancia a cada uno:
+
+```{r}
+#| eval: false
+refs <- c(USA = 2, CHN = 710, RUS = 365, BRA = 140, CHL = 155, MEX = 70, GBR = 200, FRA = 220)
+
+ancha <- ip |>
+  filter(ccode %in% c(ARG, refs)) |>
+  mutate(pais = names(c(ARG = ARG, refs))[match(ccode, c(ARG, refs))]) |>
+  select(year, pais, ideal_point) |>
+  pivot_wider(names_from = pais, values_from = ideal_point)
+
+for (r in names(refs)) ancha[[paste0("dist_", r)]] <- abs(ancha$ARG - ancha[[r]])
+```
+
+::: {.callout-tip}
+## Concepto de R: largo y ancho
+`pivot_wider()` pasa de formato largo (una fila por año y país) a ancho (una fila por año, una columna por
+país). `pivot_longer()` hace lo contrario. El formato largo es mejor para guardar y para ggplot2; el ancho, para
+comparar columnas entre sí (como la distancia Argentina-EE. UU.).
+:::
+
+También se calcula, para cada año, el promedio mundial y el **puesto** de Argentina en el ranking
+(1 = el país más cercano a EE. UU.):
+
+```{r}
+#| eval: false
+mundo <- ip |>
+  filter(!is.na(ideal_point)) |>
+  group_by(year) |>
+  mutate(rank = rank(-ideal_point, ties.method = "average")) |>
+  summarise(mean_world = mean(ideal_point),
+            rank_from_us_side = rank[ccode == ARG][1],
+            n_countries = n())
+```
+
+## Paso 3: votos 2013-2026 (`03_votos_2013_2026.R`)
+
+El dataset de la ONU tiene otra estructura y otros códigos. Hay que llevarlo al mismo formato que el de Voeten.
+
+### Leer el archivo grande
+
+```{r}
+#| eval: false
+d <- read_csv(ARCHIVO_OFICIAL, col_types = cols(.default = col_character())) |>
+  filter(date >= "2013-01-01") |>
+  rename(undl_record = undl_id, unres = resolution)
+```
+
+Se lee todo como texto (`col_character()`) para que readr no adivine tipos mal en un archivo de 370 MB,
+y se convierte después lo que haga falta. Las fechas en formato `AAAA-MM-DD` se pueden comparar como texto.
+
+### Una fila por votación, con temas por palabras clave
+
+El dataset de la ONU no trae los temas de Voeten. Para que el sitio pueda filtrar por tema también después de
+2012, se buscan palabras clave en el título, el tema de agenda y las materias:
+
+```{r}
+#| eval: false
+TOPIC_RULES <- c(
+  "Medio Oriente"   = "palestin|israel|middle east|jerusalem|golan|unrwa|...",
+  "Armas nucleares" = "nuclear|atomic|non-proliferation|test-ban|radiolog",
+  "Colonialismo"    = "self-determination|colonial|non-self-governing|decoloni|western sahara|falkland|malvinas|..."
+  # ... (ver el script para la lista completa)
+)
+temas_de <- function(texto) {
+  texto <- str_to_lower(texto)
+  map_chr(texto, \(x) paste(names(TOPIC_RULES)[str_detect(x, TOPIC_RULES)], collapse = ";"))
+}
+```
+
+::: {.callout-tip}
+## Concepto de R: expresiones regulares
+Una expresión regular describe un patrón de texto. `|` significa "o"; `palestin` encuentra "Palestine",
+"Palestinian" y "palestinos"; `arms\\b` encuentra "arms" como palabra entera (y no "armstrong");
+`globali[sz]ation` acepta las dos grafías. `str_detect(texto, patron)` devuelve `TRUE` o `FALSE`.
+Es una aproximación: conviene revisar a mano algunos casos y ajustar las reglas si algo queda mal clasificado.
+:::
+
+Después se arma la tabla de votaciones, se ordena por fecha y se numeran desde 100001:
+
+```{r}
+#| eval: false
+res <- r |>
+  transmute(undl_record = as.integer(undl_record), session, date, unres, meeting, title_short,
+            description = coalesce(agenda_title, ""), topics, topic_source = "keywords",
+            n_yes = as.numeric(total_yes), n_no = as.numeric(total_no), ...) |>
+  arrange(date, undl_record) |>
+  mutate(rcid = 100001L + row_number() - 1L)
+```
+
+### Traducir códigos ISO a COW
+
+El dataset de la ONU identifica a los países con ISO (`ARG`); la base de Voeten con COW (`160`).
+La tabla de traducción sale de los mismos ideal points (que traen las dos columnas), más una lista
+manual para los casos que no coinciden (Serbia, Alemania, Rumania, microestados...):
+
+```{r}
+#| eval: false
+iso2cow <- ip |> filter(!is.na(iso3c)) |> distinct(iso3c, .keep_all = TRUE) |> select(iso3c, ccode)
+MANUAL <- c(SRB = 345, MNE = 341, SSD = 626, DEU = 255, ROU = 360, ...)
+
+v <- d |>
+  transmute(undl_record = as.integer(undl_record), iso3 = ms_code, ms_name, vote_code = ms_vote) |>
+  left_join(iso2cow, by = c("iso3" = "iso3c")) |>
+  mutate(ccode = coalesce(ccode, unname(MANUAL[iso3])),
+         vote_label = coalesce(unname(VOTO[vote_code]), "other"))
+```
+
+::: {.callout-tip}
+## Concepto de R: uniones (*joins*) y `coalesce()`
+`left_join(a, b, by = ...)` agrega a cada fila de `a` las columnas de `b` que coinciden en la clave; si no hay
+coincidencia, quedan `NA`. `inner_join()` en cambio descarta las filas sin pareja.
+`coalesce(x, y)` toma `x`, y donde `x` es `NA` usa `y`: acá, "el código de la tabla; si no está, el de la lista manual".
+:::
+
+### Un control que vale oro
+
+El dataset informa los totales de cada votación (cuántos sí, no y abstenciones). Si los votos país por país
+suman esos totales, la base está bien armada:
+
+```{r}
+#| eval: false
+chk <- v |>
+  count(rcid, vote_label) |>
+  pivot_wider(names_from = vote_label, values_from = n, values_fill = 0) |>
+  left_join(select(res, rcid, n_yes, n_no, n_abstain), by = "rcid")
+mal <- filter(chk, yes != n_yes | no != n_no | abstain != n_abstain)
+nrow(mal)   # tiene que dar 0
+```
+
+Con los datos actuales da **0 de 1.290 votaciones**. Si alguna vez da más, algo cambió en el archivo de origen.
+
+## Paso 4: unir las dos épocas (`04_unir_1946_2026.R`)
+
+Con los dos tramos en el mismo formato, unirlos es apilar filas con `bind_rows()`, eligiendo las mismas columnas:
+
+```{r}
+#| eval: false
+cols_v <- c("rcid", "ccode", "country", "iso3", "session", "date", "unres", "vote_label")
+v1 <- read_csv(file.path(PROC, "votes_1946_2012.csv.gz"), col_types = cols(.default = col_character())) |>
+  rename(iso3 = iso3_voeten)
+v2 <- read_csv(file.path(PROC, "votes_2013_2026.csv.gz"), col_types = cols(.default = col_character()))
+v <- bind_rows(select(v1, all_of(cols_v)), select(v2, all_of(cols_v)))
+write_csv(v, file.path(PROC, "votes_1946_2026.csv.gz"))
+```
+
+Las resoluciones se unen igual, y se agrega `topic_source` (`"voeten"` o `"keywords"`) para no olvidar que los
+temas de cada tramo se asignaron con criterios distintos.
+
+## Correr todo
+
+```{r}
+#| eval: false
+source("R/pipeline/correr_todo.R")
+```
+
+Corre los pasos en orden, cada uno en su propio entorno (así no se mezclan variables entre scripts), y muestra
+cuánto tardó cada uno. En una computadora común tarda menos de un minuto. Al final, en la pestaña Git vas a
+ver qué archivos cambiaron.
+
+::: {.callout-note}
+## La primera vez, Git va a marcar cambios de formato
+Los archivos de `data/processed/` y `docs/data/` que están hoy en el repositorio los generó la versión de
+Python. R escribe los mismos valores con otro formato: `74` en vez de `74.0`, `0.7906015` en vez de
+`0.7906015000000001`. Por eso la primera vez que corras el pipeline en R, Git va a mostrar casi todos esos
+archivos como modificados aunque los datos sean los mismos (se comprobó valor por valor). Hacé un commit
+con ese cambio ("Datos regenerados con el pipeline de R") y desde ahí, mientras no cambien los datos de
+origen, volver a correrlo no debería cambiar nada: es la mejor prueba de que todo sigue igual.
+Conviene no alternar entre Python y R para regenerar los datos, porque cada uno reescribiría el formato del otro.
+:::

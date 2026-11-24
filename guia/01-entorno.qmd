@@ -1,0 +1,115 @@
+# Preparar el entorno {#sec-entorno}
+
+```{r}
+#| include: false
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+En este capítulo dejás RStudio listo para trabajar con el repositorio: programas, paquetes,
+proyecto y conexión con GitHub.
+
+## Programas
+
+Instalá, en este orden:
+
+1. **R** (versión 4.3 o más nueva): <https://cran.r-project.org/>.
+2. **RStudio Desktop**: <https://posit.co/download/rstudio-desktop/>. Ya trae **Quarto**, que sirve para
+   renderizar esta guía y, si querés, para hacer el sitio en R (capítulo 7).
+3. **Git**: <https://git-scm.com/downloads>. En Mac suele venir instalado (si no, al escribir `git` en la
+   Terminal el sistema ofrece instalarlo).
+
+Después, en RStudio: *Tools → Global Options → Git/SVN* y comprobá que figure la ruta a `git`.
+
+## Clonar el repositorio desde RStudio
+
+"Clonar" es bajar una copia del repositorio de GitHub que queda conectada con el original.
+
+1. *File → New Project → Version Control → Git*.
+2. En *Repository URL* poné `https://github.com/martinparatz/votaciones-agnu.git`.
+3. Elegí dónde guardarlo y apretá *Create Project*.
+
+RStudio abre el proyecto `votaciones-agnu.Rproj`. A partir de ahora **siempre trabajá con el proyecto abierto**
+(*File → Open Project*, o doble clic en el `.Rproj`). Así el directorio de trabajo es la raíz del repositorio
+y todas las rutas de los scripts (`data/processed/...`, `docs/data/...`) funcionan sin cambios.
+
+::: {.callout-tip}
+## Concepto de R: el directorio de trabajo
+R busca los archivos a partir de una carpeta, el *directorio de trabajo*. Lo ves con `getwd()`.
+Un proyecto de RStudio (`.Rproj`) fija esa carpeta en la raíz del proyecto cada vez que lo abrís.
+Por eso los scripts usan rutas relativas como `"data/processed/votes_1946_2026.csv.gz"` y no rutas
+absolutas como `"C:/Users/.../votaciones-agnu/data/..."`, que solo funcionarían en una computadora.
+:::
+
+## Paquetes de R
+
+Corré esto **una sola vez** en la consola (tarda unos minutos):
+
+```{r}
+#| eval: false
+install.packages(c(
+  "tidyverse",  # readr, dplyr, tidyr, stringr, purrr, ggplot2: leer, transformar y graficar
+  "jsonlite",   # escribir los JSON que lee el sitio
+  "xml2",       # leer los registros MARCXML de la ONU (opcional, script 03a)
+  "scales",     # formatos de ejes (porcentajes)
+  "ragg",       # guardar PNG con buena tipografía (tildes y eñes)
+  "here",       # encontrar la raíz del proyecto desde cualquier carpeta
+  "plotly",     # gráficos interactivos
+  "DT",         # tablas interactivas
+  "htmlwidgets",# guardar gráficos interactivos como HTML
+  "servr",      # servidor local para ver el sitio antes de publicarlo
+  "quarto"      # renderizar documentos Quarto desde la consola
+))
+```
+
+::: {.callout-tip}
+## Concepto de R: instalar no es lo mismo que cargar
+`install.packages("dplyr")` baja el paquete a tu computadora (una vez). `library(dplyr)` lo carga en la
+sesión actual (cada vez que abrís R). Los scripts del proyecto cargan todo lo que necesitan en
+`R/pipeline/00_config.R`, así que no tenés que acordarte de cada `library()`.
+:::
+
+## Ajuste recomendado de RStudio
+
+*Tools → Global Options → R Markdown → Evaluate chunks in directory:* elegí **Project**. Así, cuando corrés
+un bloque de código dentro de un `.qmd` (como los de esta guía), R lo ejecuta desde la raíz del proyecto,
+igual que un script. Además, en *Tools → Global Options → General*, destildá *Restore .RData into workspace
+at startup*: arrancar cada sesión "limpia" evita resultados que dependen de cosas viejas en memoria.
+
+## El flujo con Git y GitHub
+
+El repositorio vive en GitHub y en tu computadora. Git mantiene las dos copias sincronizadas.
+En RStudio tenés la pestaña **Git** (arriba a la derecha) con tres botones que vas a usar siempre:
+
+| Botón | Comando | Para qué |
+|---|---|---|
+| **Pull** (flecha azul hacia abajo) | `git pull` | Traer a tu computadora lo que cambió en GitHub. **Hacelo siempre antes de empezar.** |
+| **Commit** | `git commit` | Guardar un "punto de control" con los archivos que tildaste y un mensaje que explica el cambio. |
+| **Push** (flecha verde hacia arriba) | `git push` | Subir tus commits a GitHub. Si tocaste `docs/`, el sitio se actualiza solo en un par de minutos. |
+
+Una sesión típica:
+
+1. **Pull** para traer lo último.
+2. Corrés o modificás scripts.
+3. En la pestaña Git revisás qué archivos cambiaron (clic en *Diff* para ver el detalle línea por línea).
+4. Tildás los archivos, **Commit** con un mensaje claro ("Actualizo votos hasta la sesión 81").
+5. **Push**.
+
+::: {.callout-note}
+## Trabajo con Claude
+En este proyecto Claude escribe scripts en una rama del repositorio y abre un *pull request* (PR) en GitHub.
+Cuando lo aprobás y lo fusionás (*merge*) en `main`, hacés **Pull** en RStudio y ya tenés los scripts nuevos.
+Si querés probar un PR antes de fusionarlo, en la pestaña Git usá el menú de ramas (*branch*) para
+cambiarte a la rama del PR, corré lo que quieras y volvé a `main`.
+:::
+
+## Comprobación
+
+Si este bloque corre sin errores, estás listo:
+
+```{r}
+#| eval: false
+getwd()                      # tiene que terminar en .../votaciones-agnu
+file.exists("data/governments_argentina.csv")   # TRUE
+library(tidyverse); library(jsonlite)
+packageVersion("dplyr")      # 1.1.0 o más nueva (los scripts usan .by = y list_rbind)
+```

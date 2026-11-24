@@ -1,0 +1,37 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Cómo armar el sitio de votaciones de la AGNU desde RStudio"
+  subtitle: "Guía práctica: recolección, procesamiento, análisis, visualización y publicación con R"
+  author: "Proyecto votaciones-agnu"
+  date: "2026-11-24"
+  chapters:
+    - index.qmd
+    - 01-entorno.qmd
+    - 02-recoleccion.qmd
+    - 03-procesamiento.qmd
+    - 04-analisis.qmd
+    - 05-visualizacion.qmd
+    - 06-sitio-web.qmd
+    - 07-sitio-quarto.qmd
+    - 08-actualizar.qmd
+
+lang: es
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    toc: true
+    number-sections: true
+    code-copy: true
+    code-overflow: wrap
+    code-link: false
+    df-print: paged
+
+execute:
+  warning: false
+  message: false

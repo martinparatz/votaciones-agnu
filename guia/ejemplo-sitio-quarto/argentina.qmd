@@ -1,0 +1,54 @@
+---
+title: "Argentina"
+subtitle: "Cómo votó Argentina en la Asamblea General, gobierno por gobierno (1946-2026)"
+---
+
+```{r}
+source("_comun.R")
+```
+
+## Votos por gobierno
+
+```{r}
+votos_gov |>
+  filter(topic == "Todos") |>
+  mutate(government = factor(government, levels = rev(orden_gob)),
+         etiqueta = paste0(government, if_else(type == "de facto", " (de facto)", ""), "  n=", n_votes)) |>
+  plot_ly(y = ~government, orientation = "h", type = "bar",
+          x = ~pct_yes, name = "A favor", marker = list(color = COLORES_VOTO[["A favor"]]),
+          text = ~etiqueta, hovertemplate = "%{text}<br>%{x:.1f}%<extra>A favor</extra>") |>
+  add_trace(x = ~pct_abstain, name = "Abstención", marker = list(color = COLORES_VOTO[["Abstención"]]),
+            hovertemplate = "%{text}<br>%{x:.1f}%<extra>Abstención</extra>") |>
+  add_trace(x = ~pct_no, name = "En contra", marker = list(color = COLORES_VOTO[["En contra"]]),
+            hovertemplate = "%{text}<br>%{x:.1f}%<extra>En contra</extra>") |>
+  layout(barmode = "stack", xaxis = list(title = "", ticksuffix = "%", range = c(0, 100)),
+         yaxis = list(title = ""), legend = list(orientation = "h"), margin = list(l = 10))
+```
+
+## Con quién coincidió
+
+```{r}
+refs <- c("EE. UU.", "Reino Unido", "Francia", "URSS/Rusia", "China", "Cuba", "Brasil", "Chile", "México", "Uruguay")
+m <- coin_gov |>
+  mutate(government = factor(government, levels = rev(orden_gob)), reference = factor(reference, levels = refs)) |>
+  arrange(government, reference)
+
+plot_ly(m, x = ~reference, y = ~government, z = ~pct_agreement, type = "heatmap",
+        colorscale = list(c(0, "#b2182b"), c(0.55, "#f7f7f7"), c(1, "#2166ac")), zmin = 0, zmax = 100,
+        hovertemplate = "%{y} y %{x}: %{z:.0f}%<extra></extra>", colorbar = list(title = "%")) |>
+  layout(xaxis = list(title = ""), yaxis = list(title = ""))
+```
+
+## Todas las votaciones
+
+```{r}
+nombres_gob <- setNames(gov$government, gov$gov_id)
+av |>
+  transmute(Fecha = d, Resolución = s, Título = t, Tema = tp,
+            `Voto de Argentina` = recode(v, yes = "A favor", no = "En contra", abstain = "Abstención",
+                                         absent = "Ausente", non_member = "No miembro"),
+            `Sí` = y, `No` = n, `Abst.` = a, Gobierno = nombres_gob[g]) |>
+  arrange(desc(Fecha)) |>
+  datatable(rownames = FALSE, filter = "top",
+            options = list(pageLength = 15, language = list(search = "Buscar:")))
+```

@@ -5,16 +5,18 @@ con foco en la posición de la República Argentina (1946 en adelante) y un pipe
 replicable para el resto de los miembros.
 
 ## Cómo usarlo
-- **RStudio:** abrir `votaciones-agnu.Rproj` y ejecutar `R/01_figuras_argentina.R` (paquetes: readr, dplyr, tidyr, ggplot2, scales; todos vienen con tidyverse). Genera las figuras en `figures/`.
+- **Guía para RStudio:** `guia/` es un libro Quarto que explica cómo se armó todo el sitio (recolección, procesamiento, análisis, visualización y publicación) con código R. Abrir `guia/index.qmd` en RStudio y apretar *Render*.
+- **RStudio:** abrir `votaciones-agnu.Rproj` y ejecutar `R/pipeline/correr_todo.R` (todo el pipeline en R, de `data/raw/` al sitio) o solo `R/01_figuras_argentina.R` (figuras en `figures/`). Paquetes: tidyverse, jsonlite, scales (y xml2 para el paso opcional 03a).
 - **Web:** el sitio interactivo está en `docs/` (HTML + Plotly). Para publicarlo: *Settings → Pages → Deploy from a branch → `main` / `/docs`*. Para verlo en local: `python3 -m http.server -d docs`.
-- **Regenerar datos:** `python3 scripts/01…08` en orden (06b/07 para 2013–2026; 08 genera `docs/data/world.json`) (los scripts 01 y 02 necesitan los archivos de `data/raw/`, ver Fuentes).
+- **Regenerar datos:** con R, `R/pipeline/00_descargar_datos.R` y luego `correr_todo.R` (produce los mismos archivos que la versión en Python); con Python, `python3 scripts/01…08` en orden (06b/07 para 2013–2026; 08 genera `docs/data/world.json`) (los scripts 01 y 02 necesitan los archivos de `data/raw/`, ver Fuentes).
 
 ## Licencias
 Código: MIT (`LICENSE`). Análisis, textos y figuras propios: CC BY 4.0. Los datos de origen conservan las condiciones de sus fuentes (ver `LICENSE-CONTENT.md` y la pestaña *Metodología y fuentes* de la web). Proyecto independiente, no avalado por la ONU.
 
 ## Estructura
 - `scripts/` — recolección, limpieza y análisis (Python).
-- `R/` — figuras y análisis en R/RStudio.
+- `R/` — figuras y análisis en R/RStudio; `R/pipeline/` — el pipeline completo en R (equivalente a `scripts/`).
+- `guia/` — guía práctica para reconstruir el sitio desde RStudio (Quarto) y un sitio de ejemplo hecho 100 % en R.
 - `figures/` — gráficos estáticos generados con R.
 - `docs/` — sitio web interactivo (GitHub Pages).
 - `data/raw/` — descargas originales (no versionadas, ver `.gitignore`).
