@@ -7,7 +7,7 @@ replicable para el resto de los miembros.
 ## Cómo usarlo
 - **RStudio:** abrir `votaciones-agnu.Rproj` y ejecutar `R/01_figuras_argentina.R` (paquetes: readr, dplyr, tidyr, ggplot2, scales; todos vienen con tidyverse). Genera las figuras en `figures/`.
 - **Web:** el sitio interactivo está en `docs/` (HTML + Plotly). Para publicarlo: *Settings → Pages → Deploy from a branch → `main` / `/docs`*. Para verlo en local: `python3 -m http.server -d docs`.
-- **Regenerar datos:** `python3 scripts/01…08` en orden (06b/07 para 2013–2026; 08 genera `docs/data/world.json`) (los scripts 01 y 02 necesitan los archivos de `data/raw/`, ver Fuentes).
+- **Regenerar datos:** `python3 scripts/01…08` en orden (06a/06b/07 para 2013–2026; 08 genera `docs/data/world.json`) (los scripts 01 y 02 necesitan los archivos de `data/raw/`, ver Fuentes).
 
 ## Licencias
 Código: MIT (`LICENSE`). Análisis, textos y figuras propios: CC BY 4.0. Los datos de origen conservan las condiciones de sus fuentes (ver `LICENSE-CONTENT.md` y la pestaña *Metodología y fuentes* de la web). Proyecto independiente, no avalado por la ONU.
@@ -23,7 +23,8 @@ Código: MIT (`LICENSE`). Análisis, textos y figuras propios: CC BY 4.0. Los da
 ## Fuentes
 - Voeten, E. *United Nations General Assembly Voting Data* (Harvard Dataverse, doi:10.7910/DVN/LEJUQZ, versión 7, 2015): votos por país y resolución, sesiones 1–67 (1946–2012).
 - Voeten, E. *United Nations General Assembly Ideal Points* (misma doi, versión vigente): ideal points anuales 1946–2025.
-- Biblioteca Dag Hammarskjöld de la ONU, *United Nations General Assembly Voting Data* (versión 6, 15/10/2026, resoluciones 1 a 81/1; https://digitallibrary.un.org/record/4060887): votos 2013 – 17/9/2026. El archivo CSV (unos 370 MB) se descarga a mano y se guarda en `data/raw/undl_oficial/` (no versionado); `scripts/06b` lo procesa. Uso no comercial con atribución. Los temas de este tramo se asignan por palabras clave sobre el título, no por la codificación de Voeten.
+- Biblioteca Dag Hammarskjöld de la ONU, *United Nations General Assembly Voting Data* (versión 6, 15/10/2026, resoluciones 1 a 81/1; https://digitallibrary.un.org/record/4060887): votos 2013 – 17/9/2026. El archivo CSV (unos 370 MB) se descarga a mano y se guarda en `data/raw/undl_oficial/` (no versionado); `scripts/06b` lo procesa. Uso no comercial con atribución.
+- Votaciones posteriores al dataset oficial (sesión 81: 81/4 a 81/11, 12/10 – 16/11/2026): registros individuales de la Biblioteca Digital (colección *Voting Data*), exportados en MARCXML desde una búsqueda de la Biblioteca Digital (24/11/2026) a `data/raw/undl_registros/` (no versionado) y convertidos por `scripts/06a` a `data/undl_registros/votes_ga_registros.csv` (versionado, mismo formato que el CSV oficial). `06b` los suma solo si son posteriores a la última fecha del dataset oficial, así que al bajar una versión nueva del dataset quedan reemplazados. Los temas de este tramo se asignan por palabras clave sobre el título, no por la codificación de Voeten.
 
 ## Estado
 - [x] Votos 1946–2012 (`scripts/01_build_votes_1946_2012.py`)

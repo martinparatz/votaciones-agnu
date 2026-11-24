@@ -1,7 +1,8 @@
 """Construye la base de votos AGNU 2013-2026 desde el dataset oficial de la Biblioteca Dag Hammarskjöld.
 
 Entrada : data/raw/undl_oficial/2026_10_15_votes_ga.csv  (versión 6, 15/10/2026; se descarga a mano de
-          https://digitallibrary.un.org/record/4060887), data/processed/ideal_points_1946_2025.csv (códigos COW)
+          https://digitallibrary.un.org/record/4060887), data/processed/ideal_points_1946_2025.csv (códigos COW) y,
+          si existe, data/undl_registros/votes_ga_registros.csv (votaciones posteriores al dataset oficial, ver 06a)
 Salida  : data/processed/resolutions_2013_2026.csv, data/processed/votes_2013_2026.csv.gz
 Mismo formato que la base 1946-2012 (vote_label: yes/abstain/no/absent; X = no votó -> absent).  Los temas NO vienen
 codificados por Voeten en este tramo: se asignan por palabras clave sobre el título y las materias (topic_source=keywords).
@@ -37,6 +38,13 @@ MANUAL = {"SRB": 345, "MNE": 341, "SSD": 626, "TLS": 860, "CZE": 316, "MKD": 343
 
 
 d = pd.read_csv(ROOT / "data/raw/undl_oficial/2026_10_15_votes_ga.csv", low_memory=False)
+# votaciones posteriores al dataset oficial, tomadas de los registros de la Biblioteca Digital (scripts/06a)
+SUP = ROOT / "data/undl_registros/votes_ga_registros.csv"
+if SUP.exists():
+    s = pd.read_csv(SUP, low_memory=False)
+    s = s[~s["undl_id"].isin(d["undl_id"]) & (s["date"] > d["date"].max())]
+    print("registros agregados desde la Biblioteca Digital:", sorted(s["resolution"].unique()))
+    d = pd.concat([d, s], ignore_index=True)
 d = d[d["date"] >= "2013-01-01"].copy()
 d["date"] = d["date"].astype(str)
 d = d.rename(columns={"undl_id": "undl_record", "resolution": "unres"})
